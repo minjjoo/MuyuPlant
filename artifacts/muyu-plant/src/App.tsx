@@ -11,10 +11,10 @@ export default function App() {
   return (
     <BrowserRouter>
       <link
-        href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;600;700&display=swap"
         rel="stylesheet"
       />
-      <div style={{ fontFamily: "'Noto Sans KR', sans-serif", color: "#333", lineHeight: 1.6, minHeight: "100vh", display: "flex", flexDirection: "column" }}>
+      <div style={{ fontFamily: "'Noto Sans KR', sans-serif", color: "#111", lineHeight: 1.6, minHeight: "100vh", display: "flex", flexDirection: "column" }}>
         <Header />
         <main style={{ flex: 1 }}>
           <Routes>
@@ -26,8 +26,8 @@ export default function App() {
             <Route path="/location" element={<Location />} />
           </Routes>
         </main>
-        <footer style={{ background: "#0A192F", color: "rgba(255,255,255,0.5)", textAlign: "center", padding: "1.5rem 2rem", fontSize: "0.85rem" }}>
-          <p style={{ margin: 0 }}>&copy; 2026 (주)무유플랜트. All rights reserved. | 충청남도 당진시 송악읍 부곡공단</p>
+        <footer style={{ background: "#111827", color: "rgba(255,255,255,0.4)", textAlign: "center", padding: "2rem 3rem", fontSize: "0.82rem", borderTop: "1px solid rgba(255,255,255,0.06)" }}>
+          <p style={{ margin: 0 }}>&copy; 2026 (주)무유플랜트 · 충청남도 당진시 송악읍 부곡공단</p>
         </footer>
       </div>
     </BrowserRouter>

@@ -13,24 +13,23 @@ export default function Header() {
 
   return (
     <header style={{
-      background: "#0A192F",
+      background: "#111827",
       color: "white",
-      padding: "0 2rem",
+      padding: "0 3rem",
       position: "sticky",
       top: 0,
       zIndex: 100,
-      height: "64px",
+      height: "60px",
       display: "grid",
-      gridTemplateColumns: "1fr auto 1fr",
+      gridTemplateColumns: "200px 1fr 200px",
       alignItems: "center",
+      borderBottom: "1px solid rgba(255,255,255,0.08)",
     }}>
-      {/* 로고 */}
       <Link to="/" style={{ color: "white", textDecoration: "none" }}>
-        <span style={{ fontSize: "1.3rem", fontWeight: 700, letterSpacing: "-0.5px" }}>(주)무유플랜트</span>
+        <span style={{ fontSize: "1.1rem", fontWeight: 700, letterSpacing: "-0.3px" }}>(주)무유플랜트</span>
       </Link>
 
-      {/* 가운데 정렬 네비게이션 */}
-      <nav style={{ display: "flex", gap: "0.15rem" }}>
+      <nav style={{ display: "flex", justifyContent: "center", gap: 0 }}>
         {NAV.map(({ to, label }) => {
           const active = pathname === to;
           return (
@@ -38,17 +37,21 @@ export default function Header() {
               key={to}
               to={to}
               style={{
-                color: active ? "#64FFDA" : "white",
+                color: active ? "#ffffff" : "rgba(255,255,255,0.6)",
                 textDecoration: "none",
-                padding: "0.45rem 1rem",
-                borderRadius: "4px",
-                fontWeight: active ? 700 : 400,
-                fontSize: "0.9rem",
-                transition: "background 0.2s, color 0.2s",
-                borderBottom: active ? "2px solid #64FFDA" : "2px solid transparent",
+                padding: "0 1.1rem",
+                height: "60px",
+                display: "flex",
+                alignItems: "center",
+                fontSize: "0.88rem",
+                fontWeight: active ? 600 : 400,
+                borderBottom: active ? "2px solid #ffffff" : "2px solid transparent",
+                outline: "none",
+                transition: "color 0.2s, border-color 0.2s",
+                boxSizing: "border-box",
               }}
-              onMouseEnter={(e) => { if (!active) e.currentTarget.style.background = "rgba(255,255,255,0.08)"; }}
-              onMouseLeave={(e) => { if (!active) e.currentTarget.style.background = "transparent"; }}
+              onMouseEnter={(e) => { e.currentTarget.style.color = "#ffffff"; }}
+              onMouseLeave={(e) => { if (!active) e.currentTarget.style.color = "rgba(255,255,255,0.6)"; }}
             >
               {label}
             </Link>
@@ -56,7 +59,6 @@ export default function Header() {
         })}
       </nav>
 
-      {/* 우측 여백 균형 */}
       <div />
     </header>
   );
