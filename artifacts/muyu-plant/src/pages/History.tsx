@@ -32,7 +32,7 @@ export default function History() {
 
       <section style={{ padding: "5rem 3rem", background: "#fff" }}>
         <div style={{ maxWidth: "1200px", margin: "0 auto" }}>
-          <p style={{ fontSize: "0.78rem", letterSpacing: "2px", color: "#999", marginBottom: "0.8rem", textTransform: "uppercase" }}>Timeline</p>
+          <p style={{ fontSize: "0.72rem", letterSpacing: "2.5px", color: "#9ca3af", marginBottom: "0.8rem", textTransform: "uppercase" }}>Timeline</p>
           <h3 style={{ fontSize: "1.5rem", fontWeight: 700, color: "#111827", marginBottom: "3rem" }}>주요 연혁</h3>
           <div style={{ overflowX: "auto", paddingBottom: "1rem" }}>
             <div style={{ position: "relative", display: "flex", alignItems: "center", minWidth: "max-content" }}>
@@ -72,16 +72,14 @@ export default function History() {
 
       <section style={{ padding: "4rem 3rem 6rem", background: "#f9fafb", borderTop: "1px solid #e5e7eb" }}>
         <div style={{ maxWidth: "960px", margin: "0 auto" }}>
-          <p style={{ fontSize: "0.78rem", letterSpacing: "2px", color: "#999", marginBottom: "0.8rem", textTransform: "uppercase" }}>Certifications</p>
+          <p style={{ fontSize: "0.72rem", letterSpacing: "2.5px", color: "#9ca3af", marginBottom: "0.8rem", textTransform: "uppercase" }}>Certifications</p>
           <h3 style={{ fontSize: "1.5rem", fontWeight: 700, color: "#111827", marginBottom: "2rem" }}>보유 인증</h3>
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))", gap: "1rem" }}>
+          <div style={{ borderTop: "1px solid #e5e7eb" }}>
             {certs.map(({ name, desc, year }) => (
-              <div key={name} style={{ background: "#fff", borderRadius: "8px", padding: "1.4rem 1.5rem", border: "1px solid #e5e7eb", display: "flex", alignItems: "flex-start", gap: "1rem" }}>
-                <div style={{ background: "#111827", color: "#fff", borderRadius: "4px", padding: "0.3rem 0.6rem", fontSize: "0.72rem", fontWeight: 700, flexShrink: 0, marginTop: "2px" }}>{year}</div>
-                <div>
-                  <div style={{ fontWeight: 600, color: "#111827", fontSize: "0.9rem", marginBottom: "0.2rem" }}>{name}</div>
-                  <div style={{ fontSize: "0.82rem", color: "#6b7280" }}>{desc}</div>
-                </div>
+              <div key={name} style={{ display: "flex", alignItems: "center", gap: "1.5rem", padding: "1.1rem 0", borderBottom: "1px solid #e5e7eb" }}>
+                <div style={{ background: "#111827", color: "#fff", padding: "0.25rem 0.6rem", fontSize: "0.72rem", fontWeight: 700, flexShrink: 0, minWidth: "42px", textAlign: "center" }}>{year}</div>
+                <div style={{ fontWeight: 600, color: "#111827", fontSize: "0.9rem", minWidth: "170px" }}>{name}</div>
+                <div style={{ fontSize: "0.85rem", color: "#6b7280" }}>{desc}</div>
               </div>
             ))}
           </div>

@@ -22,7 +22,7 @@ function NaverMap() {
     script.onload = init;
     document.head.appendChild(script);
   }, []);
-  return <div ref={mapRef} style={{ width: "100%", height: "440px", borderRadius: "8px", border: "1px solid #e5e7eb", background: "#e5e7eb" }} />;
+  return <div ref={mapRef} style={{ width: "100%", height: "440px", background: "#e5e7eb" }} />;
 }
 
 export default function Location() {
@@ -32,30 +32,30 @@ export default function Location() {
 
       <section style={{ padding: "5rem 3rem 6rem", background: "#fff" }}>
         <div style={{ maxWidth: "900px", margin: "0 auto" }}>
-          <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "3rem", marginBottom: "2.5rem" }}>
+          <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "4rem", marginBottom: "3rem" }}>
             <div>
-              <p style={{ fontSize: "0.78rem", letterSpacing: "2px", color: "#999", marginBottom: "1rem", textTransform: "uppercase" }}>Address</p>
-              <div style={{ display: "flex", flexDirection: "column", gap: "0.8rem" }}>
+              <p style={{ fontSize: "0.72rem", letterSpacing: "2.5px", color: "#9ca3af", marginBottom: "1.5rem", textTransform: "uppercase" }}>Address</p>
+              <div style={{ borderTop: "1px solid #e5e7eb" }}>
                 {[
                   { label: "공장 및 본사", value: "충청남도 당진시 송악읍 부곡공단" },
                   { label: "인근 랜드마크", value: "현대제철 당진제철소 인근" },
                 ].map(({ label, value }) => (
-                  <div key={label} style={{ background: "#f9fafb", borderRadius: "6px", padding: "1rem 1.2rem", border: "1px solid #e5e7eb" }}>
-                    <div style={{ fontSize: "0.76rem", color: "#9ca3af", marginBottom: "0.25rem" }}>{label}</div>
+                  <div key={label} style={{ padding: "1.1rem 0", borderBottom: "1px solid #e5e7eb" }}>
+                    <div style={{ fontSize: "0.76rem", color: "#9ca3af", marginBottom: "0.3rem" }}>{label}</div>
                     <div style={{ fontWeight: 600, color: "#111827", fontSize: "0.9rem" }}>{value}</div>
                   </div>
                 ))}
               </div>
             </div>
             <div>
-              <p style={{ fontSize: "0.78rem", letterSpacing: "2px", color: "#999", marginBottom: "1rem", textTransform: "uppercase" }}>Contact</p>
-              <div style={{ display: "flex", flexDirection: "column", gap: "0.8rem" }}>
+              <p style={{ fontSize: "0.72rem", letterSpacing: "2.5px", color: "#9ca3af", marginBottom: "1.5rem", textTransform: "uppercase" }}>Contact</p>
+              <div style={{ borderTop: "1px solid #e5e7eb" }}>
                 {[
                   { label: "이메일", value: "문의 이메일 주소" },
                   { label: "팩스", value: "팩스 번호" },
                 ].map(({ label, value }) => (
-                  <div key={label} style={{ background: "#f9fafb", borderRadius: "6px", padding: "1rem 1.2rem", border: "1px solid #e5e7eb" }}>
-                    <div style={{ fontSize: "0.76rem", color: "#9ca3af", marginBottom: "0.25rem" }}>{label}</div>
+                  <div key={label} style={{ padding: "1.1rem 0", borderBottom: "1px solid #e5e7eb" }}>
+                    <div style={{ fontSize: "0.76rem", color: "#9ca3af", marginBottom: "0.3rem" }}>{label}</div>
                     <div style={{ fontWeight: 600, color: "#111827", fontSize: "0.9rem" }}>{value}</div>
                   </div>
                 ))}

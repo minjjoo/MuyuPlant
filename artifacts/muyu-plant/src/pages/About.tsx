@@ -7,7 +7,7 @@ export default function About() {
 
       <section style={{ padding: "5rem 3rem", background: "#fff" }}>
         <div style={{ maxWidth: "780px", margin: "0 auto" }}>
-          <p style={{ fontSize: "0.78rem", letterSpacing: "2px", color: "#999", marginBottom: "1rem", textTransform: "uppercase" }}>CEO Message</p>
+          <p style={{ fontSize: "0.72rem", letterSpacing: "2.5px", color: "#9ca3af", marginBottom: "1rem", textTransform: "uppercase" }}>CEO Message</p>
           <h3 style={{ fontSize: "1.5rem", fontWeight: 700, color: "#111827", marginBottom: "2rem" }}>CEO 인사말</h3>
           <div style={{ color: "#444", lineHeight: 2, fontSize: "0.95rem", borderLeft: "3px solid #e5e7eb", paddingLeft: "1.5rem" }}>
             <p style={{ marginTop: 0 }}>안녕하십니까, (주)무유플랜트 대표이사 이종수입니다.</p>
@@ -28,9 +28,9 @@ export default function About() {
 
       <section style={{ padding: "4rem 3rem 6rem", background: "#f9fafb", borderTop: "1px solid #e5e7eb" }}>
         <div style={{ maxWidth: "780px", margin: "0 auto" }}>
-          <p style={{ fontSize: "0.78rem", letterSpacing: "2px", color: "#999", marginBottom: "1rem", textTransform: "uppercase" }}>Company Overview</p>
+          <p style={{ fontSize: "0.72rem", letterSpacing: "2.5px", color: "#9ca3af", marginBottom: "1rem", textTransform: "uppercase" }}>Company Overview</p>
           <h3 style={{ fontSize: "1.5rem", fontWeight: 700, color: "#111827", marginBottom: "2rem" }}>회사 개요</h3>
-          <div style={{ border: "1px solid #e5e7eb", borderRadius: "8px", overflow: "hidden", background: "#fff" }}>
+          <div style={{ borderTop: "1px solid #e5e7eb" }}>
             {[
               { label: "상호", value: "(주)무유플랜트" },
               { label: "설립연도", value: "2015년 6월" },
@@ -40,9 +40,9 @@ export default function About() {
               { label: "보유 인증", value: "ISO9001 / ISO14001 / OHSAS18001 / ASME U STAMP" },
               { label: "특허", value: "특허 제 10-2147620호 (철판롤링장치)" },
               { label: "지정", value: "뿌리기술 전문기업 (2023년)" },
-            ].map(({ label, value }, i) => (
-              <div key={label} style={{ display: "flex", borderBottom: i < 7 ? "1px solid #f3f4f6" : "none" }}>
-                <div style={{ padding: "1rem 1.5rem", fontWeight: 600, color: "#374151", width: "160px", flexShrink: 0, background: "#f9fafb", fontSize: "0.85rem", display: "flex", alignItems: "center" }}>{label}</div>
+            ].map(({ label, value }) => (
+              <div key={label} style={{ display: "flex", borderBottom: "1px solid #e5e7eb" }}>
+                <div style={{ padding: "1rem 1.5rem 1rem 0", fontWeight: 600, color: "#374151", width: "160px", flexShrink: 0, fontSize: "0.85rem", display: "flex", alignItems: "center" }}>{label}</div>
                 <div style={{ padding: "1rem 1.5rem", color: "#555", fontSize: "0.9rem", display: "flex", alignItems: "center" }}>{value}</div>
               </div>
             ))}
