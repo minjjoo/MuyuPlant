@@ -19,14 +19,14 @@ export default function Header() {
       position: "sticky",
       top: 0,
       zIndex: 100,
-      height: "60px",
+      height: "72px",
       display: "grid",
-      gridTemplateColumns: "200px 1fr 200px",
+      gridTemplateColumns: "220px 1fr 220px",
       alignItems: "center",
-      borderBottom: "1px solid rgba(255,255,255,0.08)",
+      borderBottom: "1px solid rgba(255,255,255,0.07)",
     }}>
       <Link to="/" style={{ color: "white", textDecoration: "none" }}>
-        <span style={{ fontSize: "1.1rem", fontWeight: 700, letterSpacing: "-0.3px" }}>(주)무유플랜트</span>
+        <span style={{ fontSize: "1.15rem", fontWeight: 700, letterSpacing: "-0.3px" }}>(주)무유플랜트</span>
       </Link>
 
       <nav style={{ display: "flex", justifyContent: "center", gap: 0 }}>
@@ -37,10 +37,10 @@ export default function Header() {
               key={to}
               to={to}
               style={{
-                color: active ? "#ffffff" : "rgba(255,255,255,0.6)",
+                color: active ? "#ffffff" : "rgba(255,255,255,0.55)",
                 textDecoration: "none",
-                padding: "0 1.1rem",
-                height: "60px",
+                padding: "0 1.2rem",
+                height: "72px",
                 display: "flex",
                 alignItems: "center",
                 fontSize: "0.88rem",
@@ -51,7 +51,7 @@ export default function Header() {
                 boxSizing: "border-box",
               }}
               onMouseEnter={(e) => { e.currentTarget.style.color = "#ffffff"; }}
-              onMouseLeave={(e) => { if (!active) e.currentTarget.style.color = "rgba(255,255,255,0.6)"; }}
+              onMouseLeave={(e) => { if (!active) e.currentTarget.style.color = "rgba(255,255,255,0.55)"; }}
             >
               {label}
             </Link>

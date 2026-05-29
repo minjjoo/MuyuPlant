@@ -32,28 +32,36 @@ const STATS = [
   { num: "30T", label: "크레인" },
 ];
 
+const PRODUCTS = [
+  { nameKo: "압력용기", nameEn: "Pressure Vessel" },
+  { nameKo: "열교환기", nameEn: "Heat Exchanger" },
+  { nameKo: "탑류 설비", nameEn: "Tower & Column" },
+  { nameKo: "저장 탱크", nameEn: "Storage Tank" },
+];
+
 export default function Home() {
   return (
     <div>
       {/* 히어로 */}
-      <section style={{ position: "relative", background: "#111827", color: "white", padding: "10rem 3rem 8rem", overflow: "hidden" }}>
+      <section style={{ position: "relative", background: "#111827", color: "white", padding: "11rem 3rem 9rem", overflow: "hidden" }}>
         <div style={{
           position: "absolute", inset: 0,
-          backgroundImage: "url('https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?auto=format&fit=crop&w=1600&q=80')",
-          backgroundSize: "cover", backgroundPosition: "center", opacity: 0.15, zIndex: 0,
+          backgroundImage: "url('/factory.jpg')",
+          backgroundSize: "cover", backgroundPosition: "center",
+          opacity: 0.2, zIndex: 0,
         }} />
         <div style={{ position: "relative", zIndex: 1, maxWidth: "760px", margin: "0 auto", textAlign: "center" }}>
-          <p style={{ fontSize: "0.78rem", letterSpacing: "3px", color: "rgba(255,255,255,0.45)", marginBottom: "1.2rem", textTransform: "uppercase" }}>
+          <p style={{ fontSize: "0.75rem", letterSpacing: "3px", color: "rgba(255,255,255,0.4)", marginBottom: "1.3rem", textTransform: "uppercase" }}>
             Plant Manufacturing Since 2015
           </p>
           <h1 style={{ fontSize: "2.8rem", fontWeight: 700, margin: "0 0 1.2rem", lineHeight: 1.25, wordBreak: "keep-all" }}>
             고객이 필요로 하는<br />모든 플랜트 제품을<br />만족시킵니다
           </h1>
-          <p style={{ fontSize: "1rem", color: "rgba(255,255,255,0.55)", marginBottom: "2.8rem" }}>
+          <p style={{ fontSize: "0.95rem", color: "rgba(255,255,255,0.5)", marginBottom: "3rem" }}>
             최고의 품질 · 경쟁력 있는 가격 · 정시 공급 · 혁신적인 원가 절감
           </p>
           <Link to="/about"
-            style={{ display: "inline-block", border: "1px solid rgba(255,255,255,0.5)", color: "white", padding: "0.7rem 2rem", borderRadius: "4px", textDecoration: "none", fontSize: "0.88rem", fontWeight: 500, transition: "background 0.2s" }}
+            style={{ display: "inline-block", border: "1px solid rgba(255,255,255,0.4)", color: "white", padding: "0.7rem 2rem", borderRadius: "3px", textDecoration: "none", fontSize: "0.85rem", fontWeight: 500, transition: "background 0.2s" }}
             onMouseEnter={(e) => e.currentTarget.style.background = "rgba(255,255,255,0.1)"}
             onMouseLeave={(e) => e.currentTarget.style.background = "transparent"}
           >
@@ -63,75 +71,94 @@ export default function Home() {
       </section>
 
       {/* 수치 */}
-      <section style={{ background: "#1f2937", borderBottom: "1px solid rgba(255,255,255,0.06)" }}>
-        <div style={{ maxWidth: "900px", margin: "0 auto", display: "flex", justifyContent: "space-around", flexWrap: "wrap", padding: "2.5rem 2rem", gap: "1.5rem", textAlign: "center" }}>
+      <section style={{ background: "#1f2937", borderBottom: "1px solid rgba(255,255,255,0.05)" }}>
+        <div style={{ maxWidth: "860px", margin: "0 auto", display: "flex", justifyContent: "space-around", flexWrap: "wrap", padding: "2.8rem 2rem", gap: "1.5rem", textAlign: "center" }}>
           {STATS.map(({ num, label }) => (
             <div key={label}>
               <div style={{ fontSize: "2rem", fontWeight: 700, color: "#fff" }}>{num}</div>
-              <div style={{ fontSize: "0.8rem", color: "rgba(255,255,255,0.4)", marginTop: "0.3rem" }}>{label}</div>
+              <div style={{ fontSize: "0.78rem", color: "rgba(255,255,255,0.35)", marginTop: "0.3rem", letterSpacing: "0.5px" }}>{label}</div>
             </div>
           ))}
         </div>
       </section>
 
-      {/* 회사 소개 요약 */}
-      <section style={{ padding: "6rem 3rem", background: "#fff" }}>
-        <div style={{ maxWidth: "960px", margin: "0 auto", display: "grid", gridTemplateColumns: "1fr 1fr", gap: "5rem", alignItems: "center" }}>
+      {/* 회사 소개 — 실제 공장 사진 활용 */}
+      <section style={{ background: "#fff" }}>
+        <div style={{ maxWidth: "960px", margin: "0 auto", padding: "6rem 3rem", display: "grid", gridTemplateColumns: "1fr 1fr", gap: "5rem", alignItems: "center" }}>
           <div>
-            <p style={{ fontSize: "0.78rem", letterSpacing: "2px", color: "#999", marginBottom: "1rem", textTransform: "uppercase" }}>About Us</p>
-            <h2 style={{ fontSize: "1.9rem", fontWeight: 700, color: "#111827", margin: "0 0 1.5rem", lineHeight: 1.3, wordBreak: "keep-all" }}>
+            <p style={{ fontSize: "0.72rem", letterSpacing: "2.5px", color: "#9ca3af", marginBottom: "1rem", textTransform: "uppercase" }}>About Us</p>
+            <h2 style={{ fontSize: "1.8rem", fontWeight: 700, color: "#111827", margin: "0 0 1.5rem", lineHeight: 1.3, wordBreak: "keep-all" }}>
               뿌리기술 전문기업,<br />(주)무유플랜트
             </h2>
-            <p style={{ color: "#555", lineHeight: 1.9, fontSize: "0.93rem", marginBottom: "1.5rem" }}>
-              (주)무유플랜트는 2015년 설립 이후 Pressure Vessel, Heat Exchanger,
-              Tower &amp; Column 등 대형 플랜트 설비를 전문으로 제작하는 기업입니다.
-              ASME U STAMP 및 ISO 인증을 보유하며, 삼성전자·SK하이닉스 등
-              국내 주요 대기업의 공인 제작사로 등록되어 있습니다.
+            <p style={{ color: "#6b7280", lineHeight: 1.9, fontSize: "0.92rem", marginBottom: "2rem" }}>
+              2015년 설립 이후 Pressure Vessel, Heat Exchanger, Tower &amp; Column 등
+              대형 플랜트 설비를 전문으로 제작합니다. ASME U STAMP 및 ISO 인증 보유,
+              삼성전자·SK하이닉스 등 국내 주요 대기업 공인 제작사로 등록되어 있습니다.
             </p>
-            <Link to="/about" style={{ color: "#111827", fontWeight: 600, fontSize: "0.88rem", textDecoration: "none", borderBottom: "1px solid #111827", paddingBottom: "2px" }}>
+            <Link to="/about" style={{ color: "#111827", fontWeight: 600, fontSize: "0.85rem", textDecoration: "none", borderBottom: "1px solid #111827", paddingBottom: "2px" }}>
               더 알아보기 →
             </Link>
           </div>
-          <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "1rem" }}>
-            {[
-              { icon: "🏭", title: "압력용기", sub: "Pressure Vessel" },
-              { icon: "🌡️", title: "열교환기", sub: "Heat Exchanger" },
-              { icon: "🏗️", title: "탑류 설비", sub: "Tower & Column" },
-              { icon: "🔬", title: "비파괴 검사", sub: "NDT · RT ROOM" },
-            ].map(({ icon, title, sub }) => (
-              <div key={title} style={{ background: "#f9fafb", border: "1px solid #e5e7eb", borderRadius: "8px", padding: "1.4rem 1.2rem" }}>
-                <div style={{ fontSize: "1.5rem", marginBottom: "0.6rem" }}>{icon}</div>
-                <div style={{ fontWeight: 600, fontSize: "0.9rem", color: "#111827" }}>{title}</div>
-                <div style={{ fontSize: "0.78rem", color: "#9ca3af", marginTop: "0.2rem" }}>{sub}</div>
+
+          {/* 실제 공장 사진 */}
+          <div style={{ borderRadius: "6px", overflow: "hidden", aspectRatio: "4/3" }}>
+            <img
+              src="/factory.jpg"
+              alt="무유플랜트 공장"
+              style={{ width: "100%", height: "100%", objectFit: "cover" }}
+            />
+          </div>
+        </div>
+      </section>
+
+      {/* 주요 제품 — 텍스트 중심 심플 테이블 */}
+      <section style={{ background: "#f9fafb", borderTop: "1px solid #e5e7eb", borderBottom: "1px solid #e5e7eb" }}>
+        <div style={{ maxWidth: "960px", margin: "0 auto", padding: "5rem 3rem" }}>
+          <p style={{ fontSize: "0.72rem", letterSpacing: "2.5px", color: "#9ca3af", marginBottom: "0.8rem", textTransform: "uppercase" }}>Products</p>
+          <h2 style={{ fontSize: "1.6rem", fontWeight: 700, color: "#111827", margin: "0 0 2.5rem" }}>주요 생산 품목</h2>
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(4, 1fr)", gap: "0", border: "1px solid #e5e7eb", borderRadius: "6px", overflow: "hidden", background: "#fff" }}>
+            {PRODUCTS.map(({ nameKo, nameEn }, i) => (
+              <div key={nameKo} style={{
+                padding: "2rem 1.5rem",
+                borderRight: i < 3 ? "1px solid #e5e7eb" : "none",
+                textAlign: "center",
+              }}>
+                <div style={{ fontWeight: 700, fontSize: "0.95rem", color: "#111827", marginBottom: "0.4rem" }}>{nameKo}</div>
+                <div style={{ fontSize: "0.75rem", color: "#9ca3af" }}>{nameEn}</div>
               </div>
             ))}
           </div>
+          <div style={{ marginTop: "1.5rem", textAlign: "right" }}>
+            <Link to="/capacity" style={{ color: "#374151", fontWeight: 600, fontSize: "0.83rem", textDecoration: "none", borderBottom: "1px solid #374151", paddingBottom: "1px" }}>
+              생산능력 전체 보기 →
+            </Link>
+          </div>
         </div>
       </section>
 
-      {/* 인증 배너 */}
-      <section style={{ background: "#f3f4f6", padding: "4rem 3rem", borderTop: "1px solid #e5e7eb", borderBottom: "1px solid #e5e7eb" }}>
-        <div style={{ maxWidth: "900px", margin: "0 auto", textAlign: "center" }}>
-          <p style={{ fontSize: "0.78rem", letterSpacing: "2px", color: "#999", marginBottom: "1.5rem", textTransform: "uppercase" }}>Certifications</p>
-          <div style={{ display: "flex", justifyContent: "center", gap: "1.5rem", flexWrap: "wrap" }}>
+      {/* 인증 */}
+      <section style={{ background: "#fff", borderBottom: "1px solid #e5e7eb" }}>
+        <div style={{ maxWidth: "960px", margin: "0 auto", padding: "4rem 3rem", textAlign: "center" }}>
+          <p style={{ fontSize: "0.72rem", letterSpacing: "2.5px", color: "#9ca3af", marginBottom: "1.5rem", textTransform: "uppercase" }}>Certifications</p>
+          <div style={{ display: "flex", justifyContent: "center", gap: "0.8rem", flexWrap: "wrap" }}>
             {["ISO 9001", "ISO 14001", "OHSAS 18001", "ASME U STAMP", "특정설비제조등록", "뿌리기술 전문기업"].map((cert) => (
-              <span key={cert} style={{ padding: "0.45rem 1rem", border: "1px solid #d1d5db", borderRadius: "999px", fontSize: "0.82rem", color: "#374151", background: "#fff" }}>{cert}</span>
+              <span key={cert} style={{ padding: "0.4rem 1rem", border: "1px solid #d1d5db", borderRadius: "999px", fontSize: "0.8rem", color: "#374151" }}>{cert}</span>
             ))}
           </div>
         </div>
       </section>
 
-      {/* 오시는 길 미리보기 */}
-      <section style={{ padding: "6rem 3rem", background: "#fff" }}>
+      {/* 오시는 길 */}
+      <section style={{ background: "#f9fafb", padding: "6rem 3rem" }}>
         <div style={{ maxWidth: "960px", margin: "0 auto" }}>
-          <div style={{ marginBottom: "2.5rem" }}>
-            <p style={{ fontSize: "0.78rem", letterSpacing: "2px", color: "#999", marginBottom: "0.8rem", textTransform: "uppercase" }}>Location</p>
-            <h2 style={{ fontSize: "1.7rem", fontWeight: 700, color: "#111827", margin: "0 0 0.5rem" }}>오시는 길</h2>
-            <p style={{ color: "#6b7280", fontSize: "0.9rem", margin: 0 }}>충청남도 당진시 송악읍 부곡공단 (현대제철 인근)</p>
+          <div style={{ marginBottom: "2rem" }}>
+            <p style={{ fontSize: "0.72rem", letterSpacing: "2.5px", color: "#9ca3af", marginBottom: "0.6rem", textTransform: "uppercase" }}>Location</p>
+            <h2 style={{ fontSize: "1.6rem", fontWeight: 700, color: "#111827", margin: "0 0 0.4rem" }}>오시는 길</h2>
+            <p style={{ color: "#6b7280", fontSize: "0.88rem", margin: 0 }}>충청남도 당진시 송악읍 부곡공단 (현대제철 인근)</p>
           </div>
           <NaverMapMini />
-          <div style={{ marginTop: "1.5rem", textAlign: "right" }}>
-            <Link to="/location" style={{ color: "#111827", fontWeight: 600, fontSize: "0.88rem", textDecoration: "none", borderBottom: "1px solid #111827", paddingBottom: "2px" }}>
+          <div style={{ marginTop: "1.2rem", textAlign: "right" }}>
+            <Link to="/location" style={{ color: "#374151", fontWeight: 600, fontSize: "0.83rem", textDecoration: "none", borderBottom: "1px solid #374151", paddingBottom: "1px" }}>
               자세히 보기 →
             </Link>
           </div>
