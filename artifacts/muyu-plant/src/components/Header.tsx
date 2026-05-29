@@ -19,11 +19,10 @@ export default function Header() {
       position: "sticky",
       top: 0,
       zIndex: 100,
-      height: "72px",
+      height: "88px",
       display: "grid",
       gridTemplateColumns: "220px 1fr 220px",
       alignItems: "center",
-      borderBottom: "1px solid rgba(255,255,255,0.07)",
     }}>
       <Link to="/" style={{ color: "white", textDecoration: "none" }}>
         <span style={{ fontSize: "1.15rem", fontWeight: 700, letterSpacing: "-0.3px" }}>(주)무유플랜트</span>
@@ -40,7 +39,7 @@ export default function Header() {
                 color: active ? "#ffffff" : "rgba(255,255,255,0.55)",
                 textDecoration: "none",
                 padding: "0 1.2rem",
-                height: "72px",
+                height: "88px",
                 display: "flex",
                 alignItems: "center",
                 fontSize: "0.88rem",

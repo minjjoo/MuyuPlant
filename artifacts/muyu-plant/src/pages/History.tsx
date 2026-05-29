@@ -70,7 +70,7 @@ export default function History() {
         </div>
       </section>
 
-      <section style={{ padding: "7rem 5rem 8rem", background: "#f9fafb", borderTop: "1px solid #e5e7eb" }}>
+      <section style={{ padding: "7rem 5rem 8rem", background: "#fff", borderTop: "1px solid #e5e7eb" }}>
         <div style={{ maxWidth: "960px", margin: "0 auto" }}>
           <p style={{ fontSize: "0.72rem", letterSpacing: "2.5px", color: "#9ca3af", marginBottom: "0.8rem", textTransform: "uppercase" }}>Certifications</p>
           <h3 style={{ fontSize: "1.5rem", fontWeight: 700, color: "#111827", marginBottom: "2rem" }}>보유 인증</h3>
