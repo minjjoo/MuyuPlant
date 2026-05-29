@@ -4,7 +4,7 @@ export default function PageHero({ title, subtitle }: { title: string; subtitle:
       position: "relative",
       background: "#111827",
       color: "white",
-      padding: "9rem 3rem 8rem",
+      padding: "13rem 3rem 8rem",
       textAlign: "center",
       overflow: "hidden",
     }}>

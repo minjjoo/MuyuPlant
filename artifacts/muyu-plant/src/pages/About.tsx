@@ -26,7 +26,7 @@ export default function About() {
         </div>
       </section>
 
-      <section style={{ padding: "7rem 5rem 8rem", background: "#fff", borderTop: "1px solid #e5e7eb" }}>
+      <section style={{ padding: "7rem 5rem 8rem", background: "#fff" }}>
         <div style={{ maxWidth: "780px", margin: "0 auto" }}>
           <p style={{ fontSize: "0.72rem", letterSpacing: "2.5px", color: "#9ca3af", marginBottom: "1rem", textTransform: "uppercase" }}>Company Overview</p>
           <h3 style={{ fontSize: "1.5rem", fontWeight: 700, color: "#111827", marginBottom: "2rem" }}>회사 개요</h3>

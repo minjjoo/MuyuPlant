@@ -62,8 +62,8 @@ const PRODUCTS = [
 export default function Home() {
   return (
     <div>
-      {/* 히어로 */}
-      <section style={{ position: "relative", background: "#111827", color: "white", padding: "9rem 3rem 8rem", overflow: "hidden" }}>
+      {/* 히어로 — 헤더가 fixed라 최상단부터 시작 */}
+      <section style={{ position: "relative", background: "#111827", color: "white", padding: "14rem 3rem 9rem", overflow: "hidden" }}>
         <div style={{
           position: "absolute", inset: 0,
           backgroundImage: "url('/factory.jpg')",
@@ -91,7 +91,7 @@ export default function Home() {
       </section>
 
       {/* 수치 */}
-      <section style={{ background: "#1f2937", borderBottom: "1px solid rgba(255,255,255,0.05)" }}>
+      <section style={{ background: "#1f2937" }}>
         <div style={{ maxWidth: "860px", margin: "0 auto", display: "flex", justifyContent: "space-around", flexWrap: "wrap", padding: "3.5rem 2rem", gap: "2rem", textAlign: "center" }}>
           {STATS.map(({ num, label }) => (
             <div key={label}>
@@ -125,13 +125,14 @@ export default function Home() {
         </div>
       </section>
 
-      {/* 주요 제품 — 세로 나열, 사진 포함 */}
-      <section style={{ background: "#f9fafb", borderTop: "1px solid #e5e7eb" }}>
-        <div style={{ maxWidth: "1060px", margin: "0 auto", padding: "6rem 3rem" }}>
+      {/* 주요 제품 */}
+      <section style={{ background: "#fff" }}>
+        <div style={{ maxWidth: "1060px", margin: "0 auto", padding: "2rem 3rem 2rem" }}>
           <p style={{ fontSize: "0.72rem", letterSpacing: "2.5px", color: "#9ca3af", marginBottom: "1rem", textTransform: "uppercase" }}>Products</p>
           <h2 style={{ fontSize: "2rem", fontWeight: 700, color: "#111827", margin: "0 0 4rem" }}>주요 생산 품목</h2>
-
-          <div style={{ display: "flex", flexDirection: "column", gap: "0" }}>
+        </div>
+        <div style={{ maxWidth: "1060px", margin: "0 auto", padding: "0 3rem 6rem" }}>
+          <div style={{ display: "flex", flexDirection: "column" }}>
             {PRODUCTS.map(({ nameKo, nameEn, desc, img }, i) => {
               const isEven = i % 2 === 0;
               return (
@@ -144,7 +145,7 @@ export default function Home() {
                   <div style={{ overflow: "hidden", aspectRatio: "16/9", direction: "ltr" }}>
                     <img src={img} alt={nameKo} style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }} />
                   </div>
-                  <div style={{ padding: "4rem 3.5rem", display: "flex", flexDirection: "column", justifyContent: "center", direction: "ltr", background: "#fff" }}>
+                  <div style={{ padding: "4rem 3.5rem", display: "flex", flexDirection: "column", justifyContent: "center", direction: "ltr" }}>
                     <div style={{ fontSize: "0.75rem", color: "#9ca3af", letterSpacing: "1px", marginBottom: "0.8rem" }}>{nameEn}</div>
                     <div style={{ fontWeight: 700, fontSize: "1.4rem", color: "#111827", marginBottom: "1.2rem" }}>{nameKo}</div>
                     <div style={{ fontSize: "0.88rem", color: "#6b7280", lineHeight: 1.9 }}>{desc}</div>
@@ -154,8 +155,7 @@ export default function Home() {
             })}
             <div style={{ borderTop: "1px solid #e5e7eb" }} />
           </div>
-
-          <div style={{ marginTop: "2.5rem", textAlign: "right" }}>
+          <div style={{ marginTop: "2rem", textAlign: "right" }}>
             <Link to="/capacity" style={{ color: "#374151", fontWeight: 600, fontSize: "0.85rem", textDecoration: "none", borderBottom: "1px solid #374151", paddingBottom: "1px" }}>
               생산능력 전체 보기 →
             </Link>
@@ -176,7 +176,7 @@ export default function Home() {
       </section>
 
       {/* 오시는 길 */}
-      <section style={{ background: "#fff", borderTop: "1px solid #e5e7eb" }}>
+      <section style={{ background: "#fff" }}>
         <div style={{ maxWidth: "1060px", margin: "0 auto", padding: "6rem 3rem" }}>
           <div style={{ marginBottom: "3rem" }}>
             <p style={{ fontSize: "0.72rem", letterSpacing: "2.5px", color: "#9ca3af", marginBottom: "0.8rem", textTransform: "uppercase" }}>Location</p>
