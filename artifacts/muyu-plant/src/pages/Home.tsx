@@ -63,7 +63,7 @@ export default function Home() {
   return (
     <div>
       {/* 히어로 */}
-      <section style={{ position: "relative", background: "#111827", color: "white", padding: "13rem 3rem 11rem", overflow: "hidden" }}>
+      <section style={{ position: "relative", background: "#111827", color: "white", padding: "9rem 3rem 8rem", overflow: "hidden" }}>
         <div style={{
           position: "absolute", inset: 0,
           backgroundImage: "url('/factory.jpg')",
@@ -104,7 +104,7 @@ export default function Home() {
 
       {/* 회사 소개 */}
       <section style={{ background: "#fff" }}>
-        <div style={{ maxWidth: "1060px", margin: "0 auto", padding: "8rem 3rem", display: "grid", gridTemplateColumns: "1fr 1fr", gap: "6rem", alignItems: "center" }}>
+        <div style={{ maxWidth: "1060px", margin: "0 auto", padding: "6rem 3rem", display: "grid", gridTemplateColumns: "1fr 1fr", gap: "6rem", alignItems: "center" }}>
           <div>
             <p style={{ fontSize: "0.72rem", letterSpacing: "2.5px", color: "#9ca3af", marginBottom: "1.2rem", textTransform: "uppercase" }}>About Us</p>
             <h2 style={{ fontSize: "2rem", fontWeight: 700, color: "#111827", margin: "0 0 1.8rem", lineHeight: 1.3, wordBreak: "keep-all" }}>
@@ -127,9 +127,9 @@ export default function Home() {
 
       {/* 주요 제품 — 세로 나열, 사진 포함 */}
       <section style={{ background: "#f9fafb", borderTop: "1px solid #e5e7eb" }}>
-        <div style={{ maxWidth: "1060px", margin: "0 auto", padding: "8rem 3rem" }}>
+        <div style={{ maxWidth: "1060px", margin: "0 auto", padding: "6rem 3rem" }}>
           <p style={{ fontSize: "0.72rem", letterSpacing: "2.5px", color: "#9ca3af", marginBottom: "1rem", textTransform: "uppercase" }}>Products</p>
-          <h2 style={{ fontSize: "2rem", fontWeight: 700, color: "#111827", margin: "0 0 5rem" }}>주요 생산 품목</h2>
+          <h2 style={{ fontSize: "2rem", fontWeight: 700, color: "#111827", margin: "0 0 4rem" }}>주요 생산 품목</h2>
 
           <div style={{ display: "flex", flexDirection: "column", gap: "0" }}>
             {PRODUCTS.map(({ nameKo, nameEn, desc, img }, i) => {
@@ -177,7 +177,7 @@ export default function Home() {
 
       {/* 오시는 길 */}
       <section style={{ background: "#fff", borderTop: "1px solid #e5e7eb" }}>
-        <div style={{ maxWidth: "1060px", margin: "0 auto", padding: "8rem 3rem" }}>
+        <div style={{ maxWidth: "1060px", margin: "0 auto", padding: "6rem 3rem" }}>
           <div style={{ marginBottom: "3rem" }}>
             <p style={{ fontSize: "0.72rem", letterSpacing: "2.5px", color: "#9ca3af", marginBottom: "0.8rem", textTransform: "uppercase" }}>Location</p>
             <h2 style={{ fontSize: "2rem", fontWeight: 700, color: "#111827", margin: "0 0 0.5rem" }}>오시는 길</h2>

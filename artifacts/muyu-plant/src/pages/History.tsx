@@ -30,7 +30,7 @@ export default function History() {
     <div>
       <PageHero title="연혁 및 인증" subtitle="2015년 설립 이후 꾸준한 성장을 이어왔습니다" />
 
-      <section style={{ padding: "5rem 3rem", background: "#fff" }}>
+      <section style={{ padding: "8rem 5rem", background: "#fff" }}>
         <div style={{ maxWidth: "1200px", margin: "0 auto" }}>
           <p style={{ fontSize: "0.72rem", letterSpacing: "2.5px", color: "#9ca3af", marginBottom: "0.8rem", textTransform: "uppercase" }}>Timeline</p>
           <h3 style={{ fontSize: "1.5rem", fontWeight: 700, color: "#111827", marginBottom: "3rem" }}>주요 연혁</h3>
@@ -70,7 +70,7 @@ export default function History() {
         </div>
       </section>
 
-      <section style={{ padding: "4rem 3rem 6rem", background: "#f9fafb", borderTop: "1px solid #e5e7eb" }}>
+      <section style={{ padding: "7rem 5rem 8rem", background: "#f9fafb", borderTop: "1px solid #e5e7eb" }}>
         <div style={{ maxWidth: "960px", margin: "0 auto" }}>
           <p style={{ fontSize: "0.72rem", letterSpacing: "2.5px", color: "#9ca3af", marginBottom: "0.8rem", textTransform: "uppercase" }}>Certifications</p>
           <h3 style={{ fontSize: "1.5rem", fontWeight: 700, color: "#111827", marginBottom: "2rem" }}>보유 인증</h3>

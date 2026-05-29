@@ -20,7 +20,7 @@ export default function Capacity() {
     <div>
       <PageHero title="생산능력" subtitle="대형 플랜트 설비 전문 제작사" />
 
-      <section style={{ padding: "5rem 3rem", background: "#fff" }}>
+      <section style={{ padding: "8rem 5rem", background: "#fff" }}>
         <div style={{ maxWidth: "960px", margin: "0 auto" }}>
           <p style={{ fontSize: "0.72rem", letterSpacing: "2.5px", color: "#9ca3af", marginBottom: "0.8rem", textTransform: "uppercase" }}>Products</p>
           <h3 style={{ fontSize: "1.5rem", fontWeight: 700, color: "#111827", marginBottom: "2.5rem" }}>주요 생산 품목</h3>
@@ -36,7 +36,7 @@ export default function Capacity() {
         </div>
       </section>
 
-      <section style={{ padding: "4rem 3rem 6rem", background: "#f9fafb", borderTop: "1px solid #e5e7eb" }}>
+      <section style={{ padding: "7rem 5rem 8rem", background: "#f9fafb", borderTop: "1px solid #e5e7eb" }}>
         <div style={{ maxWidth: "960px", margin: "0 auto" }}>
           <p style={{ fontSize: "0.72rem", letterSpacing: "2.5px", color: "#9ca3af", marginBottom: "0.8rem", textTransform: "uppercase" }}>Equipment</p>
           <h3 style={{ fontSize: "1.5rem", fontWeight: 700, color: "#111827", marginBottom: "2rem" }}>주요 설비 현황</h3>

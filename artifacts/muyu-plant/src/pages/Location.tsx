@@ -30,7 +30,7 @@ export default function Location() {
     <div>
       <PageHero title="오시는 길" subtitle="충청남도 당진시 부곡공단에 위치합니다" />
 
-      <section style={{ padding: "5rem 3rem 6rem", background: "#fff" }}>
+      <section style={{ padding: "8rem 5rem 9rem", background: "#fff" }}>
         <div style={{ maxWidth: "900px", margin: "0 auto" }}>
           <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "4rem", marginBottom: "3rem" }}>
             <div>

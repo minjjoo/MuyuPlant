@@ -5,7 +5,7 @@ export default function About() {
     <div>
       <PageHero title="회사소개" subtitle="(주)무유플랜트를 소개합니다" />
 
-      <section style={{ padding: "5rem 3rem", background: "#fff" }}>
+      <section style={{ padding: "8rem 5rem", background: "#fff" }}>
         <div style={{ maxWidth: "780px", margin: "0 auto" }}>
           <p style={{ fontSize: "0.72rem", letterSpacing: "2.5px", color: "#9ca3af", marginBottom: "1rem", textTransform: "uppercase" }}>CEO Message</p>
           <h3 style={{ fontSize: "1.5rem", fontWeight: 700, color: "#111827", marginBottom: "2rem" }}>CEO 인사말</h3>
@@ -26,7 +26,7 @@ export default function About() {
         </div>
       </section>
 
-      <section style={{ padding: "4rem 3rem 6rem", background: "#f9fafb", borderTop: "1px solid #e5e7eb" }}>
+      <section style={{ padding: "7rem 5rem 8rem", background: "#f9fafb", borderTop: "1px solid #e5e7eb" }}>
         <div style={{ maxWidth: "780px", margin: "0 auto" }}>
           <p style={{ fontSize: "0.72rem", letterSpacing: "2.5px", color: "#9ca3af", marginBottom: "1rem", textTransform: "uppercase" }}>Company Overview</p>
           <h3 style={{ fontSize: "1.5rem", fontWeight: 700, color: "#111827", marginBottom: "2rem" }}>회사 개요</h3>
