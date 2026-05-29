@@ -1,0 +1,31 @@
+kind = "web"
+previewPath = "/"
+title = "(주)무유플랜트"
+version = "1.0.0"
+id = "artifacts/muyu-plant"
+router = "path"
+
+[[integratedSkills]]
+name = "react-vite"
+version = "1.0.0"
+
+[[services]]
+name = "web"
+paths = [ "/" ]
+localPort = 20464
+
+[services.development]
+run = "pnpm --filter @workspace/muyu-plant run dev"
+
+[services.production]
+build = [ "pnpm", "--filter", "@workspace/muyu-plant", "run", "build" ]
+publicDir = "artifacts/muyu-plant/dist/public"
+serve = "static"
+
+[[services.production.rewrites]]
+from = "/*"
+to = "/index.html"
+
+[services.env]
+PORT = "20464"
+BASE_PATH = "/"
