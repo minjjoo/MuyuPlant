@@ -46,6 +46,7 @@ export default function Header() {
         {NAV.map(({ to, label }) => {
           const active = pathname === to;
           const isHovered = hovered === to;
+          const showLine = active || isHovered;
           return (
             <Link
               key={to}
@@ -53,21 +54,34 @@ export default function Header() {
               onMouseEnter={() => setHovered(to)}
               onMouseLeave={() => setHovered(null)}
               style={{
-                color: (active || isHovered) ? "#ffffff" : "rgba(255,255,255,0.65)",
+                color: showLine ? "#ffffff" : "rgba(255,255,255,0.65)",
                 textDecoration: "none",
                 padding: "0 1.2rem",
                 height: "88px",
                 display: "flex",
+                flexDirection: "column",
                 alignItems: "center",
+                justifyContent: "center",
+                gap: 0,
                 fontSize: "0.88rem",
                 fontWeight: active ? 600 : 400,
-                borderBottom: (active || isHovered) ? "2px solid #ffffff" : "2px solid transparent",
                 outline: "none",
-                transition: "color 0.15s, border-color 0.15s",
+                transition: "color 0.15s",
                 boxSizing: "border-box",
+                position: "relative",
               }}
             >
               {label}
+              <span style={{
+                position: "absolute",
+                bottom: 0,
+                left: "50%",
+                transform: "translateX(-50%)",
+                width: showLine ? "60%" : "0%",
+                height: "2px",
+                background: "#ffffff",
+                transition: "width 0.2s ease",
+              }} />
             </Link>
           );
         })}

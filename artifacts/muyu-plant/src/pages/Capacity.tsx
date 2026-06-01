@@ -71,8 +71,8 @@ const products = [
   { nameKo: "저장 탱크", nameEn: "Storage Tank", desc: "액체·가스 원료의 저장 및 이송을 위한 탱크류. 다양한 규격 및 소재 맞춤 제작 가능. 현장 환경에 최적화된 설계를 제안합니다.", img: "/factory.jpg" },
 ];
 
-const TH = ({ children }: { children: React.ReactNode }) => (
-  <th style={{ padding: "0.7rem 1.2rem", background: "#1f2937", color: "#e5e7eb", fontWeight: 600, fontSize: "0.78rem", textAlign: "left", borderBottom: "1px solid #374151", whiteSpace: "nowrap" }}>
+const TH = ({ children, center }: { children: React.ReactNode; center?: boolean }) => (
+  <th style={{ padding: "0.7rem 1.2rem", background: "#1f2937", color: "#e5e7eb", fontWeight: 600, fontSize: "0.78rem", textAlign: center ? "center" : "left", borderBottom: "1px solid #374151", whiteSpace: "nowrap" }}>
     {children}
   </th>
 );
@@ -89,9 +89,12 @@ export default function Capacity() {
     <div>
       <PageHero title="생산능력" subtitle="대형 플랜트 설비 전문 제작사" />
 
-      <div style={{ display: "grid", gridTemplateColumns: "220px 1fr", minHeight: "70vh" }}>
+      {/* 다크 왼쪽 배경을 전체 높이로 유지 */}
+      <div style={{ position: "relative" }}>
+        <div style={{ position: "absolute", left: 0, top: 0, bottom: 0, width: "220px", background: "#111827" }} />
+      <div style={{ display: "grid", gridTemplateColumns: "220px 1fr", position: "relative" }}>
         {/* 사이드바 */}
-        <aside style={{ background: "#111827", paddingTop: "3rem", position: "sticky", top: "88px", alignSelf: "start" }}>
+        <aside style={{ background: "transparent", paddingTop: "3rem", position: "sticky", top: "88px", alignSelf: "start" }}>
           <div style={{ padding: "0 0 1.5rem 0", borderBottom: "1px solid rgba(255,255,255,0.08)", marginBottom: "0.5rem" }}>
             <span style={{ display: "block", padding: "0 2rem", fontSize: "0.7rem", letterSpacing: "2px", color: "rgba(255,255,255,0.35)", textTransform: "uppercase" }}>생산능력</span>
           </div>
@@ -195,7 +198,7 @@ export default function Capacity() {
                       <TH>No.</TH>
                       <TH>Equipment</TH>
                       <TH>Specification</TH>
-                      <TH>Q'ty</TH>
+                      <TH center>Q'ty</TH>
                     </tr>
                   </thead>
                   <tbody>
@@ -224,7 +227,7 @@ export default function Capacity() {
                       <TH>No.</TH>
                       <TH>Equipment</TH>
                       <TH>Specification</TH>
-                      <TH>Q'ty</TH>
+                      <TH center>Q'ty</TH>
                     </tr>
                   </thead>
                   <tbody>
@@ -272,6 +275,7 @@ export default function Capacity() {
             </div>
           )}
         </main>
+      </div>
       </div>
     </div>
   );
