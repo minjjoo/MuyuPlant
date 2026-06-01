@@ -12,6 +12,7 @@ const NAV = [
 export default function Header() {
   const { pathname } = useLocation();
   const [scrolled, setScrolled] = useState(false);
+  const [hovered, setHovered] = useState<string | null>(null);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 60);
@@ -35,7 +36,7 @@ export default function Header() {
       display: "grid",
       gridTemplateColumns: "220px 1fr 220px",
       alignItems: "center",
-      transition: "background 0.3s ease, backdrop-filter 0.3s ease",
+      transition: "background 0.3s ease",
     }}>
       <Link to="/" style={{ color: "white", textDecoration: "none" }}>
         <span style={{ fontSize: "1.15rem", fontWeight: 700, letterSpacing: "-0.3px" }}>(주)무유플랜트</span>
@@ -44,12 +45,15 @@ export default function Header() {
       <nav style={{ display: "flex", justifyContent: "center", gap: 0 }}>
         {NAV.map(({ to, label }) => {
           const active = pathname === to;
+          const isHovered = hovered === to;
           return (
             <Link
               key={to}
               to={to}
+              onMouseEnter={() => setHovered(to)}
+              onMouseLeave={() => setHovered(null)}
               style={{
-                color: active ? "#ffffff" : "rgba(255,255,255,0.65)",
+                color: (active || isHovered) ? "#ffffff" : "rgba(255,255,255,0.65)",
                 textDecoration: "none",
                 padding: "0 1.2rem",
                 height: "88px",
@@ -57,13 +61,11 @@ export default function Header() {
                 alignItems: "center",
                 fontSize: "0.88rem",
                 fontWeight: active ? 600 : 400,
-                borderBottom: active ? "2px solid #ffffff" : "2px solid transparent",
+                borderBottom: (active || isHovered) ? "2px solid #ffffff" : "2px solid transparent",
                 outline: "none",
-                transition: "color 0.2s, border-color 0.2s",
+                transition: "color 0.15s, border-color 0.15s",
                 boxSizing: "border-box",
               }}
-              onMouseEnter={(e) => { e.currentTarget.style.color = "#ffffff"; }}
-              onMouseLeave={(e) => { if (!active) e.currentTarget.style.color = "rgba(255,255,255,0.65)"; }}
             >
               {label}
             </Link>
