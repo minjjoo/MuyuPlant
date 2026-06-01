@@ -64,6 +64,14 @@ const experienceData = [
   { client: "제이테크", items: "Heat Exchanger, Pressure Vessel" },
 ];
 
+const projectGallery = [
+  { img: "/project1.png", title: "DONGDUCHEON CCPP CONSTRUCTION PROJECT", desc: "Shop Fabricated Tank" },
+  { img: "/project2.png", title: "P2 PROJECT REACTOR", desc: "KCC CORPORATION / KOREA" },
+  { img: "/project3.png", title: "P2 PROJECT DRUM", desc: "KCC CORPORATION / KOREA" },
+  { img: "/project4.png", title: "GMR ENERGY 2×400MW CCPP", desc: "Shop Fabricated Tank — GMR Energy, Singapore" },
+  { img: "/project5.png", title: "GMR ENERGY 2×400MW CCPP", desc: "Shop Fabricated Tank — GMR Energy, Singapore" },
+];
+
 const products = [
   { nameKo: "압력용기", nameEn: "Pressure Vessel", desc: "고압 환경에서 기체나 액체를 안전하게 저장·처리하는 용기. 석유화학, 발전, 가스 산업 전반에 공급합니다. ASME Section VIII Division 1 기준 설계·제작.", img: "/factory.jpg" },
   { nameKo: "열교환기", nameEn: "Heat Exchanger", desc: "서로 다른 온도의 유체 사이에서 열을 교환하는 설비. Shell & Tube 방식을 주력으로 제작하며 다양한 소재와 규격에 대응합니다.", img: "/factory.jpg" },
@@ -249,6 +257,23 @@ export default function Capacity() {
             <div>
               <p style={{ fontSize: "0.72rem", letterSpacing: "2.5px", color: "#9ca3af", marginBottom: "0.6rem", textTransform: "uppercase" }}>Experience List</p>
               <h2 style={{ fontSize: "1.6rem", fontWeight: 700, color: "#111827", margin: "0 0 2.5rem" }}>납품 실적</h2>
+
+              {/* 프로젝트 사진 갤러리 */}
+              <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: "1rem", marginBottom: "3rem" }}>
+                {projectGallery.map(({ img, title, desc }, i) => (
+                  <div key={i} style={{ overflow: "hidden" }}>
+                    <div style={{ overflow: "hidden", aspectRatio: "4/3" }}>
+                      <img src={img} alt={title} style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }} />
+                    </div>
+                    <div style={{ padding: "0.7rem 0 0" }}>
+                      <div style={{ fontSize: "0.78rem", fontWeight: 600, color: "#111827", lineHeight: 1.4, marginBottom: "0.2rem" }}>{title}</div>
+                      <div style={{ fontSize: "0.72rem", color: "#9ca3af" }}>{desc}</div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+
+              {/* 거래처 테이블 */}
               <div style={{ overflowX: "auto" }}>
                 <table style={{ width: "100%", borderCollapse: "collapse", borderTop: "2px solid #111827" }}>
                   <thead>
