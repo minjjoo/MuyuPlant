@@ -8,11 +8,15 @@ function NaverMap() {
     if (!clientId) return;
     const existing = document.querySelector("script[data-naver-map]");
     const init = () => {
-      const naver = (window as any).naver;
-      if (!naver || !mapRef.current) return;
-      const loc = new naver.maps.LatLng(36.9528, 126.7463);
-      const map = new naver.maps.Map(mapRef.current, { center: loc, zoom: 15 });
-      new naver.maps.Marker({ position: loc, map, title: "(주)무유플랜트" });
+      try {
+        const naver = (window as any).naver;
+        if (!naver || !mapRef.current) return;
+        const loc = new naver.maps.LatLng(36.9528, 126.7463);
+        const map = new naver.maps.Map(mapRef.current, { center: loc, zoom: 15 });
+        new naver.maps.Marker({ position: loc, map, title: "(주)무유플랜트" });
+      } catch (e) {
+        console.warn("네이버 지도 초기화 실패", e);
+      }
     };
     if (existing) { init(); return; }
     const script = document.createElement("script");
