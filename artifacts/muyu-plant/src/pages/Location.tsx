@@ -20,7 +20,7 @@ function NaverMap() {
     };
     if (existing) { init(); return; }
     const script = document.createElement("script");
-    script.src = `https://oapi.map.naver.com/openapi/v3/maps.js?ncpClientId=${clientId}`;
+    script.src = `https://oapi.map.naver.com/openapi/v3/maps.js?ncpKeyId=${clientId}`;
     script.async = true;
     script.setAttribute("data-naver-map", "true");
     script.onload = init;
