@@ -37,25 +37,19 @@ const PRODUCTS = [
     nameKo: "압력용기",
     nameEn: "Pressure Vessel",
     desc: "고압 환경에서 기체나 액체를 안전하게 저장·처리하는 용기. 석유화학, 발전, 가스 산업 전반에 공급합니다. ASME Section VIII Division 1 기준 설계·제작.",
-    img: "/factory.jpg",
+    img: "/압력용기1.jpg",
   },
   {
     nameKo: "열교환기",
     nameEn: "Heat Exchanger",
     desc: "서로 다른 온도의 유체 사이에서 열을 교환하는 설비. Shell & Tube 방식을 주력으로 제작하며 다양한 소재와 규격에 대응합니다.",
-    img: "/factory.jpg",
+    img: "/열교환기.png",
   },
   {
     nameKo: "탑류 설비",
     nameEn: "Tower & Column",
     desc: "증류, 흡수, 세정 등의 공정에 사용되는 탑형 설비. 대형 플랜트 현장 납품 실적 다수 보유. 설계부터 현장 설치까지 일괄 대응.",
-    img: "/factory.jpg",
-  },
-  {
-    nameKo: "저장 탱크",
-    nameEn: "Storage Tank",
-    desc: "액체·가스 원료의 저장 및 이송을 위한 탱크류. 다양한 규격 및 소재 맞춤 제작 가능. 현장 환경에 최적화된 설계를 제안합니다.",
-    img: "/factory.jpg",
+    img: "/탑류설비.jpg",
   },
 ];
 
@@ -63,12 +57,12 @@ export default function Home() {
   return (
     <div>
       {/* 히어로 — 헤더가 fixed라 최상단부터 시작 */}
-      <section style={{ position: "relative", background: "#111827", color: "white", padding: "14rem 3rem 9rem", overflow: "hidden" }}>
+      <section style={{ position: "relative", background: "#000629", color: "white", padding: "14rem 3rem 9rem", overflow: "hidden" }}>
         <div style={{
           position: "absolute", inset: 0,
-          backgroundImage: "url('/factory.jpg')",
+          backgroundImage: "url('/hero.jpg')",
           backgroundSize: "cover", backgroundPosition: "center",
-          opacity: 0.2, zIndex: 0,
+          opacity: 0.35, zIndex: 0,
         }} />
         <div style={{ position: "relative", zIndex: 1, maxWidth: "760px", margin: "0 auto", textAlign: "center" }}>
           <p style={{ fontSize: "0.75rem", letterSpacing: "3px", color: "rgba(255,255,255,0.4)", marginBottom: "1.5rem", textTransform: "uppercase" }}>
@@ -91,8 +85,8 @@ export default function Home() {
       </section>
 
       {/* 수치 */}
-      <section style={{ background: "#1f2937" }}>
-        <div style={{ maxWidth: "860px", margin: "0 auto", display: "flex", justifyContent: "space-around", flexWrap: "wrap", padding: "3.5rem 2rem", gap: "2rem", textAlign: "center" }}>
+      <section style={{ background: "#000629" }}>
+        <div style={{ maxWidth: "1200px", margin: "0 auto", display: "flex", justifyContent: "space-around", flexWrap: "wrap", padding: "3.5rem 2rem", gap: "2rem", textAlign: "center" }}>
           {STATS.map(({ num, label }) => (
             <div key={label}>
               <div style={{ fontSize: "2.2rem", fontWeight: 700, color: "#fff" }}>{num}</div>
@@ -104,7 +98,7 @@ export default function Home() {
 
       {/* 회사 소개 */}
       <section style={{ background: "#fff" }}>
-        <div style={{ maxWidth: "1060px", margin: "0 auto", padding: "6rem 3rem", display: "grid", gridTemplateColumns: "1fr 1fr", gap: "6rem", alignItems: "center" }}>
+        <div style={{ maxWidth: "1200px", margin: "0 auto", padding: "6rem 3rem", display: "grid", gridTemplateColumns: "1fr 1fr", gap: "6rem", alignItems: "center" }}>
           <div>
             <p style={{ fontSize: "0.72rem", letterSpacing: "2.5px", color: "#9ca3af", marginBottom: "1.2rem", textTransform: "uppercase" }}>About Us</p>
             <h2 style={{ fontSize: "2rem", fontWeight: 700, color: "#111827", margin: "0 0 1.8rem", lineHeight: 1.3, wordBreak: "keep-all" }}>
@@ -120,18 +114,18 @@ export default function Home() {
             </Link>
           </div>
           <div style={{ overflow: "hidden", aspectRatio: "4/3" }}>
-            <img src="/factory.jpg" alt="무유플랜트 공장" style={{ width: "100%", height: "100%", objectFit: "cover" }} />
+            <img src="/home1.avif" alt="무유플랜트 공장" style={{ width: "100%", height: "100%", objectFit: "cover" }} />
           </div>
         </div>
       </section>
 
       {/* 주요 제품 */}
       <section style={{ background: "#fff" }}>
-        <div style={{ maxWidth: "1060px", margin: "0 auto", padding: "2rem 3rem 2rem" }}>
+        <div style={{ maxWidth: "1200px", margin: "0 auto", padding: "2rem 3rem 2rem" }}>
           <p style={{ fontSize: "0.72rem", letterSpacing: "2.5px", color: "#9ca3af", marginBottom: "1rem", textTransform: "uppercase" }}>Products</p>
-          <h2 style={{ fontSize: "2rem", fontWeight: 700, color: "#111827", margin: "0 0 4rem" }}>주요 생산 품목</h2>
+          <h2 style={{ fontSize: "2rem", fontWeight: 700, color: "#111827", margin: "0 0 0.5rem" }}>주요 생산 품목</h2>
         </div>
-        <div style={{ maxWidth: "1060px", margin: "0 auto", padding: "0 3rem 6rem" }}>
+        <div style={{ maxWidth: "1200px", margin: "0 auto", padding: "0 3rem 6rem" }}>
           <div style={{ display: "flex", flexDirection: "column" }}>
             {PRODUCTS.map(({ nameKo, nameEn, desc, img }, i) => {
               const isEven = i % 2 === 0;
@@ -164,12 +158,12 @@ export default function Home() {
       </section>
 
       {/* 인증 */}
-      <section style={{ background: "#111827", color: "white" }}>
-        <div style={{ maxWidth: "1060px", margin: "0 auto", padding: "6rem 3rem", textAlign: "center" }}>
-          <p style={{ fontSize: "0.72rem", letterSpacing: "2.5px", color: "rgba(255,255,255,0.35)", marginBottom: "2rem", textTransform: "uppercase" }}>Certifications</p>
+      <section style={{ background: "#fff", color: "#111827" }}>
+        <div style={{ maxWidth: "1200px", margin: "0 auto", padding: "6rem 3rem", textAlign: "center" }}>
+          <p style={{ fontSize: "0.72rem", letterSpacing: "2.5px", color: "#9ca3af", marginBottom: "2rem", textTransform: "uppercase" }}>Certifications</p>
           <div style={{ display: "flex", justifyContent: "center", gap: "0.8rem", flexWrap: "wrap" }}>
             {["ISO 9001", "ISO 14001", "OHSAS 18001", "ASME U STAMP", "특정설비제조등록", "뿌리기술 전문기업"].map((cert) => (
-              <span key={cert} style={{ padding: "0.45rem 1.1rem", border: "1px solid rgba(255,255,255,0.2)", fontSize: "0.8rem", color: "rgba(255,255,255,0.7)" }}>{cert}</span>
+              <span key={cert} style={{ padding: "0.45rem 1.1rem", border: "1px solid #d1d5db", fontSize: "0.8rem", color: "#374151" }}>{cert}</span>
             ))}
           </div>
         </div>
@@ -177,7 +171,7 @@ export default function Home() {
 
       {/* 오시는 길 */}
       <section style={{ background: "#fff" }}>
-        <div style={{ maxWidth: "1060px", margin: "0 auto", padding: "6rem 3rem" }}>
+        <div style={{ maxWidth: "1200px", margin: "0 auto", padding: "6rem 3rem" }}>
           <div style={{ marginBottom: "3rem" }}>
             <p style={{ fontSize: "0.72rem", letterSpacing: "2.5px", color: "#9ca3af", marginBottom: "0.8rem", textTransform: "uppercase" }}>Location</p>
             <h2 style={{ fontSize: "2rem", fontWeight: 700, color: "#111827", margin: "0 0 0.5rem" }}>오시는 길</h2>

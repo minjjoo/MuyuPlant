@@ -23,9 +23,9 @@ export default function Header() {
 
   return (
     <header style={{
-      background: scrolled ? "rgba(17, 24, 39, 0.97)" : "transparent",
+      background: scrolled ? "rgba(255, 255, 255, 0.97)" : "transparent",
       backdropFilter: scrolled ? "blur(8px)" : "none",
-      color: "white",
+      color: scrolled ? "#111827" : "white",
       padding: "0 3rem",
       position: "fixed",
       top: 0,
@@ -38,7 +38,7 @@ export default function Header() {
       alignItems: "center",
       transition: "background 0.3s ease",
     }}>
-      <Link to="/" style={{ color: "white", textDecoration: "none" }}>
+      <Link to="/" style={{ color: scrolled ? "#111827" : "white", textDecoration: "none" }}>
         <span style={{ fontSize: "1.15rem", fontWeight: 700, letterSpacing: "-0.3px" }}>(주)무유플랜트</span>
       </Link>
 
@@ -54,15 +54,16 @@ export default function Header() {
               onMouseEnter={() => setHovered(to)}
               onMouseLeave={() => setHovered(null)}
               style={{
-                color: showLine ? "#ffffff" : "rgba(255,255,255,0.65)",
+                color: showLine ? (scrolled ? "#111827" : "white") : (scrolled ? "rgba(17,24,39,0.55)" : "rgba(255,255,255,0.75)"),
                 textDecoration: "none",
                 padding: "0 1.2rem",
                 height: "88px",
                 display: "flex",
                 alignItems: "center",
-                fontSize: "0.88rem",
-                fontWeight: active ? 600 : 400,
-                borderBottom: showLine ? "2px solid #ffffff" : "2px solid transparent",
+                fontSize: "0.95rem",
+                fontWeight: (active || isHovered) ? 700 : 600,
+                letterSpacing: "-0.2px",
+                borderBottom: showLine ? `2px solid ${scrolled ? "#111827" : "white"}` : "2px solid transparent",
                 outline: "none",
                 transition: "color 0.15s, border-color 0.15s",
                 boxSizing: "border-box",

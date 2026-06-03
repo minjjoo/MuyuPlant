@@ -2,7 +2,7 @@ export default function PageHero({ title, subtitle }: { title: string; subtitle:
   return (
     <section style={{
       position: "relative",
-      background: "#111827",
+      background: "#000629",
       color: "white",
       padding: "13rem 3rem 8rem",
       textAlign: "center",
@@ -11,10 +11,10 @@ export default function PageHero({ title, subtitle }: { title: string; subtitle:
       <div style={{
         position: "absolute",
         inset: 0,
-        backgroundImage: "url('/factory.jpg')",
+        backgroundImage: "url('/hero.jpg')",
         backgroundSize: "cover",
-        backgroundPosition: "center 40%",
-        opacity: 0.22,
+        backgroundPosition: "center 60%",
+        opacity: 0.35,
         zIndex: 0,
       }} />
       <div style={{ position: "relative", zIndex: 1 }}>

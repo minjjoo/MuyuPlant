@@ -16,7 +16,7 @@ function NaverMap() {
     };
     if (existing) { init(); return; }
     const script = document.createElement("script");
-    script.src = `https://oapi.map.naver.com/openapi/v3/maps.js?ncpKeyId=${clientId}`;
+    script.src = `https://oapi.map.naver.com/openapi/v3/maps.js?ncpClientId=${clientId}`;
     script.async = true;
     script.setAttribute("data-naver-map", "true");
     script.onload = init;
@@ -31,7 +31,7 @@ export default function Location() {
       <PageHero title="오시는 길" subtitle="충청남도 당진시 부곡공단에 위치합니다" />
 
       <section style={{ padding: "8rem 5rem 9rem", background: "#fff" }}>
-        <div style={{ maxWidth: "900px", margin: "0 auto" }}>
+        <div style={{ maxWidth: "1200px", margin: "0 auto" }}>
           <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "4rem", marginBottom: "3rem" }}>
             <div>
               <p style={{ fontSize: "0.72rem", letterSpacing: "2.5px", color: "#9ca3af", marginBottom: "1.5rem", textTransform: "uppercase" }}>Address</p>

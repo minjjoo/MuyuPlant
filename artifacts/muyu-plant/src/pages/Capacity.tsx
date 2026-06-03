@@ -65,18 +65,21 @@ const experienceData = [
 ];
 
 const projectGallery = [
-  { img: "/project1.png", title: "DONGDUCHEON CCPP CONSTRUCTION PROJECT", desc: "Shop Fabricated Tank" },
-  { img: "/project2.png", title: "P2 PROJECT REACTOR", desc: "KCC CORPORATION / KOREA" },
-  { img: "/project3.png", title: "P2 PROJECT DRUM", desc: "KCC CORPORATION / KOREA" },
-  { img: "/project4.png", title: "GMR ENERGY 2×400MW CCPP", desc: "Shop Fabricated Tank — GMR Energy, Singapore" },
-  { img: "/project5.png", title: "GMR ENERGY 2×400MW CCPP", desc: "Shop Fabricated Tank — GMR Energy, Singapore" },
+  { img: "/project1.png", title: "GS Engineering RUWAIS 4th NGL TRAIN INTER REFINRIES PIPELINES", desc: "Experience Products" },
+  { img: "/project2.png", title: "Dangjin thermal power Unit 9&10 DUCT&SUPPORT", desc: "Experience Products" },
+  { img: "/project3.png", title: "SAMSUNG BOROUGE PROJECT SAUDI ARABIAN OIL", desc: "Experience Products" },
+  { img: "/project6.png", title: "DAELIM JG SUMMIT NAPHTHA CRACKER HP-3 PROJECT", desc: "Experience Products" },
+  { img: "/project7.png", title: "HYUNDAI 2D PROJECT", desc: "Experience Products" },
+  { img: "/project8.png", title: "BELCO SINOPEC SHANGHAI REFINERY", desc: "Experience Products" },
+  { img: "/project9.png", title: "SK WASIT GAS PLANT PAKG #1,2,3", desc: "Experience Products" },
+  { img: "/project10.jpg", title: "DONGDUCHEON CCPP CONSTRUCTION PROJECT", desc: "Experience Products" },
+  { img: "/project11.jpg", title: "REACTOR (KCC CORPORATION / KOREA)", desc: "Experience Products" },
 ];
 
 const products = [
-  { nameKo: "압력용기", nameEn: "Pressure Vessel", desc: "고압 환경에서 기체나 액체를 안전하게 저장·처리하는 용기. 석유화학, 발전, 가스 산업 전반에 공급합니다. ASME Section VIII Division 1 기준 설계·제작.", img: "/factory.jpg" },
-  { nameKo: "열교환기", nameEn: "Heat Exchanger", desc: "서로 다른 온도의 유체 사이에서 열을 교환하는 설비. Shell & Tube 방식을 주력으로 제작하며 다양한 소재와 규격에 대응합니다.", img: "/factory.jpg" },
-  { nameKo: "탑류 설비", nameEn: "Tower & Column", desc: "증류, 흡수, 세정 등의 공정에 사용되는 탑형 설비. 대형 플랜트 현장 납품 실적 다수 보유. 설계부터 현장 설치까지 일괄 대응.", img: "/factory.jpg" },
-  { nameKo: "저장 탱크", nameEn: "Storage Tank", desc: "액체·가스 원료의 저장 및 이송을 위한 탱크류. 다양한 규격 및 소재 맞춤 제작 가능. 현장 환경에 최적화된 설계를 제안합니다.", img: "/factory.jpg" },
+  { nameKo: "압력용기", nameEn: "Pressure Vessel", desc: "고압 환경에서 기체나 액체를 안전하게 저장·처리하는 용기. 석유화학, 발전, 가스 산업 전반에 공급합니다. ASME Section VIII Division 1 기준 설계·제작.", img: "/압력용기1.jpg" },
+  { nameKo: "열교환기", nameEn: "Heat Exchanger", desc: "서로 다른 온도의 유체 사이에서 열을 교환하는 설비. Shell & Tube 방식을 주력으로 제작하며 다양한 소재와 규격에 대응합니다.", img: "/열교환기.png" },
+  { nameKo: "탑류 설비", nameEn: "Tower & Column", desc: "증류, 흡수, 세정 등의 공정에 사용되는 탑형 설비. 대형 플랜트 현장 납품 실적 다수 보유. 설계부터 현장 설치까지 일괄 대응.", img: "/탑류설비.jpg" },
 ];
 
 const TH = ({ children, center }: { children: React.ReactNode; center?: boolean }) => (
@@ -132,7 +135,8 @@ export default function Capacity() {
         </aside>
 
         {/* 콘텐츠 영역 */}
-        <main style={{ padding: "4rem 4rem 6rem", background: "#fff" }}>
+        <main style={{ padding: "4rem 2rem 6rem", background: "#fff", display: "flex", flexDirection: "column", alignItems: "center" }}>
+          <div style={{ width: "100%", maxWidth: "1200px" }}>
           {active === "production" && (
             <div>
               <p style={{ fontSize: "0.72rem", letterSpacing: "2.5px", color: "#9ca3af", marginBottom: "0.6rem", textTransform: "uppercase" }}>Production Capacity</p>
@@ -178,11 +182,11 @@ export default function Capacity() {
                 {products.map(({ nameKo, nameEn, desc, img }, i) => {
                   const isEven = i % 2 === 0;
                   return (
-                    <div key={nameKo} style={{ display: "grid", gridTemplateColumns: "1fr 1fr", borderTop: "1px solid #e5e7eb", direction: isEven ? "ltr" : "rtl" }}>
-                      <div style={{ overflow: "hidden", aspectRatio: "16/9", direction: "ltr" }}>
+                    <div key={nameKo} style={{ display: "grid", gridTemplateColumns: "2fr 3fr", borderTop: "1px solid #e5e7eb", direction: isEven ? "ltr" : "rtl" }}>
+                      <div style={{ overflow: "hidden", aspectRatio: "4/3", direction: "ltr" }}>
                         <img src={img} alt={nameKo} style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }} />
                       </div>
-                      <div style={{ padding: "3rem 2.5rem", display: "flex", flexDirection: "column", justifyContent: "center", direction: "ltr" }}>
+                      <div style={{ padding: "2rem 2.5rem", display: "flex", flexDirection: "column", justifyContent: "center", direction: "ltr" }}>
                         <div style={{ fontSize: "0.72rem", color: "#9ca3af", letterSpacing: "1px", marginBottom: "0.6rem" }}>{nameEn}</div>
                         <div style={{ fontWeight: 700, fontSize: "1.3rem", color: "#111827", marginBottom: "1rem" }}>{nameKo}</div>
                         <div style={{ fontSize: "0.85rem", color: "#6b7280", lineHeight: 1.9 }}>{desc}</div>
@@ -259,21 +263,24 @@ export default function Capacity() {
               <h2 style={{ fontSize: "1.6rem", fontWeight: 700, color: "#111827", margin: "0 0 2.5rem" }}>납품 실적</h2>
 
               {/* 프로젝트 사진 갤러리 */}
-              <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: "1rem", marginBottom: "3rem" }}>
+              <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: "3.5rem", marginBottom: "10rem", maxWidth: "1200px", margin: "0 auto 3rem" }}>
                 {projectGallery.map(({ img, title, desc }, i) => (
                   <div key={i} style={{ overflow: "hidden" }}>
                     <div style={{ overflow: "hidden", aspectRatio: "4/3" }}>
                       <img src={img} alt={title} style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }} />
                     </div>
-                    <div style={{ padding: "0.7rem 0 0" }}>
-                      <div style={{ fontSize: "0.78rem", fontWeight: 600, color: "#111827", lineHeight: 1.4, marginBottom: "0.2rem" }}>{title}</div>
-                      <div style={{ fontSize: "0.72rem", color: "#9ca3af" }}>{desc}</div>
+                    <div style={{ padding: "0.6rem 0 0" }}>
+                      <div style={{ fontSize: "0.74rem", fontWeight: 600, color: "#111827", lineHeight: 1.4, marginBottom: "0.2rem" }}>{title}</div>
+                      <div style={{ fontSize: "0.67rem", color: "#9ca3af" }}>{desc}</div>
                     </div>
                   </div>
                 ))}
               </div>
 
               {/* 거래처 테이블 */}
+              <div style={{ marginBottom: "1.5rem", padding: "0.8rem 1.2rem", background: "#f9fafb", borderLeft: "3px solid #374151" }}>
+                <span style={{ fontSize: "0.82rem", color: "#374151" }}>삼성전자·SK하이닉스·동부제철 등 국내 주요 대기업 공인 제작사로 등록되어 있습니다.</span>
+              </div>
               <div style={{ overflowX: "auto" }}>
                 <table style={{ width: "100%", borderCollapse: "collapse", borderTop: "2px solid #111827" }}>
                   <thead>
@@ -294,11 +301,9 @@ export default function Capacity() {
                   </tbody>
                 </table>
               </div>
-              <div style={{ marginTop: "1.5rem", padding: "0.8rem 1.2rem", background: "#f9fafb", borderLeft: "3px solid #374151" }}>
-                <span style={{ fontSize: "0.82rem", color: "#374151" }}>삼성전자·SK하이닉스·동부제철 등 국내 주요 대기업 공인 제작사로 등록되어 있습니다.</span>
-              </div>
             </div>
           )}
+          </div>
         </main>
       </div>
       </div>

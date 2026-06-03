@@ -63,7 +63,7 @@ export default function Tech() {
       <PageHero title="기술" subtitle="ASME U STAMP 기반의 검증된 플랜트 제조 기술" />
 
       <section style={{ padding: "8rem 5rem 9rem", background: "#fff" }}>
-        <div style={{ maxWidth: "1060px", margin: "0 auto" }}>
+        <div style={{ maxWidth: "1200px", margin: "0 auto" }}>
           <p style={{ fontSize: "0.93rem", lineHeight: 2, color: "#374151", marginBottom: "3.5rem", paddingBottom: "3rem", borderBottom: "1px solid #e5e7eb" }}>
             (주)무유플랜트는 <strong>용접·성형 기반의 뿌리기술 전문기업</strong>으로서, 설립 이후 지속적인 기술 투자와 인증 취득을 통해
             국내 주요 대기업 및 플랜트 기업의 공인 제작사로 자리매김하였습니다.
