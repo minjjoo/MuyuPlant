@@ -155,14 +155,14 @@ export default function Capacity() {
                   <tbody>
                     {productionData.map((row) => (
                       <tr key={row.no}>
-                        <TD center>{row.no}</TD>
+                        <TD>{row.no}</TD>
                         <TD>
                           <div style={{ fontWeight: 600, color: "#111827" }}>{row.equipment}</div>
                           <div style={{ fontSize: "0.75rem", color: "#9ca3af" }}>{row.equipmentKo}</div>
                         </TD>
-                        <TD center>{row.capacity}</TD>
+                        <TD>{row.capacity}</TD>
                         <TD>{row.size}</TD>
-                        <TD center>{row.maxWeight}</TD>
+                        <TD>{row.maxWeight}</TD>
                       </tr>
                     ))}
                   </tbody>
@@ -216,7 +216,7 @@ export default function Capacity() {
                   <tbody>
                     {facilityData.map((row) => (
                       <tr key={row.no}>
-                        <TD center>{row.no}</TD>
+                        <TD>{row.no}</TD>
                         <TD>{row.equipment}</TD>
                         <TD>{row.spec}</TD>
                         <TD center>{row.qty}</TD>
@@ -245,7 +245,7 @@ export default function Capacity() {
                   <tbody>
                     {measurementData.map((row) => (
                       <tr key={row.no}>
-                        <TD center>{row.no}</TD>
+                        <TD>{row.no}</TD>
                         <TD>{row.equipment}</TD>
                         <TD>{row.spec}</TD>
                         <TD center>{row.qty}</TD>
