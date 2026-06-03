@@ -184,7 +184,7 @@ export default function Capacity() {
                   return (
                     <div key={nameKo} style={{ display: "grid", gridTemplateColumns: "2fr 3fr", borderTop: "1px solid #e5e7eb", direction: isEven ? "ltr" : "rtl" }}>
                       <div style={{ overflow: "hidden", aspectRatio: "4/3", direction: "ltr" }}>
-                        <img src={img} alt={nameKo} style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }} />
+                        <img src={img} alt={nameKo} loading="lazy" style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }} />
                       </div>
                       <div style={{ padding: "2rem 2.5rem", display: "flex", flexDirection: "column", justifyContent: "center", direction: "ltr" }}>
                         <div style={{ fontSize: "0.72rem", color: "#9ca3af", letterSpacing: "1px", marginBottom: "0.6rem" }}>{nameEn}</div>
@@ -267,7 +267,7 @@ export default function Capacity() {
                 {projectGallery.map(({ img, title, desc }, i) => (
                   <div key={i} style={{ overflow: "hidden" }}>
                     <div style={{ overflow: "hidden", aspectRatio: "4/3" }}>
-                      <img src={img} alt={title} style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }} />
+                      <img src={img} alt={title} loading="lazy" style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }} />
                     </div>
                     <div style={{ padding: "0.6rem 0 0" }}>
                       <div style={{ fontSize: "0.74rem", fontWeight: 600, color: "#111827", lineHeight: 1.4, marginBottom: "0.2rem" }}>{title}</div>

@@ -118,7 +118,7 @@ export default function Home() {
             </Link>
           </div>
           <div style={{ overflow: "hidden", aspectRatio: "4/3" }}>
-            <img src="/home1.avif" alt="무유플랜트 공장" style={{ width: "100%", height: "100%", objectFit: "cover" }} />
+            <img src="/home1.avif" alt="무유플랜트 공장" loading="lazy" style={{ width: "100%", height: "100%", objectFit: "cover" }} />
           </div>
         </div>
       </section>
@@ -141,7 +141,7 @@ export default function Home() {
                   direction: isEven ? "ltr" : "rtl",
                 }}>
                   <div style={{ overflow: "hidden", aspectRatio: "16/9", direction: "ltr" }}>
-                    <img src={img} alt={nameKo} style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }} />
+                    <img src={img} alt={nameKo} loading="lazy" style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }} />
                   </div>
                   <div style={{ padding: "4rem 3.5rem", display: "flex", flexDirection: "column", justifyContent: "center", direction: "ltr" }}>
                     <div style={{ fontSize: "0.75rem", color: "#9ca3af", letterSpacing: "1px", marginBottom: "0.8rem" }}>{nameEn}</div>
