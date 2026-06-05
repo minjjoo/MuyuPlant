@@ -55,8 +55,8 @@ export default function Location() {
               <p style={{ fontSize: "0.72rem", letterSpacing: "2.5px", color: "#9ca3af", marginBottom: "1.5rem", textTransform: "uppercase" }}>Contact</p>
               <div style={{ borderTop: "1px solid #e5e7eb" }}>
                 {[
-                  { label: "이메일", value: "문의 이메일 주소" },
-                  { label: "팩스", value: "팩스 번호" },
+                  { label: "이메일", value: "yoook12@naver.com" },
+                  { label: "팩스", value: "041-357-6954" },
                 ].map(({ label, value }) => (
                   <div key={label} style={{ padding: "1.1rem 0", borderBottom: "1px solid #e5e7eb" }}>
                     <div style={{ fontSize: "0.76rem", color: "#9ca3af", marginBottom: "0.3rem" }}>{label}</div>
