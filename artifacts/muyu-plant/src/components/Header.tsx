@@ -4,9 +4,10 @@ import { useState, useEffect } from "react";
 const NAV = [
   { to: "/about", label: "회사소개" },
   { to: "/history", label: "연혁 및 인증" },
-  { to: "/capacity", label: "생산능력" },
-  { to: "/tech", label: "기술" },
-  { to: "/location", label: "오시는 길" },
+  { to: "/business", label: "사업분야" },
+  { to: "/production", label: "생산설비" },
+  { to: "/quality", label: "품질경영" },
+  { to: "/results", label: "주요실적" },
 ];
 
 export default function Header() {

@@ -3,8 +3,10 @@ import Header from "./components/Header";
 import Home from "./pages/Home";
 import About from "./pages/About";
 import History from "./pages/History";
-import Capacity from "./pages/Capacity";
-import Tech from "./pages/Tech";
+import Business from "./pages/Business";
+import Production from "./pages/Production";
+import Quality from "./pages/Quality";
+import Results from "./pages/Results";
 import Location from "./pages/Location";
 
 export default function App() {
@@ -21,8 +23,10 @@ export default function App() {
             <Route path="/" element={<Home />} />
             <Route path="/about" element={<About />} />
             <Route path="/history" element={<History />} />
-            <Route path="/capacity" element={<Capacity />} />
-            <Route path="/tech" element={<Tech />} />
+            <Route path="/business" element={<Business />} />
+            <Route path="/production" element={<Production />} />
+            <Route path="/quality" element={<Quality />} />
+            <Route path="/results" element={<Results />} />
             <Route path="/location" element={<Location />} />
           </Routes>
         </main>
