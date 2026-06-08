@@ -36,7 +36,7 @@ export default function Header() {
       display: "grid",
       gridTemplateColumns: "220px 1fr 220px",
       alignItems: "center",
-      transition: "background 0.3s ease",
+      transition: "background 0.15s, color 0.15s",
     }}>
       <Link to="/" style={{ color: scrolled ? "#111827" : "white", textDecoration: "none" }}>
         <span style={{ fontSize: "1.15rem", fontWeight: 700, letterSpacing: "-0.3px" }}>(주)무유플랜트</span>
