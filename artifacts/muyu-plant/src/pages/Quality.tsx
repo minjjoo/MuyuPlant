@@ -67,14 +67,14 @@ export default function Quality() {
             {/* 품질관리 체계 */}
             <div>
               <h3 style={{ fontSize: "1.1rem", fontWeight: 700, color: "#111827", marginBottom: "1.5rem", paddingBottom: "0.8rem", borderBottom: "2px solid #111827" }}>품질관리 체계</h3>
-              <div style={{ display: "flex", flexDirection: "column", gap: "0" }}>
+              <div style={{ display: "flex", flexDirection: "column", alignItems: "flex-start" }}>
                 {processSteps.map((step, i) => (
-                  <div key={step} style={{ display: "flex", flexDirection: "column", alignItems: "flex-start" }}>
-                    <div style={{ background: i === 0 || i === processSteps.length - 1 ? "#111827" : "#f3f4f6", color: i === 0 || i === processSteps.length - 1 ? "#fff" : "#374151", padding: "0.6rem 1.2rem", fontSize: "0.85rem", fontWeight: i === 0 || i === processSteps.length - 1 ? 700 : 400, width: "fit-content" }}>
+                  <div key={step} style={{ display: "flex", flexDirection: "column", alignItems: "center", width: "180px" }}>
+                    <div style={{ background: i === 0 || i === processSteps.length - 1 ? "#111827" : "#f3f4f6", color: i === 0 || i === processSteps.length - 1 ? "#fff" : "#374151", padding: "0.65rem 1.2rem", fontSize: "0.85rem", fontWeight: i === 0 || i === processSteps.length - 1 ? 700 : 400, width: "100%", textAlign: "center" }}>
                       {step}
                     </div>
                     {i < processSteps.length - 1 && (
-                      <div style={{ paddingLeft: "1.2rem", color: "#9ca3af", fontSize: "0.8rem", lineHeight: 1, margin: "0.4rem 0" }}>↓</div>
+                      <div style={{ color: "#9ca3af", fontSize: "1rem", margin: "0.6rem 0" }}>↓</div>
                     )}
                   </div>
                 ))}
