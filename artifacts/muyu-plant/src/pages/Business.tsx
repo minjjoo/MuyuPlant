@@ -44,7 +44,7 @@ export default function Business() {
       {/* 탭 */}
       <div style={{ background: "#fff", position: "sticky", top: "88px", zIndex: 90 }}>
         <div style={{ maxWidth: "1200px", margin: "0 auto", padding: "0 5rem" }}>
-          <div style={{ display: "flex", borderBottom: "2px solid #e5e7eb" }}>
+          <div style={{ display: "flex" }}>
           {TABS.map(({ id, ko }) => (
             <button
               key={id}
