@@ -42,9 +42,9 @@ export default function Business() {
       <PageHero title="사업분야" subtitle="고객이 필요로 하는 플랜트 설비를 전문 제작합니다" />
 
       {/* 탭 */}
-      <div style={{ background: "#fff", borderBottom: "1px solid #e5e7eb", position: "sticky", top: "88px", zIndex: 50 }}>
+      <div style={{ background: "#fff", position: "sticky", top: "88px", zIndex: 50, boxShadow: "0 1px 0 #e5e7eb" }}>
         <div style={{ maxWidth: "1200px", margin: "0 auto", padding: "0 5rem", display: "flex" }}>
-          {TABS.map(({ id, ko, en }) => (
+          {TABS.map(({ id, ko }) => (
             <button
               key={id}
               onClick={() => setActive(id)}
@@ -53,6 +53,7 @@ export default function Business() {
                 background: "transparent",
                 border: "none",
                 borderBottom: active === id ? "2px solid #111827" : "2px solid transparent",
+                marginBottom: "-1px",
                 color: active === id ? "#111827" : "#9ca3af",
                 fontWeight: active === id ? 700 : 400,
                 fontSize: "0.9rem",
