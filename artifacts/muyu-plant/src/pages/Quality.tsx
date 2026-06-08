@@ -70,11 +70,11 @@ export default function Quality() {
               <div style={{ display: "flex", flexDirection: "column", gap: "0" }}>
                 {processSteps.map((step, i) => (
                   <div key={step} style={{ display: "flex", flexDirection: "column", alignItems: "flex-start" }}>
-                    <div style={{ background: i === 0 || i === processSteps.length - 1 ? "#111827" : "#f3f4f6", color: i === 0 || i === processSteps.length - 1 ? "#fff" : "#374151", padding: "0.6rem 1.2rem", fontSize: "0.85rem", fontWeight: i === 0 || i === processSteps.length - 1 ? 700 : 400 }}>
+                    <div style={{ background: i === 0 || i === processSteps.length - 1 ? "#111827" : "#f3f4f6", color: i === 0 || i === processSteps.length - 1 ? "#fff" : "#374151", padding: "0.6rem 1.2rem", fontSize: "0.85rem", fontWeight: i === 0 || i === processSteps.length - 1 ? 700 : 400, width: "fit-content" }}>
                       {step}
                     </div>
                     {i < processSteps.length - 1 && (
-                      <div style={{ marginLeft: "1.2rem", color: "#9ca3af", fontSize: "0.75rem", lineHeight: 1 }}>↓</div>
+                      <div style={{ paddingLeft: "1.2rem", color: "#9ca3af", fontSize: "0.8rem", lineHeight: 1, margin: "0.4rem 0" }}>↓</div>
                     )}
                   </div>
                 ))}
