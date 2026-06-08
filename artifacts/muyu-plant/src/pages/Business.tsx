@@ -42,7 +42,7 @@ export default function Business() {
       <PageHero title="사업분야" subtitle="고객이 필요로 하는 플랜트 설비를 전문 제작합니다" />
 
       {/* 탭 */}
-      <div style={{ background: "#fff", position: "sticky", top: "88px", zIndex: 50 }}>
+      <div style={{ background: "#fff", position: "sticky", top: "88px", zIndex: 90 }}>
         <div style={{ maxWidth: "1200px", margin: "0 auto", padding: "0 5rem", display: "flex", borderBottom: "1px solid #e5e7eb" }}>
           {TABS.map(({ id, ko }) => (
             <button
