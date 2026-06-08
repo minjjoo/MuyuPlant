@@ -179,7 +179,7 @@ export default function Home() {
           <div style={{ marginBottom: "3rem" }}>
             <p style={{ fontSize: "0.72rem", letterSpacing: "2.5px", color: "#9ca3af", marginBottom: "0.8rem", textTransform: "uppercase" }}>Location</p>
             <h2 style={{ fontSize: "2rem", fontWeight: 700, color: "#111827", margin: "0 0 0.5rem" }}>오시는 길</h2>
-            <p style={{ color: "#6b7280", fontSize: "0.9rem", margin: 0 }}>충청남도 당진시 송악읍 부곡공단 (현대제철 인근)</p>
+            <p style={{ color: "#6b7280", fontSize: "0.9rem", margin: 0 }}>충청남도 당진시 송악읍 부공공단 4길 53-39</p>
           </div>
           <NaverMapMini />
           <div style={{ marginTop: "1.5rem", textAlign: "right" }}>
