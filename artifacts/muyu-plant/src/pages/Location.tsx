@@ -41,7 +41,7 @@ export default function Location() {
               <p style={{ fontSize: "0.72rem", letterSpacing: "2.5px", color: "#9ca3af", marginBottom: "1.5rem", textTransform: "uppercase" }}>Address</p>
               <div style={{ borderTop: "1px solid #e5e7eb" }}>
                 {[
-                  { label: "공장 및 본사", value: "충청남도 당진시 송악읍 부곡공단" },
+                  { label: "공장 및 본사", value: "충청남도 당진시 송악읍 부공공단 4길 53-39" },
                   { label: "인근 랜드마크", value: "현대제철 당진제철소 인근" },
                 ].map(({ label, value }) => (
                   <div key={label} style={{ padding: "1.1rem 0", borderBottom: "1px solid #e5e7eb" }}>
@@ -55,8 +55,9 @@ export default function Location() {
               <p style={{ fontSize: "0.72rem", letterSpacing: "2.5px", color: "#9ca3af", marginBottom: "1.5rem", textTransform: "uppercase" }}>Contact</p>
               <div style={{ borderTop: "1px solid #e5e7eb" }}>
                 {[
-                  { label: "이메일", value: "yoook12@naver.com" },
+                  { label: "전화", value: "041) 357-6951~3" },
                   { label: "팩스", value: "041-357-6954" },
+                  { label: "이메일", value: "yoook12@naver.com" },
                 ].map(({ label, value }) => (
                   <div key={label} style={{ padding: "1.1rem 0", borderBottom: "1px solid #e5e7eb" }}>
                     <div style={{ fontSize: "0.76rem", color: "#9ca3af", marginBottom: "0.3rem" }}>{label}</div>
