@@ -102,7 +102,7 @@ export default function Production() {
           <h2 style={{ fontSize: "1.5rem", fontWeight: 700, color: "#111827", margin: "0 0 2rem" }}>생산 경쟁력</h2>
           <div style={{ display: "flex", flexWrap: "wrap", gap: "1rem" }}>
             {competitiveness.map(item => (
-              <div key={item} style={{ background: "#111827", color: "#fff", padding: "0.8rem 1.5rem", fontSize: "0.88rem", fontWeight: 500 }}>
+              <div key={item} style={{ background: "#1e3a5f", color: "#fff", padding: "0.8rem 1.5rem", fontSize: "0.88rem", fontWeight: 500 }}>
                 {item}
               </div>
             ))}
