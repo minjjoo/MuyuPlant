@@ -117,8 +117,8 @@ export default function Quality() {
               width: "100%",
               height: "100%"
             }}>
-              <span style={{ fontSize: "0.68rem", color: "rgba(255,255,255,0.65)", fontWeight: 600, marginBottom: "0.25rem" }}>0{i + 1}</span>
-              <span style={{ fontSize: "0.78rem", color: "#fff", fontWeight: 700, lineHeight: 1.3, whiteSpace: "nowrap" }}>{step}</span>
+              <span style={{ fontSize: "0.68rem", color: "rgba(255,255,255,0.65)", fontWeight: 600, marginBottom: "0.25rem", }}>0{i + 1}</span>
+              <span style={{ fontSize: "0.78rem", color: i >= 6 ? "#5a9fd4" : "#fff", fontWeight: 700, lineHeight: 1.3, whiteSpace: "nowrap" }}>{step}</span>
             </div>
           </div>
         );
