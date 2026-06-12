@@ -75,7 +75,7 @@ export default function Quality() {
         return (
           <div key={step} style={{ background: bg, display: "flex", alignItems: "center", gap: "0.8rem", padding: "0.75rem 1rem" }}>
             <span style={{ fontSize: "0.68rem", color: "rgba(255,255,255,0.65)", fontWeight: 700, flexShrink: 0 }}>0{i + 1}</span>
-            <span style={{ fontSize: "0.85rem", color: "#fff", fontWeight: 700 }}>{step}</span>
+            <span style={{ fontSize: "0.85rem", color: i >= 6 ? "#5a9fd4" : "#fff", fontWeight: 700 }}>{step}</span>
           </div>
         );
       })}

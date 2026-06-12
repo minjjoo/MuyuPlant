@@ -16,12 +16,12 @@ const historyItems = [
 ];
 
 const certs = [
+  { name: "뿌리기술 전문기업", desc: "용접·성형 기반 제조 전문기업 지정", year: "2023" },
+  { name: "ASME U STAMP", desc: "압력용기 국제 인증 (미국기계학회)", year: "2022" },
+  { name: "특정설비제조등록", desc: "고압가스 특정설비 제조업 등록", year: "2019" },
   { name: "ISO 9001", desc: "품질경영시스템", year: "2018" },
   { name: "ISO 14001", desc: "환경경영시스템", year: "2018" },
   { name: "OHSAS 18001", desc: "안전보건경영시스템", year: "2018" },
-  { name: "ASME U STAMP", desc: "압력용기 국제 인증 (미국기계학회)", year: "2022" },
-  { name: "특정설비제조등록", desc: "고압가스 특정설비 제조업 등록", year: "2019" },
-  { name: "뿌리기술 전문기업", desc: "용접·성형 기반 제조 전문기업 지정", year: "2023" },
 ];
 
 export default function History() {
@@ -87,7 +87,7 @@ export default function History() {
           <div style={{ borderTop: "1px solid #e5e7eb" }}>
             {certs.map(({ name, desc, year }) => (
               <div key={name} style={{ display: "flex", alignItems: isMobile ? "flex-start" : "center", gap: "1rem", padding: "1.1rem 0", borderBottom: "1px solid #e5e7eb", flexWrap: isMobile ? "wrap" : "nowrap" }}>
-                <div style={{ background: "#111827", color: "#fff", padding: "0.25rem 0.6rem", fontSize: "0.72rem", fontWeight: 700, flexShrink: 0, minWidth: "42px", textAlign: "center" }}>{year}</div>
+                <div style={{ background: "#1e3a5f", color: "#fff", padding: "0.25rem 0.6rem", fontSize: "0.72rem", fontWeight: 700, flexShrink: 0, minWidth: "42px", textAlign: "center" }}>{year}</div>
                 <div style={{ fontWeight: 600, color: "#111827", fontSize: "0.9rem", minWidth: isMobile ? "auto" : "170px" }}>{name}</div>
                 <div style={{ fontSize: "0.85rem", color: "#6b7280" }}>{desc}</div>
               </div>
@@ -106,8 +106,8 @@ function Dot({ active }: { active: boolean }) {
 function TextBlock({ item, active, position }: { item: { year: string; content: string }; active: boolean; position: "top" | "bottom" }) {
   return (
     <div style={{ textAlign: "center", minHeight: "100px", display: "flex", flexDirection: "column", justifyContent: position === "top" ? "flex-end" : "flex-start", padding: "0 8px" }}>
-      <div style={{ fontWeight: 700, fontSize: "0.95rem", color: active ? "#111827" : "#9ca3af", marginBottom: "4px", transition: "color 0.2s" }}>{item.year}</div>
-      <div style={{ fontSize: "0.78rem", color: active ? "#374151" : "#d1d5db", lineHeight: 1.65, wordBreak: "keep-all", transition: "color 0.2s" }}>
+      <div style={{ fontWeight: 700, fontSize: "0.95rem", color: active ? "#111827" : "#4b5563", marginBottom: "4px", transition: "color 0.2s" }}>{item.year}</div>
+      <div style={{ fontSize: "0.78rem", color: active ? "#374151" : "#6b7280", lineHeight: 1.65, wordBreak: "keep-all", transition: "color 0.2s" }}>
         {item.content.split("\n").map((line, i) => <span key={i} style={{ display: "block" }}>{line}</span>)}
       </div>
     </div>

@@ -15,6 +15,7 @@ import Production from "./pages/Production";
 import Quality from "./pages/Quality";
 import Results from "./pages/Results";
 import Location from "./pages/Location";
+import Capacity from "./pages/Capacity";
 
 export default function App() {
   return (
@@ -36,6 +37,7 @@ export default function App() {
             <Route path="/quality" element={<Quality />} />
             <Route path="/results" element={<Results />} />
             <Route path="/location" element={<Location />} />
+            <Route path="/capacity" element={<Capacity />} />
           </Routes>
         </main>
         <footer style={{ background: "#111827", color: "rgba(255,255,255,0.4)", textAlign: "center", padding: "2.5rem 3rem", fontSize: "0.82rem", borderTop: "1px solid rgba(255,255,255,0.06)" }}>
