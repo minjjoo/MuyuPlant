@@ -51,19 +51,15 @@ export default function Quality() {
             고객이 요구하는 품질 수준을 충족하는 것은 물론, 관련 규격과 기준을 철저히 준수하여 안전하고 신뢰할 수 있는 제품을 공급하고 있습니다.
           </p>
 
-          <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "3rem", marginBottom: "4rem" }}>
-            {/* 품질방침 */}
-            <div>
-              <h3 style={{ fontSize: "1.1rem", fontWeight: 700, color: "#111827", marginBottom: "1.5rem", paddingBottom: "0.8rem", borderBottom: "2px solid #111827" }}>품질방침</h3>
-              <ul style={{ listStyle: "none", padding: 0, margin: 0, display: "flex", flexDirection: "column", gap: "0.8rem" }}>
-                {policy.map(item => (
-                  <li key={item} style={{ display: "flex", gap: "0.8rem", fontSize: "0.9rem", color: "#374151", lineHeight: 1.7 }}>
-                    <span style={{ color: "#111827", fontWeight: 700, flexShrink: 0 }}>•</span>{item}
-                  </li>
-                ))}
-              </ul>
-            </div>
-
+          <div style={{ marginBottom: "4rem" }}>
+            <h3 style={{ fontSize: "1.1rem", fontWeight: 700, color: "#111827", marginBottom: "1.5rem", paddingBottom: "0.8rem", borderBottom: "2px solid #111827" }}>품질방침</h3>
+            <ul style={{ listStyle: "none", padding: 0, margin: 0, display: "flex", flexDirection: "column", gap: "0.8rem" }}>
+              {policy.map(item => (
+                <li key={item} style={{ display: "flex", gap: "0.8rem", fontSize: "0.9rem", color: "#374151", lineHeight: 1.7 }}>
+                  <span style={{ color: "#111827", fontWeight: 700, flexShrink: 0 }}>•</span>{item}
+                </li>
+              ))}
+            </ul>
           </div>
 
           {/* 품질관리 체계 - 가로 chevron */}
