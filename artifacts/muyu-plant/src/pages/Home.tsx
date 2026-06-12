@@ -65,13 +65,13 @@ export default function Home() {
   return (
     <div>
       {/* 히어로 */}
-      <section style={{ position: "relative", background: "#000629", color: "white", padding: isMobile ? "10rem 1.5rem 6rem" : "14rem 3rem 9rem", overflow: "hidden" }}>
-        <div style={{
-          position: "absolute", inset: 0,
-          backgroundImage: "url('/hero.jpg')",
-          backgroundSize: "cover", backgroundPosition: "center",
-          opacity: 0.35, zIndex: 0,
-        }} />
+      <section style={{
+        position: "relative",
+        background: "linear-gradient(rgba(0,6,41,0.68), rgba(0,6,41,0.68)), url('/hero.jpg') center/cover no-repeat",
+        color: "white",
+        padding: isMobile ? "10rem 1.5rem 6rem" : "14rem 3rem 9rem",
+        overflow: "hidden",
+      }}>
         <div style={{ position: "relative", zIndex: 1, maxWidth: "760px", margin: "0 auto", textAlign: "center" }}>
           <p style={{ fontSize: "0.75rem", letterSpacing: "3px", color: "rgba(255,255,255,0.4)", marginBottom: "1.5rem", textTransform: "uppercase" }}>
             Plant Manufacturing Since 2015

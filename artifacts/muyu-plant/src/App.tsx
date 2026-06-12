@@ -1,4 +1,11 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
+import { useLayoutEffect } from "react";
+
+function ScrollToTop() {
+  const { pathname } = useLocation();
+  useLayoutEffect(() => { window.scrollTo(0, 0); }, [pathname]);
+  return null;
+}
 import Header from "./components/Header";
 import Home from "./pages/Home";
 import About from "./pages/About";
@@ -17,6 +24,7 @@ export default function App() {
         rel="stylesheet"
       />
       <div style={{ fontFamily: "'Noto Sans KR', sans-serif", color: "#111", lineHeight: 1.6, minHeight: "100vh", display: "flex", flexDirection: "column" }}>
+        <ScrollToTop />
         <Header />
         <main style={{ flex: 1 }}>
           <Routes>

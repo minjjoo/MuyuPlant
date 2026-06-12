@@ -95,7 +95,7 @@ export default function Production() {
         </div>
       </section>
 
-      <section style={{ padding: isMobile ? "2rem 1.5rem 4rem" : "4rem 5rem 8rem", background: "#f9fafb" }}>
+      <section style={{ padding: isMobile ? "2rem 1.5rem 4rem" : "4rem 5rem 8rem", background: "#fff" }}>
         <div style={{ maxWidth: "1200px", margin: "0 auto" }}>
           <p style={{ fontSize: "0.72rem", letterSpacing: "2.5px", color: "#9ca3af", marginBottom: "0.6rem", textTransform: "uppercase" }}>Competitiveness</p>
           <h2 style={{ fontSize: "1.5rem", fontWeight: 700, color: "#111827", margin: "0 0 2rem" }}>생산 경쟁력</h2>
