@@ -64,23 +64,59 @@ export default function Quality() {
               </ul>
             </div>
 
-            {/* 품질관리 체계 */}
-            <div>
-              <h3 style={{ fontSize: "1.1rem", fontWeight: 700, color: "#111827", marginBottom: "1.5rem", paddingBottom: "0.8rem", borderBottom: "2px solid #111827" }}>품질관리 체계</h3>
-              <div style={{ display: "flex", flexDirection: "column", width: "220px" }}>
-                {processSteps.map((step, i) => (
-                  <div key={step} style={{ display: "flex", flexDirection: "column", alignItems: "center" }}>
-                    <div style={{ background: i === 0 || i === processSteps.length - 1 ? "#111827" : "#f3f4f6", color: i === 0 || i === processSteps.length - 1 ? "#fff" : "#374151", padding: "0.7rem 1.2rem", fontSize: "0.85rem", fontWeight: i === 0 || i === processSteps.length - 1 ? 700 : 400, width: "100%", textAlign: "center", boxSizing: "border-box" }}>
-                      {step}
-                    </div>
-                    {i < processSteps.length - 1 && (
-                      <div style={{ color: "#9ca3af", fontSize: "1.1rem", margin: "0.9rem 0", lineHeight: 1 }}>↓</div>
-                    )}
-                  </div>
-                ))}
-              </div>
-            </div>
           </div>
+
+          {/* 품질관리 체계 - 가로 chevron */}
+<div style={{ marginBottom: "4rem" }}>
+  <h3 style={{ fontSize: "1.1rem", fontWeight: 700, color: "#111827", marginBottom: "1.5rem", paddingBottom: "0.8rem", borderBottom: "2px solid #111827" }}>품질관리 체계</h3>
+  <div style={{ display: "flex", alignItems: "stretch" }}>
+    {processSteps.map((step, i) => {
+      const isLast = i === processSteps.length - 1;
+      const colors = ["#1e3a5f","#2d5a8e","#3d7ab5","#5a9fd4","#7ab8e8","#9acfee","#b8e0f5","#d0edfb"];
+      const bg = colors[i] ?? "#3d7ab5";
+      const ARROW = 16;
+      const isFirst = i === 0;
+      
+      return (
+        <div key={step} style={{
+          flex: "1 1 auto",
+          position: "relative",
+          marginLeft: isFirst ? 0 : `-${ARROW + 24}px`, 
+          zIndex: processSteps.length - i,
+          filter: isLast ? "none" : "drop-shadow(3px 0px 0px #ffffff)"
+        }}>
+          <div style={{
+            background: bg,
+            borderRadius: isFirst ? "40px 0 0 40px" : isLast ? "0 40px 40px 0" : "0",
+            clipPath: isFirst
+              ? `polygon(0 0, calc(100% - ${ARROW}px) 0, 100% 50%, calc(100% - ${ARROW}px) 100%, 0 100%)`
+              : isLast
+              ? `polygon(${ARROW}px 0, 100% 0, 100% 100%, ${ARROW}px 100%, 0 50%)`
+              : `polygon(${ARROW}px 0, calc(100% - ${ARROW}px) 0, 100% 50%, calc(100% - ${ARROW}px) 100%, ${ARROW}px 100%, 0 50%)`,
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
+            justifyContent: "center",
+            minHeight: "64px",
+            
+            // [수정된 부분] 2~8번 항목의 왼쪽 패딩을 늘려서 글자를 오른쪽으로 밉니다.
+            padding: isFirst 
+              ? `1rem ${ARROW + 16}px` // 1번은 기존 패딩 유지 (위아래 1rem, 좌우 대칭)
+              : `1rem ${ARROW + 16}px 1rem ${ARROW + 32}px`, // 2~8번은 [위, 오른쪽, 아래, 왼쪽] 순서로 왼쪽 패딩만 더 크게(32px) 줍니다.
+              
+            textAlign: "center",
+            boxSizing: "border-box",
+            width: "100%", 
+            height: "100%" 
+          }}>
+            <span style={{ fontSize: "0.68rem", color: "rgba(255,255,255,0.65)", fontWeight: 600, marginBottom: "0.25rem" }}>0{i + 1}</span>
+            <span style={{ fontSize: "0.78rem", color: "#fff", fontWeight: 700, lineHeight: 1.3, whiteSpace: "nowrap" }}>{step}</span>
+          </div>
+        </div>
+      );
+    })}
+  </div>
+</div>
 
           {/* 주요 품질관리 항목 */}
           <h3 style={{ fontSize: "1.1rem", fontWeight: 700, color: "#111827", marginBottom: "1.5rem", paddingBottom: "0.8rem", borderBottom: "2px solid #111827" }}>주요 품질관리 항목</h3>
