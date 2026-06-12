@@ -56,7 +56,8 @@ export default function Production() {
           <p style={{ fontSize: "0.72rem", letterSpacing: "2.5px", color: "#9ca3af", marginBottom: "0.6rem", textTransform: "uppercase" }}>Production Facility</p>
           <h2 style={{ fontSize: "1.8rem", fontWeight: 700, color: "#111827", margin: "0 0 1.5rem" }}>생산설비</h2>
           <p style={{ fontSize: "0.95rem", color: "#6b7280", lineHeight: 2, marginBottom: "4rem", maxWidth: "900px" }}>
-            (주)무유플랜트는 플랜트 배관, 압력용기, 열교환기 및 저장탱크의 고품질 제작을 위해 다양한 생산설비와 검사장비를 운영하고 있습니다. 체계적인 생산 시스템과 철저한 품질관리를 통해 고객이 요구하는 품질과 납기를 실현하고 있습니다.
+            <span style={{ display: "block" }}>(주)무유플랜트는 플랜트 배관, 압력용기, 열교환기 및 저장탱크의 고품질 제작을 위해 다양한 생산설비와 검사장비를 운영하고 있습니다.</span>
+            <span style={{ display: "block" }}>체계적인 생산 시스템과 철저한 품질관리를 통해 고객이 요구하는 품질과 납기를 실현하고 있습니다.</span>
           </p>
 
           <div style={{ display: "grid", gridTemplateColumns: isMobile ? "1fr" : "1fr 1fr", gap: "1.5rem", marginBottom: "3rem" }}>

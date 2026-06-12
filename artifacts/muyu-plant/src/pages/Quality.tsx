@@ -46,10 +46,10 @@ export default function Quality() {
           {/* 인트로 */}
           <p style={{ fontSize: "0.72rem", letterSpacing: "2.5px", color: "#9ca3af", marginBottom: "0.6rem", textTransform: "uppercase" }}>Quality Management</p>
           <h2 style={{ fontSize: "1.8rem", fontWeight: 700, color: "#111827", margin: "0 0 1.5rem" }}>품질경영</h2>
-          <p style={{ fontSize: "0.95rem", color: "#6b7280", lineHeight: 2, maxWidth: "900px", marginBottom: "1rem" }}>
+          <p style={{ fontSize: "0.95rem", color: "#6b7280", lineHeight: 1.8, marginBottom: "0.5rem" }}>
             (주)무유플랜트는 압력용기, 열교환기 및 저장탱크 제작 분야에서 최고의 품질과 신뢰성을 확보하기 위해 체계적인 품질경영 시스템을 운영하고 있습니다.
           </p>
-          <p style={{ fontSize: "0.95rem", color: "#6b7280", lineHeight: 2, maxWidth: "900px", marginBottom: "4rem" }}>
+          <p style={{ fontSize: "0.95rem", color: "#6b7280", lineHeight: 1.8, marginBottom: "4rem" }}>
             고객이 요구하는 품질 수준을 충족하는 것은 물론, 관련 규격과 기준을 철저히 준수하여 안전하고 신뢰할 수 있는 제품을 공급하고 있습니다.
           </p>
 

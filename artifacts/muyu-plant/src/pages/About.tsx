@@ -15,9 +15,18 @@ export default function About() {
           <div style={{ color: "#444", lineHeight: 2, fontSize: "0.95rem", borderLeft: "3px solid #e5e7eb", paddingLeft: "1.5rem" }}>
             <p style={{ marginTop: 0, marginBottom: "1.8rem" }}>안녕하십니까.<br />(주)무유플랜트 대표이사 이종수입니다.</p>
             <p style={{ marginBottom: "1.8rem" }}>(주)무유플랜트 홈페이지를 방문해 주신 여러분께 진심으로 감사드립니다.</p>
-            <p style={{ marginBottom: "1.8rem" }}>플랜트 산업은 국가 기간산업의 근간을 이루는 분야로서 높은 기술력과 품질, 그리고 안전에 대한 철저한 책임이 요구됩니다. 특히 압력용기, 열교환기, 저장탱크와 같은 핵심 설비는 산업 현장의 안정적인 운영과 직결되는 만큼, 제작 과정의 정밀성과 신뢰성이 무엇보다 중요합니다.</p>
-            <p style={{ marginBottom: "1.8rem" }}>(주)무유플랜트는 축적된 기술력과 풍부한 현장 경험을 바탕으로 플랜트 설비 제작 분야에서 고객의 다양한 요구에 부응해 왔습니다. 설계 검토부터 자재 선정, 제작, 검사 및 납품에 이르기까지 모든 공정에 체계적인 품질관리 시스템을 적용하여 고객이 신뢰할 수 있는 제품을 공급하고 있습니다.</p>
-            <p style={{ marginBottom: "1.8rem" }}>또한 지속적인 설비 투자와 기술 개발을 통해 생산 경쟁력을 강화하고 있으며, 철저한 공정 관리와 납기 준수로 고객의 사업 일정과 성공에 기여하고자 최선을 다하고 있습니다. 우리는 단순히 제품을 제작하는 기업을 넘어 고객의 가치 창출과 지속 가능한 성장을 함께하는 동반자가 되고자 합니다.</p>
+            <p style={{ marginBottom: "1.8rem" }}>
+              <span style={{ display: "block" }}>플랜트 산업은 국가 기간산업의 근간을 이루는 분야로서 높은 기술력과 품질, 그리고 안전에 대한 철저한 책임이 요구됩니다.</span>
+              <span style={{ display: "block", paddingLeft: undefined }}>특히 압력용기, 열교환기, 저장탱크와 같은 핵심 설비는 산업 현장의 안정적인 운영과 직결되는 만큼, 제작 과정의 정밀성과 신뢰성이 무엇보다 중요합니다.</span>
+            </p>
+            <p style={{ marginBottom: "1.8rem" }}>
+              <span style={{ display: "block" }}>(주)무유플랜트는 축적된 기술력과 풍부한 현장 경험을 바탕으로 플랜트 설비 제작 분야에서 고객의 다양한 요구에 부응해 왔습니다.</span>
+              <span style={{ display: "block", paddingLeft: undefined }}>설계 검토부터 자재 선정, 제작, 검사 및 납품에 이르기까지 모든 공정에 체계적인 품질관리 시스템을 적용하여 고객이 신뢰할 수 있는 제품을 공급하고 있습니다.</span>
+            </p>
+            <p style={{ marginBottom: "1.8rem" }}>
+              <span style={{ display: "block" }}>또한 지속적인 설비 투자와 기술 개발을 통해 생산 경쟁력을 강화하고 있으며, 철저한 공정 관리와 납기 준수로 고객의 사업 일정과 성공에 기여하고자 최선을 다하고 있습니다.</span>
+              <span style={{ display: "block", paddingLeft: undefined }}>우리는 단순히 제품을 제작하는 기업을 넘어 고객의 가치 창출과 지속 가능한 성장을 함께하는 동반자가 되고자 합니다.</span>
+            </p>
             <p style={{ marginBottom: "1.8rem" }}>앞으로도 (주)무유플랜트는 품질에 대한 책임, 기술에 대한 끊임없는 도전, 그리고 고객과의 신뢰를 바탕으로 국내외 플랜트 산업 발전에 기여하는 기업으로 성장해 나가겠습니다.</p>
             <p style={{ marginBottom: "1.8rem" }}>감사합니다.</p>
             <p style={{ fontWeight: 700, color: "#111827", marginBottom: 0 }}>(주)무유플랜트<br />대표이사 이종수</p>
