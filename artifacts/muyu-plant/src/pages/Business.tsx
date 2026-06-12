@@ -44,31 +44,35 @@ export default function Business() {
       <PageHero title="사업분야" subtitle="고객이 필요로 하는 플랜트 설비를 전문 제작합니다" />
 
       {/* 탭 */}
-      <div style={{ background: "#fff", borderBottom: "1px solid #e5e7eb", overflowX: "auto" }}>
-        <div style={{ maxWidth: "1200px", margin: "0 auto", padding: "0" }}>
-          <div style={{ display: "flex", justifyContent: "flex-start", minWidth: "max-content" }}>
+      <div style={{ background: "#fff", borderBottom: "1px solid #e5e7eb" }}>
+        <div style={{ padding: isMobile ? "0 1.5rem" : "0 5rem" }}>
+        <div style={{ maxWidth: "1200px", margin: "0 auto" }}>
+          <div style={{ display: "flex" }}>
             {TABS.map(({ id, ko }) => (
               <button
                 key={id}
                 onClick={() => setActive(id)}
                 style={{
-                  padding: isMobile ? "0.9rem 1.2rem" : "1.2rem 1.8rem",
+                  flex: isMobile ? "1 1 0" : "0 0 auto",
+                  padding: isMobile ? "0.9rem 0.5rem" : "1.2rem 1.8rem",
                   background: "transparent",
                   border: "none",
                   borderBottom: active === id ? "2px solid #111827" : "2px solid transparent",
                   marginBottom: "-1px",
                   color: active === id ? "#111827" : "#9ca3af",
                   fontWeight: active === id ? 700 : 400,
-                  fontSize: isMobile ? "0.85rem" : "0.9rem",
+                  fontSize: isMobile ? "0.82rem" : "0.9rem",
                   cursor: "pointer",
                   transition: "all 0.15s",
                   whiteSpace: "nowrap",
+                  textAlign: "center",
                 }}
               >
                 {ko}
               </button>
             ))}
           </div>
+        </div>
         </div>
       </div>
 
