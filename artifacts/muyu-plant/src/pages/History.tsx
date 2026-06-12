@@ -81,7 +81,7 @@ export default function History() {
       </section>
 
       <section style={{ padding: isMobile ? "3rem 1.5rem 4rem" : "7rem 5rem 8rem", background: "#fff" }}>
-        <div style={{ maxWidth: "960px", margin: "0 auto" }}>
+        <div style={{ maxWidth: "1200px", margin: "0 auto" }}>
           <p style={{ fontSize: "0.72rem", letterSpacing: "2.5px", color: "#9ca3af", marginBottom: "0.8rem", textTransform: "uppercase" }}>Certifications</p>
           <h3 style={{ fontSize: "1.5rem", fontWeight: 700, color: "#111827", marginBottom: "2rem" }}>보유 인증</h3>
           <div style={{ borderTop: "1px solid #e5e7eb" }}>

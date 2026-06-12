@@ -86,7 +86,7 @@ export default function Business() {
               {TABS.find(t => t.id === active)?.en}
             </span>
           </h2>
-          <p style={{ fontSize: "0.95rem", color: "#6b7280", lineHeight: 2, marginBottom: "3.5rem", maxWidth: "780px" }}>{tab.desc}</p>
+          <p style={{ fontSize: "0.95rem", color: "#6b7280", lineHeight: 2, marginBottom: "3.5rem", maxWidth: "100%" }}>{tab.desc}</p>
 
           <div style={{ display: "grid", gridTemplateColumns: isMobile ? "1fr" : "1fr 1fr", gap: "1.5rem" }}>
             <div style={{ background: "#f9fafb", padding: "2rem 2.5rem" }}>
