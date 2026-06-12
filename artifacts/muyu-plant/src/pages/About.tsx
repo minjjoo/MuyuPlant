@@ -1,11 +1,14 @@
 import PageHero from "../components/PageHero";
+import { useIsMobile } from "../hooks/use-mobile";
 
 export default function About() {
+  const isMobile = useIsMobile();
+  const sp = isMobile ? "3rem 1.5rem" : "8rem 5rem";
   return (
     <div>
       <PageHero title="회사소개" subtitle="(주)무유플랜트를 소개합니다" />
 
-      <section style={{ padding: "8rem 5rem", background: "#fff" }}>
+      <section style={{ padding: sp, background: "#fff" }}>
         <div style={{ maxWidth: "1200px", margin: "0 auto" }}>
           <p style={{ fontSize: "0.72rem", letterSpacing: "2.5px", color: "#9ca3af", marginBottom: "1rem", textTransform: "uppercase" }}>CEO Message</p>
           <h3 style={{ fontSize: "1.5rem", fontWeight: 700, color: "#111827", marginBottom: "2rem" }}>CEO 인사말</h3>
@@ -22,7 +25,7 @@ export default function About() {
         </div>
       </section>
 
-      <section style={{ padding: "7rem 5rem 8rem", background: "#fff" }}>
+      <section style={{ padding: isMobile ? "3rem 1.5rem 4rem" : "7rem 5rem 8rem", background: "#fff" }}>
         <div style={{ maxWidth: "1200px", margin: "0 auto" }}>
           <p style={{ fontSize: "0.72rem", letterSpacing: "2.5px", color: "#9ca3af", marginBottom: "1rem", textTransform: "uppercase" }}>Company Overview</p>
           <h3 style={{ fontSize: "1.5rem", fontWeight: 700, color: "#111827", marginBottom: "2rem" }}>회사 개요</h3>
@@ -37,9 +40,9 @@ export default function About() {
               { label: "특허", value: "특허 제 10-2147620호 (철판롤링장치)" },
               { label: "지정", value: "뿌리기술 전문기업 (2023년)" },
             ].map(({ label, value }) => (
-              <div key={label} style={{ display: "flex", borderBottom: "1px solid #e5e7eb" }}>
-                <div style={{ padding: "1rem 1.5rem 1rem 0", fontWeight: 600, color: "#374151", width: "160px", flexShrink: 0, fontSize: "0.85rem", display: "flex", alignItems: "center" }}>{label}</div>
-                <div style={{ padding: "1rem 1.5rem", color: "#555", fontSize: "0.9rem", display: "flex", alignItems: "center" }}>{value}</div>
+              <div key={label} style={{ display: "flex", flexDirection: isMobile ? "column" : "row", borderBottom: "1px solid #e5e7eb" }}>
+                <div style={{ padding: isMobile ? "0.8rem 0 0.2rem" : "1rem 1.5rem 1rem 0", fontWeight: 600, color: "#374151", width: isMobile ? "auto" : "160px", flexShrink: 0, fontSize: "0.85rem", display: "flex", alignItems: "center" }}>{label}</div>
+                <div style={{ padding: isMobile ? "0 0 0.8rem" : "1rem 1.5rem", color: "#555", fontSize: "0.9rem", display: "flex", alignItems: "center" }}>{value}</div>
               </div>
             ))}
           </div>

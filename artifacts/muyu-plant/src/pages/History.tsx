@@ -1,5 +1,6 @@
 import { useState } from "react";
 import PageHero from "../components/PageHero";
+import { useIsMobile } from "../hooks/use-mobile";
 
 const historyItems = [
   { year: "2025", content: "SK 하이닉스 협력업체 등록" },
@@ -25,49 +26,69 @@ const certs = [
 
 export default function History() {
   const [hovered, setHovered] = useState<number | null>(null);
+  const isMobile = useIsMobile();
   return (
     <div>
       <PageHero title="연혁 및 인증" subtitle="2015년 설립 이후 꾸준한 성장을 이어왔습니다" />
-      <section style={{ padding: "8rem 5rem", background: "#fff" }}>
+      <section style={{ padding: isMobile ? "3rem 1.5rem" : "8rem 5rem", background: "#fff" }}>
         <div style={{ maxWidth: "1200px", margin: "0 auto" }}>
           <p style={{ fontSize: "0.72rem", letterSpacing: "2.5px", color: "#9ca3af", marginBottom: "0.8rem", textTransform: "uppercase" }}>Timeline</p>
           <h3 style={{ fontSize: "1.5rem", fontWeight: 700, color: "#111827", marginBottom: "3rem" }}>주요 연혁</h3>
-          <div style={{ overflowX: "auto", paddingBottom: "1rem" }}>
-            <div style={{ position: "relative", display: "flex", alignItems: "center", minWidth: "max-content" }}>
-              <div style={{ position: "absolute", left: 0, right: 0, top: "50%", height: "1px", background: "#e5e7eb", zIndex: 0 }} />
-              {historyItems.map((item, index) => {
-                const isTop = index % 2 === 0;
-                const active = hovered === index;
-                return (
-                  <div key={index} onMouseEnter={() => setHovered(index)} onMouseLeave={() => setHovered(null)}
-                    style={{ position: "relative", zIndex: 1, display: "flex", flexDirection: "column", alignItems: "center", minWidth: "190px", maxWidth: "210px", height: "260px", padding: "0 8px", justifyContent: "center", cursor: "default" }}>
-                    {isTop ? (<>
-                      <TextBlock item={item} active={active} position="top" />
-                      <div style={{ width: "1px", height: "18px", background: active ? "#111827" : "#d1d5db", transition: "background 0.2s" }} />
-                      <Dot active={active} />
-                      <div style={{ flex: 1 }} />
-                    </>) : (<>
-                      <div style={{ flex: 1 }} />
-                      <Dot active={active} />
-                      <div style={{ width: "1px", height: "18px", background: active ? "#111827" : "#d1d5db", transition: "background 0.2s" }} />
-                      <TextBlock item={item} active={active} position="bottom" />
-                    </>)}
+
+          {isMobile ? (
+            /* 모바일: 세로 타임라인 */
+            <div style={{ position: "relative", paddingLeft: "2rem" }}>
+              <div style={{ position: "absolute", left: "7px", top: 0, bottom: 0, width: "1px", background: "#e5e7eb" }} />
+              {historyItems.map((item, i) => (
+                <div key={i} style={{ position: "relative", marginBottom: "1.8rem" }}>
+                  <div style={{ position: "absolute", left: "-1.55rem", top: "4px", width: "10px", height: "10px", borderRadius: "50%", background: "#111827", border: "2px solid #fff", boxShadow: "0 0 0 1px #d1d5db" }} />
+                  <div style={{ fontWeight: 700, fontSize: "0.9rem", color: "#111827", marginBottom: "0.3rem" }}>{item.year}</div>
+                  <div style={{ fontSize: "0.82rem", color: "#6b7280", lineHeight: 1.65 }}>
+                    {item.content.split("\n").map((line, j) => <span key={j} style={{ display: "block" }}>{line}</span>)}
                   </div>
-                );
-              })}
+                </div>
+              ))}
             </div>
-          </div>
+          ) : (
+            /* 데스크탑: 가로 타임라인 */
+            <div style={{ overflowX: "auto", paddingBottom: "1rem" }}>
+              <div style={{ position: "relative", display: "flex", alignItems: "center", minWidth: "max-content" }}>
+                <div style={{ position: "absolute", left: 0, right: 0, top: "50%", height: "1px", background: "#e5e7eb", zIndex: 0 }} />
+                {historyItems.map((item, index) => {
+                  const isTop = index % 2 === 0;
+                  const active = hovered === index;
+                  return (
+                    <div key={index} onMouseEnter={() => setHovered(index)} onMouseLeave={() => setHovered(null)}
+                      style={{ position: "relative", zIndex: 1, display: "flex", flexDirection: "column", alignItems: "center", minWidth: "190px", maxWidth: "210px", height: "260px", padding: "0 8px", justifyContent: "center", cursor: "default" }}>
+                      {isTop ? (<>
+                        <TextBlock item={item} active={active} position="top" />
+                        <div style={{ width: "1px", height: "18px", background: active ? "#111827" : "#d1d5db", transition: "background 0.2s" }} />
+                        <Dot active={active} />
+                        <div style={{ flex: 1 }} />
+                      </>) : (<>
+                        <div style={{ flex: 1 }} />
+                        <Dot active={active} />
+                        <div style={{ width: "1px", height: "18px", background: active ? "#111827" : "#d1d5db", transition: "background 0.2s" }} />
+                        <TextBlock item={item} active={active} position="bottom" />
+                      </>)}
+                    </div>
+                  );
+                })}
+              </div>
+            </div>
+          )}
         </div>
       </section>
-      <section style={{ padding: "7rem 5rem 8rem", background: "#fff" }}>
+
+      <section style={{ padding: isMobile ? "3rem 1.5rem 4rem" : "7rem 5rem 8rem", background: "#fff" }}>
         <div style={{ maxWidth: "960px", margin: "0 auto" }}>
           <p style={{ fontSize: "0.72rem", letterSpacing: "2.5px", color: "#9ca3af", marginBottom: "0.8rem", textTransform: "uppercase" }}>Certifications</p>
           <h3 style={{ fontSize: "1.5rem", fontWeight: 700, color: "#111827", marginBottom: "2rem" }}>보유 인증</h3>
           <div style={{ borderTop: "1px solid #e5e7eb" }}>
             {certs.map(({ name, desc, year }) => (
-              <div key={name} style={{ display: "flex", alignItems: "center", gap: "1.5rem", padding: "1.1rem 0", borderBottom: "1px solid #e5e7eb" }}>
+              <div key={name} style={{ display: "flex", alignItems: isMobile ? "flex-start" : "center", gap: "1rem", padding: "1.1rem 0", borderBottom: "1px solid #e5e7eb", flexWrap: isMobile ? "wrap" : "nowrap" }}>
                 <div style={{ background: "#111827", color: "#fff", padding: "0.25rem 0.6rem", fontSize: "0.72rem", fontWeight: 700, flexShrink: 0, minWidth: "42px", textAlign: "center" }}>{year}</div>
-                <div style={{ fontWeight: 600, color: "#111827", fontSize: "0.9rem", minWidth: "170px" }}>{name}</div>
+                <div style={{ fontWeight: 600, color: "#111827", fontSize: "0.9rem", minWidth: isMobile ? "auto" : "170px" }}>{name}</div>
                 <div style={{ fontSize: "0.85rem", color: "#6b7280" }}>{desc}</div>
               </div>
             ))}

@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { useEffect, useRef } from "react";
+import { useIsMobile } from "../hooks/use-mobile";
 
 function NaverMapMini() {
   const mapRef = useRef<HTMLDivElement>(null);
@@ -58,10 +59,13 @@ const PRODUCTS = [
 ];
 
 export default function Home() {
+  const isMobile = useIsMobile();
+  const px = isMobile ? "1.5rem" : "3rem";
+
   return (
     <div>
-      {/* 히어로 — 헤더가 fixed라 최상단부터 시작 */}
-      <section style={{ position: "relative", background: "#000629", color: "white", padding: "14rem 3rem 9rem", overflow: "hidden" }}>
+      {/* 히어로 */}
+      <section style={{ position: "relative", background: "#000629", color: "white", padding: isMobile ? "10rem 1.5rem 6rem" : "14rem 3rem 9rem", overflow: "hidden" }}>
         <div style={{
           position: "absolute", inset: 0,
           backgroundImage: "url('/hero.jpg')",
@@ -72,7 +76,7 @@ export default function Home() {
           <p style={{ fontSize: "0.75rem", letterSpacing: "3px", color: "rgba(255,255,255,0.4)", marginBottom: "1.5rem", textTransform: "uppercase" }}>
             Plant Manufacturing Since 2015
           </p>
-          <h1 style={{ fontSize: "3rem", fontWeight: 700, margin: "0 0 1.4rem", lineHeight: 1.25, wordBreak: "keep-all" }}>
+          <h1 style={{ fontSize: isMobile ? "1.9rem" : "3rem", fontWeight: 700, margin: "0 0 1.4rem", lineHeight: 1.25, wordBreak: "keep-all" }}>
             고객이 필요로 하는<br />모든 플랜트 제품을<br />만족시킵니다
           </h1>
           <p style={{ fontSize: "0.95rem", color: "rgba(255,255,255,0.5)", marginBottom: "3.5rem" }}>
@@ -90,10 +94,10 @@ export default function Home() {
 
       {/* 수치 */}
       <section style={{ background: "#000629" }}>
-        <div style={{ maxWidth: "1200px", margin: "0 auto", display: "flex", justifyContent: "space-around", flexWrap: "wrap", padding: "3.5rem 2rem", gap: "2rem", textAlign: "center" }}>
+        <div style={{ maxWidth: "1200px", margin: "0 auto", display: "flex", justifyContent: "space-around", flexWrap: "wrap", padding: isMobile ? "2.5rem 1.5rem" : "3.5rem 2rem", gap: "2rem", textAlign: "center" }}>
           {STATS.map(({ num, label }) => (
             <div key={label}>
-              <div style={{ fontSize: "2.2rem", fontWeight: 700, color: "#fff" }}>{num}</div>
+              <div style={{ fontSize: isMobile ? "1.8rem" : "2.2rem", fontWeight: 700, color: "#fff" }}>{num}</div>
               <div style={{ fontSize: "0.78rem", color: "rgba(255,255,255,0.35)", marginTop: "0.4rem", letterSpacing: "0.5px" }}>{label}</div>
             </div>
           ))}
@@ -102,10 +106,10 @@ export default function Home() {
 
       {/* 회사 소개 */}
       <section style={{ background: "#fff" }}>
-        <div style={{ maxWidth: "1200px", margin: "0 auto", padding: "6rem 3rem", display: "grid", gridTemplateColumns: "1fr 1fr", gap: "6rem", alignItems: "center" }}>
+        <div style={{ maxWidth: "1200px", margin: "0 auto", padding: isMobile ? "4rem 1.5rem" : "6rem 3rem", display: "grid", gridTemplateColumns: isMobile ? "1fr" : "1fr 1fr", gap: isMobile ? "2.5rem" : "6rem", alignItems: "center" }}>
           <div>
             <p style={{ fontSize: "0.72rem", letterSpacing: "2.5px", color: "#9ca3af", marginBottom: "1.2rem", textTransform: "uppercase" }}>About Us</p>
-            <h2 style={{ fontSize: "2rem", fontWeight: 700, color: "#111827", margin: "0 0 1.8rem", lineHeight: 1.3, wordBreak: "keep-all" }}>
+            <h2 style={{ fontSize: isMobile ? "1.5rem" : "2rem", fontWeight: 700, color: "#111827", margin: "0 0 1.8rem", lineHeight: 1.3, wordBreak: "keep-all" }}>
               뿌리기술 전문기업,<br />(주)무유플랜트
             </h2>
             <p style={{ color: "#6b7280", lineHeight: 2, fontSize: "0.92rem", marginBottom: "2.5rem" }}>
@@ -125,27 +129,27 @@ export default function Home() {
 
       {/* 주요 제품 */}
       <section style={{ background: "#fff" }}>
-        <div style={{ maxWidth: "1200px", margin: "0 auto", padding: "2rem 3rem 2rem" }}>
+        <div style={{ maxWidth: "1200px", margin: "0 auto", padding: `2rem ${px} 2rem` }}>
           <p style={{ fontSize: "0.72rem", letterSpacing: "2.5px", color: "#9ca3af", marginBottom: "1rem", textTransform: "uppercase" }}>Products</p>
-          <h2 style={{ fontSize: "2rem", fontWeight: 700, color: "#111827", margin: "0 0 0.5rem" }}>주요 생산 품목</h2>
+          <h2 style={{ fontSize: isMobile ? "1.5rem" : "2rem", fontWeight: 700, color: "#111827", margin: "0 0 0.5rem" }}>주요 생산 품목</h2>
         </div>
-        <div style={{ maxWidth: "1200px", margin: "0 auto", padding: "0 3rem 6rem" }}>
+        <div style={{ maxWidth: "1200px", margin: "0 auto", padding: `0 ${px} 4rem` }}>
           <div style={{ display: "flex", flexDirection: "column" }}>
             {PRODUCTS.map(({ nameKo, nameEn, desc, img }, i) => {
               const isEven = i % 2 === 0;
               return (
                 <div key={nameKo} style={{
                   display: "grid",
-                  gridTemplateColumns: "1fr 1fr",
+                  gridTemplateColumns: isMobile ? "1fr" : "1fr 1fr",
                   borderTop: "1px solid #e5e7eb",
-                  direction: isEven ? "ltr" : "rtl",
+                  direction: (!isMobile && !isEven) ? "rtl" : "ltr",
                 }}>
                   <div style={{ overflow: "hidden", aspectRatio: "16/9", direction: "ltr" }}>
                     <img src={img} alt={nameKo} loading="lazy" style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }} />
                   </div>
-                  <div style={{ padding: "4rem 3.5rem", display: "flex", flexDirection: "column", justifyContent: "center", direction: "ltr" }}>
+                  <div style={{ padding: isMobile ? "2rem 0" : "4rem 3.5rem", display: "flex", flexDirection: "column", justifyContent: "center", direction: "ltr" }}>
                     <div style={{ fontSize: "0.75rem", color: "#9ca3af", letterSpacing: "1px", marginBottom: "0.8rem" }}>{nameEn}</div>
-                    <div style={{ fontWeight: 700, fontSize: "1.4rem", color: "#111827", marginBottom: "1.2rem" }}>{nameKo}</div>
+                    <div style={{ fontWeight: 700, fontSize: isMobile ? "1.1rem" : "1.4rem", color: "#111827", marginBottom: "1.2rem" }}>{nameKo}</div>
                     <div style={{ fontSize: "0.88rem", color: "#6b7280", lineHeight: 1.9 }}>{desc}</div>
                   </div>
                 </div>
@@ -163,7 +167,7 @@ export default function Home() {
 
       {/* 인증 */}
       <section style={{ background: "#fff", color: "#111827" }}>
-        <div style={{ maxWidth: "1200px", margin: "0 auto", padding: "6rem 3rem", textAlign: "center" }}>
+        <div style={{ maxWidth: "1200px", margin: "0 auto", padding: isMobile ? "4rem 1.5rem" : "6rem 3rem", textAlign: "center" }}>
           <p style={{ fontSize: "0.72rem", letterSpacing: "2.5px", color: "#9ca3af", marginBottom: "2rem", textTransform: "uppercase" }}>Certifications</p>
           <div style={{ display: "flex", justifyContent: "center", gap: "0.8rem", flexWrap: "wrap" }}>
             {["ISO 9001", "ISO 14001", "OHSAS 18001", "ASME U STAMP", "특정설비제조등록", "뿌리기술 전문기업"].map((cert) => (
@@ -175,10 +179,10 @@ export default function Home() {
 
       {/* 오시는 길 */}
       <section style={{ background: "#fff" }}>
-        <div style={{ maxWidth: "1200px", margin: "0 auto", padding: "6rem 3rem" }}>
+        <div style={{ maxWidth: "1200px", margin: "0 auto", padding: isMobile ? "4rem 1.5rem" : "6rem 3rem" }}>
           <div style={{ marginBottom: "3rem" }}>
             <p style={{ fontSize: "0.72rem", letterSpacing: "2.5px", color: "#9ca3af", marginBottom: "0.8rem", textTransform: "uppercase" }}>Location</p>
-            <h2 style={{ fontSize: "2rem", fontWeight: 700, color: "#111827", margin: "0 0 0.5rem" }}>오시는 길</h2>
+            <h2 style={{ fontSize: isMobile ? "1.5rem" : "2rem", fontWeight: 700, color: "#111827", margin: "0 0 0.5rem" }}>오시는 길</h2>
             <p style={{ color: "#6b7280", fontSize: "0.9rem", margin: 0 }}>충청남도 당진시 송악읍 부공공단 4길 53-39</p>
           </div>
           <NaverMapMini />

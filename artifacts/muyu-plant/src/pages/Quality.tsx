@@ -1,4 +1,5 @@
 import PageHero from "../components/PageHero";
+import { useIsMobile } from "../hooks/use-mobile";
 
 const policy = [
   "고객 만족을 최우선 가치로 실현한다.",
@@ -34,11 +35,12 @@ const goals = [
 ];
 
 export default function Quality() {
+  const isMobile = useIsMobile();
   return (
     <div>
       <PageHero title="품질경영" subtitle="품질은 고객과의 약속이며 기업의 경쟁력입니다" />
 
-      <section style={{ padding: "6rem 5rem 8rem", background: "#fff" }}>
+      <section style={{ padding: isMobile ? "3rem 1.5rem 4rem" : "6rem 5rem 8rem", background: "#fff" }}>
         <div style={{ maxWidth: "1200px", margin: "0 auto" }}>
 
           {/* 인트로 */}
@@ -62,61 +64,72 @@ export default function Quality() {
             </ul>
           </div>
 
-          {/* 품질관리 체계 - 가로 chevron */}
+          {/* 품질관리 체계 */}
 <div style={{ marginBottom: "4rem" }}>
   <h3 style={{ fontSize: "1.1rem", fontWeight: 700, color: "#111827", marginBottom: "1.5rem", paddingBottom: "0.8rem", borderBottom: "2px solid #111827" }}>품질관리 체계</h3>
-  <div style={{ display: "flex", alignItems: "stretch" }}>
-    {processSteps.map((step, i) => {
-      const isLast = i === processSteps.length - 1;
-      const colors = ["#1e3a5f","#2d5a8e","#3d7ab5","#5a9fd4","#7ab8e8","#9acfee","#b8e0f5","#d0edfb"];
-      const bg = colors[i] ?? "#3d7ab5";
-      const ARROW = 16;
-      const isFirst = i === 0;
-      
-      return (
-        <div key={step} style={{
-          flex: "1 1 auto",
-          position: "relative",
-          marginLeft: isFirst ? 0 : `-${ARROW + 24}px`, 
-          zIndex: processSteps.length - i,
-          filter: isLast ? "none" : "drop-shadow(3px 0px 0px #ffffff)"
-        }}>
-          <div style={{
-            background: bg,
-            borderRadius: isFirst ? "40px 0 0 40px" : isLast ? "0 40px 40px 0" : "0",
-            clipPath: isFirst
-              ? `polygon(0 0, calc(100% - ${ARROW}px) 0, 100% 50%, calc(100% - ${ARROW}px) 100%, 0 100%)`
-              : isLast
-              ? `polygon(${ARROW}px 0, 100% 0, 100% 100%, ${ARROW}px 100%, 0 50%)`
-              : `polygon(${ARROW}px 0, calc(100% - ${ARROW}px) 0, 100% 50%, calc(100% - ${ARROW}px) 100%, ${ARROW}px 100%, 0 50%)`,
-            display: "flex",
-            flexDirection: "column",
-            alignItems: "center",
-            justifyContent: "center",
-            minHeight: "64px",
-            
-            // [수정된 부분] 2~8번 항목의 왼쪽 패딩을 늘려서 글자를 오른쪽으로 밉니다.
-            padding: isFirst 
-              ? `1rem ${ARROW + 16}px` // 1번은 기존 패딩 유지 (위아래 1rem, 좌우 대칭)
-              : `1rem ${ARROW + 16}px 1rem ${ARROW + 32}px`, // 2~8번은 [위, 오른쪽, 아래, 왼쪽] 순서로 왼쪽 패딩만 더 크게(32px) 줍니다.
-              
-            textAlign: "center",
-            boxSizing: "border-box",
-            width: "100%", 
-            height: "100%" 
-          }}>
-            <span style={{ fontSize: "0.68rem", color: "rgba(255,255,255,0.65)", fontWeight: 600, marginBottom: "0.25rem" }}>0{i + 1}</span>
-            <span style={{ fontSize: "0.78rem", color: "#fff", fontWeight: 700, lineHeight: 1.3, whiteSpace: "nowrap" }}>{step}</span>
+  {isMobile ? (
+    <div style={{ display: "flex", flexDirection: "column", gap: "0.5rem" }}>
+      {processSteps.map((step, i) => {
+        const colors = ["#1e3a5f","#2d5a8e","#3d7ab5","#5a9fd4","#7ab8e8","#9acfee","#b8e0f5","#d0edfb"];
+        const bg = colors[i] ?? "#3d7ab5";
+        return (
+          <div key={step} style={{ background: bg, display: "flex", alignItems: "center", gap: "0.8rem", padding: "0.75rem 1rem" }}>
+            <span style={{ fontSize: "0.68rem", color: "rgba(255,255,255,0.65)", fontWeight: 700, flexShrink: 0 }}>0{i + 1}</span>
+            <span style={{ fontSize: "0.85rem", color: "#fff", fontWeight: 700 }}>{step}</span>
           </div>
-        </div>
-      );
-    })}
-  </div>
+        );
+      })}
+    </div>
+  ) : (
+    <div style={{ display: "flex", alignItems: "stretch", overflowX: "auto" }}>
+      {processSteps.map((step, i) => {
+        const isLast = i === processSteps.length - 1;
+        const colors = ["#1e3a5f","#2d5a8e","#3d7ab5","#5a9fd4","#7ab8e8","#9acfee","#b8e0f5","#d0edfb"];
+        const bg = colors[i] ?? "#3d7ab5";
+        const ARROW = 16;
+        const isFirst = i === 0;
+        return (
+          <div key={step} style={{
+            flex: "1 1 auto",
+            position: "relative",
+            marginLeft: isFirst ? 0 : `-${ARROW + 24}px`,
+            zIndex: processSteps.length - i,
+            filter: isLast ? "none" : "drop-shadow(3px 0px 0px #ffffff)"
+          }}>
+            <div style={{
+              background: bg,
+              borderRadius: isFirst ? "40px 0 0 40px" : isLast ? "0 40px 40px 0" : "0",
+              clipPath: isFirst
+                ? `polygon(0 0, calc(100% - ${ARROW}px) 0, 100% 50%, calc(100% - ${ARROW}px) 100%, 0 100%)`
+                : isLast
+                ? `polygon(${ARROW}px 0, 100% 0, 100% 100%, ${ARROW}px 100%, 0 50%)`
+                : `polygon(${ARROW}px 0, calc(100% - ${ARROW}px) 0, 100% 50%, calc(100% - ${ARROW}px) 100%, ${ARROW}px 100%, 0 50%)`,
+              display: "flex",
+              flexDirection: "column",
+              alignItems: "center",
+              justifyContent: "center",
+              minHeight: "64px",
+              padding: isFirst
+                ? `1rem ${ARROW + 16}px`
+                : `1rem ${ARROW + 16}px 1rem ${ARROW + 32}px`,
+              textAlign: "center",
+              boxSizing: "border-box",
+              width: "100%",
+              height: "100%"
+            }}>
+              <span style={{ fontSize: "0.68rem", color: "rgba(255,255,255,0.65)", fontWeight: 600, marginBottom: "0.25rem" }}>0{i + 1}</span>
+              <span style={{ fontSize: "0.78rem", color: "#fff", fontWeight: 700, lineHeight: 1.3, whiteSpace: "nowrap" }}>{step}</span>
+            </div>
+          </div>
+        );
+      })}
+    </div>
+  )}
 </div>
 
           {/* 주요 품질관리 항목 */}
           <h3 style={{ fontSize: "1.1rem", fontWeight: 700, color: "#111827", marginBottom: "1.5rem", paddingBottom: "0.8rem", borderBottom: "2px solid #111827" }}>주요 품질관리 항목</h3>
-          <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr 1fr", gap: "1.5rem", marginBottom: "4rem" }}>
+          <div style={{ display: "grid", gridTemplateColumns: isMobile ? "1fr" : "1fr 1fr 1fr", gap: "1.5rem", marginBottom: "4rem" }}>
             {[
               { title: "원자재 관리", items: materialMgmt },
               { title: "공정 품질관리", items: processMgmt },
@@ -137,7 +150,7 @@ export default function Quality() {
 
           {/* 검사 및 시험 */}
           <h3 style={{ fontSize: "1.1rem", fontWeight: 700, color: "#111827", marginBottom: "1.5rem", paddingBottom: "0.8rem", borderBottom: "2px solid #111827" }}>검사 및 시험</h3>
-          <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr 1fr", gap: "1.5rem", marginBottom: "4rem" }}>
+          <div style={{ display: "grid", gridTemplateColumns: isMobile ? "1fr" : "1fr 1fr 1fr", gap: "1.5rem", marginBottom: "4rem" }}>
             {[
               { title: "비파괴 검사(NDT)", items: ndt },
               { title: "성능 검사", items: performance },
@@ -157,7 +170,7 @@ export default function Quality() {
           </div>
 
           {/* 품질 목표 */}
-          <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "3rem" }}>
+          <div style={{ display: "grid", gridTemplateColumns: isMobile ? "1fr" : "1fr 1fr", gap: isMobile ? "2rem" : "3rem" }}>
             <div>
               <h3 style={{ fontSize: "1.1rem", fontWeight: 700, color: "#111827", marginBottom: "1.5rem", paddingBottom: "0.8rem", borderBottom: "2px solid #111827" }}>품질 목표</h3>
               <ul style={{ listStyle: "none", padding: 0, margin: 0, display: "flex", flexDirection: "column", gap: "0.8rem" }}>

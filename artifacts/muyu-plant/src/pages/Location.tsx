@@ -1,5 +1,6 @@
 import { useEffect, useRef } from "react";
 import PageHero from "../components/PageHero";
+import { useIsMobile } from "../hooks/use-mobile";
 
 function NaverMap() {
   const mapRef = useRef<HTMLDivElement>(null);
@@ -30,13 +31,14 @@ function NaverMap() {
 }
 
 export default function Location() {
+  const isMobile = useIsMobile();
   return (
     <div>
       <PageHero title="오시는 길" subtitle="충청남도 당진시 부곡공단에 위치합니다" />
 
-      <section style={{ padding: "8rem 5rem 9rem", background: "#fff" }}>
+      <section style={{ padding: isMobile ? "3rem 1.5rem 4rem" : "8rem 5rem 9rem", background: "#fff" }}>
         <div style={{ maxWidth: "1200px", margin: "0 auto" }}>
-          <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "4rem", marginBottom: "3rem" }}>
+          <div style={{ display: "grid", gridTemplateColumns: isMobile ? "1fr" : "1fr 1fr", gap: "2rem", marginBottom: "3rem" }}>
             <div>
               <p style={{ fontSize: "0.72rem", letterSpacing: "2.5px", color: "#9ca3af", marginBottom: "1.5rem", textTransform: "uppercase" }}>Address</p>
               <div style={{ borderTop: "1px solid #e5e7eb" }}>
