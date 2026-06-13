@@ -1,14 +1,13 @@
 import { useState } from "react";
 import PageHero from "../components/PageHero";
 
-type SectionId = "production" | "products" | "facility" | "measurement" | "experience";
+type SectionId = "production" | "products" | "facility" | "measurement";
 
 const SECTIONS: { id: SectionId; label: string; labelKo: string }[] = [
   { id: "production", label: "Production Capacity", labelKo: "생산량" },
   { id: "products", label: "Products", labelKo: "생산제품" },
   { id: "facility", label: "Facility", labelKo: "시설" },
   { id: "measurement", label: "Measuring Equipment", labelKo: "측정장비" },
-  { id: "experience", label: "Experience List", labelKo: "납품 실적" },
 ];
 
 const productionData = [
@@ -48,33 +47,6 @@ const measurementData = [
   { no: 10, equipment: "Pressure Gauge", spec: "0 ~ 50 Bar", qty: "5 ea" },
 ];
 
-const experienceData = [
-  { client: "삼성전자 / 삼성물산 / 삼성엔지니어링", items: "Pressure Vessel, Heat Exchanger, Tower & Column" },
-  { client: "SK 하이닉스", items: "Pressure Vessel, Heat Exchanger" },
-  { client: "동부제철", items: "Pressure Vessel, Storage Tank" },
-  { client: "KC코츠렐", items: "Tower & Column, Heat Exchanger" },
-  { client: "앱스필", items: "Pressure Vessel, Tower & Column" },
-  { client: "제이오", items: "Heat Exchanger, Storage Tank" },
-  { client: "재원산업", items: "Pressure Vessel" },
-  { client: "가람플랜트", items: "Tower & Column, Pressure Vessel" },
-  { client: "금성하이텍", items: "Heat Exchanger" },
-  { client: "발맥스기술", items: "Pressure Vessel, Heat Exchanger" },
-  { client: "티에스아이", items: "Storage Tank, Pressure Vessel" },
-  { client: "코오롱앤솔루션", items: "Tower & Column" },
-  { client: "제이테크", items: "Heat Exchanger, Pressure Vessel" },
-];
-
-const projectGallery = [
-  { img: "/project1.png", title: "GS Engineering RUWAIS 4th NGL TRAIN INTER REFINRIES PIPELINES", desc: "Experience Products" },
-  { img: "/project2.png", title: "Dangjin thermal power Unit 9&10 DUCT&SUPPORT", desc: "Experience Products" },
-  { img: "/project3.png", title: "SAMSUNG BOROUGE PROJECT SAUDI ARABIAN OIL", desc: "Experience Products" },
-  { img: "/project6.png", title: "DAELIM JG SUMMIT NAPHTHA CRACKER HP-3 PROJECT", desc: "Experience Products" },
-  { img: "/project7.png", title: "HYUNDAI 2D PROJECT", desc: "Experience Products" },
-  { img: "/project8.png", title: "BELCO SINOPEC SHANGHAI REFINERY", desc: "Experience Products" },
-  { img: "/project9.png", title: "SK WASIT GAS PLANT PAKG #1,2,3", desc: "Experience Products" },
-  { img: "/project10.jpg", title: "DONGDUCHEON CCPP CONSTRUCTION PROJECT", desc: "Experience Products" },
-  { img: "/project11.jpg", title: "REACTOR (KCC CORPORATION / KOREA)", desc: "Experience Products" },
-];
 
 const products = [
   { nameKo: "압력용기", nameEn: "Pressure Vessel", desc: "고압 환경에서 기체나 액체를 안전하게 저장·처리하는 용기. 석유화학, 발전, 가스 산업 전반에 공급합니다. ASME Section VIII Division 1 기준 설계·제작.", img: "/압력용기1.jpg" },
@@ -102,12 +74,12 @@ export default function Capacity() {
 
       {/* 다크 왼쪽 배경을 전체 높이로 유지 */}
       <div style={{ position: "relative" }}>
-        <div style={{ position: "absolute", left: 0, top: 0, bottom: 0, width: "220px", background: "#111827" }} />
+        <div style={{ position: "absolute", left: 0, top: 0, bottom: 0, width: "220px", background: "#fff" }} />
       <div style={{ display: "grid", gridTemplateColumns: "220px 1fr", position: "relative" }}>
         {/* 사이드바 */}
         <aside style={{ background: "transparent", paddingTop: "3rem", position: "sticky", top: "88px", alignSelf: "start" }}>
-          <div style={{ padding: "0 0 1.5rem 0", borderBottom: "1px solid rgba(255,255,255,0.08)", marginBottom: "0.5rem" }}>
-            <span style={{ display: "block", padding: "0 2rem", fontSize: "0.7rem", letterSpacing: "2px", color: "rgba(255,255,255,0.35)", textTransform: "uppercase" }}>생산능력</span>
+          <div style={{ padding: "0 0 1.5rem 0", borderBottom: "1px solid #e5e7eb", marginBottom: "0.5rem" }}>
+            <span style={{ display: "block", padding: "0 2rem", fontSize: "1.1rem", letterSpacing: "2px", color: "#374151", textTransform: "uppercase", fontWeight: 600 }}>생산능력</span>
           </div>
           {SECTIONS.map(({ id, labelKo }) => (
             <button
@@ -118,13 +90,13 @@ export default function Capacity() {
                 width: "100%",
                 textAlign: "left",
                 padding: "0.9rem 2rem",
-                background: active === id ? "rgba(255,255,255,0.06)" : "transparent",
-                color: active === id ? "#ffffff" : "rgba(255,255,255,0.5)",
+                background: active === id ? "#f3f4f6" : "transparent",
+                color: active === id ? "#111827" : "#6b7280",
                 fontWeight: active === id ? 600 : 400,
                 fontSize: "0.88rem",
-                borderLeft: active === id ? "2px solid #fff" : "2px solid transparent",
+                borderLeft: active === id ? "2px solid #111827" : "2px solid transparent",
                 border: "none",
-                borderLeft: active === id ? "2px solid #fff" : "2px solid transparent",
+                borderLeft: active === id ? "2px solid #111827" : "2px solid transparent",
                 cursor: "pointer",
                 transition: "all 0.15s",
               }}
@@ -257,52 +229,6 @@ export default function Capacity() {
             </div>
           )}
 
-          {active === "experience" && (
-            <div>
-              <p style={{ fontSize: "0.72rem", letterSpacing: "2.5px", color: "#9ca3af", marginBottom: "0.6rem", textTransform: "uppercase" }}>Experience List</p>
-              <h2 style={{ fontSize: "1.6rem", fontWeight: 700, color: "#111827", margin: "0 0 2.5rem" }}>납품 실적</h2>
-
-              {/* 프로젝트 사진 갤러리 */}
-              <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: "3.5rem", marginBottom: "10rem", maxWidth: "1200px", margin: "0 auto 3rem" }}>
-                {projectGallery.map(({ img, title, desc }, i) => (
-                  <div key={i} style={{ overflow: "hidden" }}>
-                    <div style={{ overflow: "hidden", aspectRatio: "4/3" }}>
-                      <img src={img} alt={title} loading="lazy" style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }} />
-                    </div>
-                    <div style={{ padding: "0.6rem 0 0" }}>
-                      <div style={{ fontSize: "0.74rem", fontWeight: 600, color: "#111827", lineHeight: 1.4, marginBottom: "0.2rem" }}>{title}</div>
-                      <div style={{ fontSize: "0.67rem", color: "#9ca3af" }}>{desc}</div>
-                    </div>
-                  </div>
-                ))}
-              </div>
-
-              {/* 거래처 테이블 */}
-              <div style={{ marginBottom: "1.5rem", padding: "0.8rem 1.2rem", background: "#f9fafb", borderLeft: "3px solid #374151" }}>
-                <span style={{ fontSize: "0.82rem", color: "#374151" }}>삼성전자·SK하이닉스·동부제철 등 국내 주요 대기업 공인 제작사로 등록되어 있습니다.</span>
-              </div>
-              <div style={{ overflowX: "auto" }}>
-                <table style={{ width: "100%", borderCollapse: "collapse", borderTop: "2px solid #111827" }}>
-                  <thead>
-                    <tr>
-                      <TH>No.</TH>
-                      <TH>Client / 거래처</TH>
-                      <TH>Supply Items</TH>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    {experienceData.map((row, i) => (
-                      <tr key={i}>
-                        <TD center>{i + 1}</TD>
-                        <TD><span style={{ fontWeight: 600, color: "#111827" }}>{row.client}</span></TD>
-                        <TD>{row.items}</TD>
-                      </tr>
-                    ))}
-                  </tbody>
-                </table>
-              </div>
-            </div>
-          )}
           </div>
         </main>
       </div>

@@ -35,48 +35,75 @@ export default function History() {
           <p style={{ fontSize: "0.72rem", letterSpacing: "2.5px", color: "#9ca3af", marginBottom: "0.8rem", textTransform: "uppercase" }}>Timeline</p>
           <h3 style={{ fontSize: "1.5rem", fontWeight: 700, color: "#111827", marginBottom: "3rem" }}>주요 연혁</h3>
 
-          {isMobile ? (
-            /* 모바일: 세로 타임라인 */
-            <div style={{ position: "relative", paddingLeft: "2rem" }}>
-              <div style={{ position: "absolute", left: "7px", top: 0, bottom: 0, width: "1px", background: "#e5e7eb" }} />
-              {historyItems.map((item, i) => (
-                <div key={i} style={{ position: "relative", marginBottom: "1.8rem" }}>
-                  <div style={{ position: "absolute", left: "-1.55rem", top: "4px", width: "10px", height: "10px", borderRadius: "50%", background: "#111827", border: "2px solid #fff", boxShadow: "0 0 0 1px #d1d5db" }} />
-                  <div style={{ fontWeight: 700, fontSize: "0.9rem", color: "#111827", marginBottom: "0.3rem" }}>{item.year}</div>
-                  <div style={{ fontSize: "0.82rem", color: "#6b7280", lineHeight: 1.65 }}>
-                    {item.content.split("\n").map((line, j) => <span key={j} style={{ display: "block" }}>{line}</span>)}
-                  </div>
-                </div>
-              ))}
-            </div>
-          ) : (
-            /* 데스크탑: 가로 타임라인 */
-            <div style={{ overflowX: "auto", paddingBottom: "1rem" }}>
-              <div style={{ position: "relative", display: "flex", alignItems: "center", minWidth: "max-content" }}>
-                <div style={{ position: "absolute", left: 0, right: 0, top: "50%", height: "1px", background: "#e5e7eb", zIndex: 0 }} />
-                {historyItems.map((item, index) => {
-                  const isTop = index % 2 === 0;
-                  const active = hovered === index;
+          {/* 세로 타임라인 */}
+          {(() => {
+            const yearW = isMobile ? 120 : 300;
+            const dotColW = isMobile ? 36 : 56;
+            const lineLeft = yearW + dotColW / 2;
+            return (
+              <div style={{ position: "relative" }}>
+                {/* 세로선 */}
+                <div style={{ position: "absolute", left: `${lineLeft}px`, top: 0, bottom: 0, width: "1px", background: "#e5e7eb" }} />
+
+                {historyItems.map((item, i) => {
+                  const active = hovered === i;
                   return (
-                    <div key={index} onMouseEnter={() => setHovered(index)} onMouseLeave={() => setHovered(null)}
-                      style={{ position: "relative", zIndex: 1, display: "flex", flexDirection: "column", alignItems: "center", minWidth: "190px", maxWidth: "210px", height: "260px", padding: "0 8px", justifyContent: "center", cursor: "default" }}>
-                      {isTop ? (<>
-                        <TextBlock item={item} active={active} position="top" />
-                        <div style={{ width: "1px", height: "18px", background: active ? "#111827" : "#d1d5db", transition: "background 0.2s" }} />
-                        <Dot active={active} />
-                        <div style={{ flex: 1 }} />
-                      </>) : (<>
-                        <div style={{ flex: 1 }} />
-                        <Dot active={active} />
-                        <div style={{ width: "1px", height: "18px", background: active ? "#111827" : "#d1d5db", transition: "background 0.2s" }} />
-                        <TextBlock item={item} active={active} position="bottom" />
-                      </>)}
+                    <div
+                      key={i}
+                      onMouseEnter={() => setHovered(i)}
+                      onMouseLeave={() => setHovered(null)}
+                      style={{ display: "flex", alignItems: "flex-start", marginBottom: isMobile ? "2rem" : "calc(4rem + 8px)", cursor: "default" }}
+                    >
+                      {/* 연도 */}
+                      <div style={{
+                        width: `${yearW}px`,
+                        flexShrink: 0,
+                        textAlign: "right",
+                        paddingRight: isMobile ? "12px" : "56px",
+                        fontSize: isMobile ? "2.4rem" : "5.2rem",
+                        fontWeight: 700,
+                        color: active ? "#111827" : "#c9d0d8",
+                        transition: "color 0.2s",
+                        paddingTop: isMobile ? "2px" : "0px",
+                        lineHeight: 1.2,
+                      }}>
+                        {item.year}
+                      </div>
+
+                      {/* 도트 열 — 세로선 중앙 정렬 */}
+                      <div style={{ width: `${dotColW}px`, flexShrink: 0, display: "flex", justifyContent: "center", paddingTop: isMobile ? "5px" : "30px" }}>
+                        <div style={{
+                          width: "12px", height: "12px",
+                          borderRadius: "50%",
+                          background: active ? "#111827" : "#d1d5db",
+                          border: "2px solid #fff",
+                          boxShadow: "0 0 0 1px #d1d5db",
+                          flexShrink: 0,
+                          position: "relative",
+                          zIndex: 1,
+                          transition: "background 0.2s",
+                        }} />
+                      </div>
+
+                      {/* 내용 */}
+                      <div style={{ paddingLeft: isMobile ? "6px" : "12px", paddingTop: isMobile ? "5px" : "20px" }}>
+                        {item.content.split("\n").map((line, j) => (
+                          <div key={j} style={{
+                            fontSize: isMobile ? "0.92rem" : "1.05rem",
+                            color: active ? "#374151" : "#6b7280",
+                            lineHeight: 1.9,
+                            transition: "color 0.2s",
+                          }}>
+                            {line}
+                          </div>
+                        ))}
+                      </div>
                     </div>
                   );
                 })}
               </div>
-            </div>
-          )}
+            );
+          })()}
         </div>
       </section>
 

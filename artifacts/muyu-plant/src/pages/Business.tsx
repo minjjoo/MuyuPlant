@@ -11,24 +11,30 @@ const TABS: { id: TabId; ko: string; en: string }[] = [
   { id: "special", ko: "플랜트 기자재", en: "Plant Equipment" },
 ];
 
-const DATA: Record<TabId, { desc: string; items: string[]; fields: string[] }> = {
+const DATA: Record<TabId, { desc: string; items: string[]; fields: string[]; img?: string; imgPosition?: string }> = {
   pressure: {
     desc: "고온·고압 환경에서 안정적인 운전이 가능하도록 설계 및 제작되는 압력용기를 공급합니다. 관련 규격과 품질 기준을 준수하여 안전성과 내구성을 확보하고 있습니다.",
+    img: "/압력용기3.jpg",
+    imgPosition: "center bottom",
     items: ["Separator Vessel", "Reactor Vessel", "Surge Tank", "Filter Vessel", "Air Receiver Tank"],
     fields: ["석유화학 공정", "가스 플랜트", "발전 설비", "산업용 공정 설비"],
   },
   heat: {
     desc: "공정 효율 향상과 에너지 절감을 위한 다양한 형태의 열교환기를 제작합니다. 사용 환경과 운전 조건에 최적화된 제품을 제공합니다.",
+    img: "/열교환기2.jpg",
     items: ["Shell & Tube Heat Exchanger", "Air Cooler", "Condenser", "Evaporator", "Heater & Cooler"],
     fields: ["정유 및 석유화학 플랜트", "발전소", "화학 공장", "산업용 생산설비"],
   },
   storage: {
     desc: "액체 및 가스를 안전하게 저장하기 위한 각종 저장탱크를 제작합니다. 사용 목적과 저장 물질의 특성을 고려한 설계와 제작을 통해 높은 안정성을 제공합니다.",
+    img: "/저장탱크2.jpg",
+    imgPosition: "center top",
     items: ["Atmospheric Tank", "Process Tank", "Water Storage Tank", "Chemical Storage Tank", "Fuel Oil Tank"],
     fields: ["정유 및 석유화학 시설", "발전소", "수처리 시설", "산업용 저장 설비"],
   },
   special: {
     desc: "고객의 요구 사양에 맞춘 각종 플랜트 기자재와 구조물을 제작하며, 프로젝트별 맞춤형 제작 서비스를 제공합니다.",
+    img: "/플랜트기자재.jpg",
     items: ["Skid Module", "Steel Structure", "Duct 및 Hopper", "산업용 설비 구조물", "주문 제작 설비"],
     fields: ["EPC 프로젝트", "산업 플랜트", "발전 설비", "환경 설비"],
   },
@@ -93,6 +99,12 @@ export default function Business() {
               </span>
             ))}
           </p>
+
+          {tab.img && (
+            <div style={{ marginBottom: "2.5rem", borderRadius: "4px", overflow: "hidden" }}>
+              <img src={tab.img} alt={TABS.find(t => t.id === active)?.ko} style={{ width: "100%", height: "560px", objectFit: "cover", objectPosition: tab.imgPosition ?? "center 5%", display: "block" }} />
+            </div>
+          )}
 
           <div style={{ display: "grid", gridTemplateColumns: isMobile ? "1fr" : "1fr 1fr", gap: "1.5rem" }}>
             <div style={{ background: "#f9fafb", padding: "2rem 2.5rem" }}>
