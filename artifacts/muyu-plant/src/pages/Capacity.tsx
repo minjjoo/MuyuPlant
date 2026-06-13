@@ -1,5 +1,6 @@
 import { useState } from "react";
 import PageHero from "../components/PageHero";
+import { useIsMobile } from "../hooks/use-mobile";
 
 type SectionId = "production" | "products" | "facility" | "measurement";
 
@@ -65,174 +66,144 @@ const TD = ({ children, center }: { children: React.ReactNode; center?: boolean 
   </td>
 );
 
+function ContentPanel({ active, isMobile }: { active: SectionId; isMobile: boolean }) {
+  return <>
+    {active === "production" && (
+      <div>
+        <p style={{ fontSize: "0.72rem", letterSpacing: "2.5px", color: "#9ca3af", marginBottom: "0.6rem", textTransform: "uppercase" }}>Production Capacity</p>
+        <h2 style={{ fontSize: "1.6rem", fontWeight: 700, color: "#111827", margin: "0 0 2.5rem" }}>생산량</h2>
+        <div style={{ overflowX: "auto" }}>
+          <table style={{ width: "100%", borderCollapse: "collapse", borderTop: "2px solid #111827" }}>
+            <thead><tr><TH>No.</TH><TH>Equipment</TH><TH>Capacity (Ton / Year)</TH><TH>Size (mm)</TH><TH>Max. Weight (Ton)</TH></tr></thead>
+            <tbody>{productionData.map((row) => (<tr key={row.no}><TD>{row.no}</TD><TD><div style={{ fontWeight: 600, color: "#111827" }}>{row.equipment}</div><div style={{ fontSize: "0.75rem", color: "#9ca3af" }}>{row.equipmentKo}</div></TD><TD>{row.capacity}</TD><TD>{row.size}</TD><TD>{row.maxWeight}</TD></tr>))}</tbody>
+          </table>
+        </div>
+        <div style={{ marginTop: "1.5rem", padding: "0.8rem 1.2rem", background: "#f9fafb", borderLeft: "3px solid #374151" }}>
+          <span style={{ fontSize: "0.82rem", color: "#374151", fontWeight: 500 }}>Loading port: 당진항</span>
+        </div>
+      </div>
+    )}
+    {active === "products" && (
+      <div>
+        <p style={{ fontSize: "0.72rem", letterSpacing: "2.5px", color: "#9ca3af", marginBottom: "0.6rem", textTransform: "uppercase" }}>Products</p>
+        <h2 style={{ fontSize: "1.6rem", fontWeight: 700, color: "#111827", margin: "0 0 3rem" }}>생산제품</h2>
+        <div style={{ display: "flex", flexDirection: "column" }}>
+          {products.map(({ nameKo, nameEn, desc, img }, i) => (
+            <div key={nameKo} style={{ display: "grid", gridTemplateColumns: isMobile ? "1fr" : "2fr 3fr", borderTop: "1px solid #e5e7eb" }}>
+              <div style={{ overflow: "hidden", aspectRatio: "4/3" }}><img src={img} alt={nameKo} loading="lazy" style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }} /></div>
+              <div style={{ padding: isMobile ? "1.5rem 0" : "2rem 2.5rem", display: "flex", flexDirection: "column", justifyContent: "center" }}>
+                <div style={{ fontSize: "0.72rem", color: "#9ca3af", letterSpacing: "1px", marginBottom: "0.6rem" }}>{nameEn}</div>
+                <div style={{ fontWeight: 700, fontSize: "1.3rem", color: "#111827", marginBottom: "1rem" }}>{nameKo}</div>
+                <div style={{ fontSize: "0.85rem", color: "#6b7280", lineHeight: 1.9 }}>{desc}</div>
+              </div>
+            </div>
+          ))}
+          <div style={{ borderTop: "1px solid #e5e7eb" }} />
+        </div>
+      </div>
+    )}
+    {active === "facility" && (
+      <div>
+        <p style={{ fontSize: "0.72rem", letterSpacing: "2.5px", color: "#9ca3af", marginBottom: "0.6rem", textTransform: "uppercase" }}>Facility</p>
+        <h2 style={{ fontSize: "1.6rem", fontWeight: 700, color: "#111827", margin: "0 0 2.5rem" }}>시설</h2>
+        <div style={{ overflowX: "auto" }}>
+          <table style={{ width: "100%", borderCollapse: "collapse", borderTop: "2px solid #111827" }}>
+            <thead><tr><TH>No.</TH><TH>Equipment</TH><TH>Specification</TH><TH center>Q'ty</TH></tr></thead>
+            <tbody>{facilityData.map((row) => (<tr key={row.no}><TD>{row.no}</TD><TD>{row.equipment}</TD><TD>{row.spec}</TD><TD center>{row.qty}</TD></tr>))}</tbody>
+          </table>
+        </div>
+      </div>
+    )}
+    {active === "measurement" && (
+      <div>
+        <p style={{ fontSize: "0.72rem", letterSpacing: "2.5px", color: "#9ca3af", marginBottom: "0.6rem", textTransform: "uppercase" }}>Measuring Equipment</p>
+        <h2 style={{ fontSize: "1.6rem", fontWeight: 700, color: "#111827", margin: "0 0 2.5rem" }}>측정장비</h2>
+        <div style={{ overflowX: "auto" }}>
+          <table style={{ width: "100%", borderCollapse: "collapse", borderTop: "2px solid #111827" }}>
+            <thead><tr><TH>No.</TH><TH>Equipment</TH><TH>Specification</TH><TH center>Q'ty</TH></tr></thead>
+            <tbody>{measurementData.map((row) => (<tr key={row.no}><TD>{row.no}</TD><TD>{row.equipment}</TD><TD>{row.spec}</TD><TD center>{row.qty}</TD></tr>))}</tbody>
+          </table>
+        </div>
+      </div>
+    )}
+  </>;
+}
+
 export default function Capacity() {
   const [active, setActive] = useState<SectionId>("production");
+  const isMobile = useIsMobile();
 
   return (
     <div>
       <PageHero title="생산능력" subtitle="대형 플랜트 설비 전문 제작사" />
 
-      {/* 다크 왼쪽 배경을 전체 높이로 유지 */}
-      <div style={{ position: "relative" }}>
-        <div style={{ position: "absolute", left: 0, top: 0, bottom: 0, width: "220px", background: "#fff" }} />
-      <div style={{ display: "grid", gridTemplateColumns: "220px 1fr", position: "relative" }}>
-        {/* 사이드바 */}
-        <aside style={{ background: "transparent", paddingTop: "3rem", position: "sticky", top: "88px", alignSelf: "start" }}>
-          <div style={{ padding: "0 0 1.5rem 0", borderBottom: "1px solid #e5e7eb", marginBottom: "0.5rem" }}>
-            <span style={{ display: "block", padding: "0 2rem", fontSize: "1.1rem", letterSpacing: "2px", color: "#374151", textTransform: "uppercase", fontWeight: 600 }}>생산능력</span>
+      {isMobile ? (
+        /* 모바일: 탭 버튼 상단 배치 */
+        <div>
+          <div style={{ background: "#fff", borderBottom: "1px solid #e5e7eb", display: "flex" }}>
+            {SECTIONS.map(({ id, labelKo }) => (
+              <button
+                key={id}
+                onClick={() => setActive(id)}
+                style={{
+                  flex: "1 1 0",
+                  padding: "0.9rem 0.5rem",
+                  background: "transparent",
+                  border: "none",
+                  borderBottom: active === id ? "2px solid #111827" : "2px solid transparent",
+                  marginBottom: "-1px",
+                  color: active === id ? "#111827" : "#9ca3af",
+                  fontWeight: active === id ? 700 : 400,
+                  fontSize: "0.82rem",
+                  cursor: "pointer",
+                  whiteSpace: "nowrap",
+                  textAlign: "center",
+                }}
+              >
+                {labelKo}
+              </button>
+            ))}
           </div>
-          {SECTIONS.map(({ id, labelKo }) => (
-            <button
-              key={id}
-              onClick={() => setActive(id)}
-              style={{
-                display: "block",
-                width: "100%",
-                textAlign: "left",
-                padding: "0.9rem 2rem",
-                background: active === id ? "#f3f4f6" : "transparent",
-                color: active === id ? "#111827" : "#6b7280",
-                fontWeight: active === id ? 600 : 400,
-                fontSize: "0.88rem",
-                borderLeft: active === id ? "2px solid #111827" : "2px solid transparent",
-                border: "none",
-                borderLeft: active === id ? "2px solid #111827" : "2px solid transparent",
-                cursor: "pointer",
-                transition: "all 0.15s",
-              }}
-            >
-              {labelKo}
-            </button>
-          ))}
-        </aside>
-
-        {/* 콘텐츠 영역 */}
-        <main style={{ padding: "4rem 2rem 6rem", background: "#fff", display: "flex", flexDirection: "column", alignItems: "center" }}>
-          <div style={{ width: "100%", maxWidth: "1200px" }}>
-          {active === "production" && (
-            <div>
-              <p style={{ fontSize: "0.72rem", letterSpacing: "2.5px", color: "#9ca3af", marginBottom: "0.6rem", textTransform: "uppercase" }}>Production Capacity</p>
-              <h2 style={{ fontSize: "1.6rem", fontWeight: 700, color: "#111827", margin: "0 0 2.5rem" }}>생산량</h2>
-              <div style={{ overflowX: "auto" }}>
-                <table style={{ width: "100%", borderCollapse: "collapse", borderTop: "2px solid #111827" }}>
-                  <thead>
-                    <tr>
-                      <TH>No.</TH>
-                      <TH>Equipment</TH>
-                      <TH>Capacity (Ton / Year)</TH>
-                      <TH>Size (mm)</TH>
-                      <TH>Max. Weight (Ton)</TH>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    {productionData.map((row) => (
-                      <tr key={row.no}>
-                        <TD>{row.no}</TD>
-                        <TD>
-                          <div style={{ fontWeight: 600, color: "#111827" }}>{row.equipment}</div>
-                          <div style={{ fontSize: "0.75rem", color: "#9ca3af" }}>{row.equipmentKo}</div>
-                        </TD>
-                        <TD>{row.capacity}</TD>
-                        <TD>{row.size}</TD>
-                        <TD>{row.maxWeight}</TD>
-                      </tr>
-                    ))}
-                  </tbody>
-                </table>
-              </div>
-              <div style={{ marginTop: "1.5rem", padding: "0.8rem 1.2rem", background: "#f9fafb", borderLeft: "3px solid #374151" }}>
-                <span style={{ fontSize: "0.82rem", color: "#374151", fontWeight: 500 }}>Loading port: 당진항</span>
-              </div>
+          <main style={{ padding: "2rem 1.5rem 4rem", background: "#fff" }}>
+            <div style={{ width: "100%" }}>
+              <ContentPanel active={active} isMobile={true} />
             </div>
-          )}
-
-          {active === "products" && (
-            <div>
-              <p style={{ fontSize: "0.72rem", letterSpacing: "2.5px", color: "#9ca3af", marginBottom: "0.6rem", textTransform: "uppercase" }}>Products</p>
-              <h2 style={{ fontSize: "1.6rem", fontWeight: 700, color: "#111827", margin: "0 0 3rem" }}>생산제품</h2>
-              <div style={{ display: "flex", flexDirection: "column" }}>
-                {products.map(({ nameKo, nameEn, desc, img }, i) => {
-                  const isEven = i % 2 === 0;
-                  return (
-                    <div key={nameKo} style={{ display: "grid", gridTemplateColumns: "2fr 3fr", borderTop: "1px solid #e5e7eb", direction: isEven ? "ltr" : "rtl" }}>
-                      <div style={{ overflow: "hidden", aspectRatio: "4/3", direction: "ltr" }}>
-                        <img src={img} alt={nameKo} loading="lazy" style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }} />
-                      </div>
-                      <div style={{ padding: "2rem 2.5rem", display: "flex", flexDirection: "column", justifyContent: "center", direction: "ltr" }}>
-                        <div style={{ fontSize: "0.72rem", color: "#9ca3af", letterSpacing: "1px", marginBottom: "0.6rem" }}>{nameEn}</div>
-                        <div style={{ fontWeight: 700, fontSize: "1.3rem", color: "#111827", marginBottom: "1rem" }}>{nameKo}</div>
-                        <div style={{ fontSize: "0.85rem", color: "#6b7280", lineHeight: 1.9 }}>{desc}</div>
-                      </div>
-                    </div>
-                  );
-                })}
-                <div style={{ borderTop: "1px solid #e5e7eb" }} />
+          </main>
+        </div>
+      ) : (
+        /* 데스크탑: 사이드바 레이아웃 */
+        <div style={{ position: "relative" }}>
+          <div style={{ position: "absolute", left: 0, top: 0, bottom: 0, width: "220px", background: "#fff" }} />
+          <div style={{ display: "grid", gridTemplateColumns: "220px 1fr", position: "relative" }}>
+            <aside style={{ background: "transparent", paddingTop: "3rem", position: "sticky", top: "88px", alignSelf: "start" }}>
+              <div style={{ padding: "0 0 1.5rem 0", borderBottom: "1px solid #e5e7eb", marginBottom: "0.5rem" }}>
+                <span style={{ display: "block", padding: "0 2rem", fontSize: "1.1rem", letterSpacing: "2px", color: "#374151", textTransform: "uppercase", fontWeight: 600 }}>생산능력</span>
               </div>
-            </div>
-          )}
-
-          {active === "facility" && (
-            <div>
-              <p style={{ fontSize: "0.72rem", letterSpacing: "2.5px", color: "#9ca3af", marginBottom: "0.6rem", textTransform: "uppercase" }}>Facility</p>
-              <h2 style={{ fontSize: "1.6rem", fontWeight: 700, color: "#111827", margin: "0 0 2.5rem" }}>시설</h2>
-              <div style={{ overflowX: "auto" }}>
-                <table style={{ width: "100%", borderCollapse: "collapse", borderTop: "2px solid #111827" }}>
-                  <thead>
-                    <tr>
-                      <TH>No.</TH>
-                      <TH>Equipment</TH>
-                      <TH>Specification</TH>
-                      <TH center>Q'ty</TH>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    {facilityData.map((row) => (
-                      <tr key={row.no}>
-                        <TD>{row.no}</TD>
-                        <TD>{row.equipment}</TD>
-                        <TD>{row.spec}</TD>
-                        <TD center>{row.qty}</TD>
-                      </tr>
-                    ))}
-                  </tbody>
-                </table>
+              {SECTIONS.map(({ id, labelKo }) => (
+                <button
+                  key={id}
+                  onClick={() => setActive(id)}
+                  style={{
+                    display: "block", width: "100%", textAlign: "left", padding: "0.9rem 2rem",
+                    background: active === id ? "#f3f4f6" : "transparent",
+                    color: active === id ? "#111827" : "#6b7280",
+                    fontWeight: active === id ? 600 : 400, fontSize: "0.88rem",
+                    border: "none", borderLeft: active === id ? "2px solid #111827" : "2px solid transparent",
+                    cursor: "pointer", transition: "all 0.15s",
+                  }}
+                >
+                  {labelKo}
+                </button>
+              ))}
+            </aside>
+            <main style={{ padding: "4rem 2rem 6rem", background: "#fff", display: "flex", flexDirection: "column", alignItems: "center" }}>
+              <div style={{ width: "100%", maxWidth: "1200px" }}>
+                <ContentPanel active={active} isMobile={false} />
               </div>
-            </div>
-          )}
-
-          {active === "measurement" && (
-            <div>
-              <p style={{ fontSize: "0.72rem", letterSpacing: "2.5px", color: "#9ca3af", marginBottom: "0.6rem", textTransform: "uppercase" }}>Measuring Equipment</p>
-              <h2 style={{ fontSize: "1.6rem", fontWeight: 700, color: "#111827", margin: "0 0 2.5rem" }}>측정장비</h2>
-              <div style={{ overflowX: "auto" }}>
-                <table style={{ width: "100%", borderCollapse: "collapse", borderTop: "2px solid #111827" }}>
-                  <thead>
-                    <tr>
-                      <TH>No.</TH>
-                      <TH>Equipment</TH>
-                      <TH>Specification</TH>
-                      <TH center>Q'ty</TH>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    {measurementData.map((row) => (
-                      <tr key={row.no}>
-                        <TD>{row.no}</TD>
-                        <TD>{row.equipment}</TD>
-                        <TD>{row.spec}</TD>
-                        <TD center>{row.qty}</TD>
-                      </tr>
-                    ))}
-                  </tbody>
-                </table>
-              </div>
-            </div>
-          )}
-
+            </main>
           </div>
-        </main>
-      </div>
-      </div>
+        </div>
+      )}
     </div>
   );
 }
