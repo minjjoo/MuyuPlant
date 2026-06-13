@@ -100,7 +100,7 @@ export default function Quality() {
   {isMobile ? (
     <div style={{ display: "flex", flexDirection: "column", gap: "0.5rem" }}>
       {processSteps.map((step, i) => {
-        const colors = ["#9ca3af","#8b929a","#7a8186","#6b7280","#5c636b","#4e5560","#404750","#374151"];
+        const colors = ["#3d7ab5","#376ea5","#316295","#2b5785","#264c76","#214167","#1c3759","#1e3a5f"];
         const bg = colors[i] ?? "#3d7ab5";
         return (
           <div key={step} style={{ background: bg, display: "flex", alignItems: "center", gap: "0.8rem", padding: "0.75rem 1rem" }}>
@@ -114,7 +114,7 @@ export default function Quality() {
     <div style={{ display: "flex", alignItems: "stretch", overflowX: "auto" }}>
       {processSteps.map((step, i) => {
         const isLast = i === processSteps.length - 1;
-        const colors = ["#9ca3af","#8b929a","#7a8186","#6b7280","#5c636b","#4e5560","#404750","#374151"];
+        const colors = ["#3d7ab5","#376ea5","#316295","#2b5785","#264c76","#214167","#1c3759","#1e3a5f"];
         const bg = colors[i] ?? "#3d7ab5";
         const ARROW = 16;
         const isFirst = i === 0;
