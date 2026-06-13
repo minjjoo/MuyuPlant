@@ -88,16 +88,19 @@ function ContentPanel({ active, isMobile }: { active: SectionId; isMobile: boole
         <p style={{ fontSize: "0.72rem", letterSpacing: "2.5px", color: "#9ca3af", marginBottom: "0.6rem", textTransform: "uppercase" }}>Products</p>
         <h2 style={{ fontSize: "1.6rem", fontWeight: 700, color: "#111827", margin: "0 0 3rem" }}>생산제품</h2>
         <div style={{ display: "flex", flexDirection: "column" }}>
-          {products.map(({ nameKo, nameEn, desc, img }, i) => (
-            <div key={nameKo} style={{ display: "grid", gridTemplateColumns: isMobile ? "1fr" : "2fr 3fr", borderTop: "1px solid #e5e7eb" }}>
-              <div style={{ overflow: "hidden", aspectRatio: "4/3" }}><img src={img} alt={nameKo} loading="lazy" style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }} /></div>
-              <div style={{ padding: isMobile ? "1.5rem 0" : "2rem 2.5rem", display: "flex", flexDirection: "column", justifyContent: "center" }}>
+          {products.map(({ nameKo, nameEn, desc, img }, i) => {
+            const isEven = i % 2 === 0;
+            return (
+            <div key={nameKo} style={{ display: "grid", gridTemplateColumns: isMobile ? "1fr" : "2fr 3fr", borderTop: "1px solid #e5e7eb", direction: isMobile ? "ltr" : isEven ? "ltr" : "rtl" }}>
+              <div style={{ overflow: "hidden", aspectRatio: "4/3", direction: "ltr" }}><img src={img} alt={nameKo} loading="lazy" style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }} /></div>
+              <div style={{ padding: isMobile ? "1.5rem 0" : "2rem 2.5rem", display: "flex", flexDirection: "column", justifyContent: "center", direction: "ltr" }}>
                 <div style={{ fontSize: "0.72rem", color: "#9ca3af", letterSpacing: "1px", marginBottom: "0.6rem" }}>{nameEn}</div>
                 <div style={{ fontWeight: 700, fontSize: "1.3rem", color: "#111827", marginBottom: "1rem" }}>{nameKo}</div>
                 <div style={{ fontSize: "0.85rem", color: "#6b7280", lineHeight: 1.9 }}>{desc}</div>
               </div>
             </div>
-          ))}
+          );
+          })}
           <div style={{ borderTop: "1px solid #e5e7eb" }} />
         </div>
       </div>
