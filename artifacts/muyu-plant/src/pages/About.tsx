@@ -1,5 +1,45 @@
+import { useEffect, useRef } from "react";
 import PageHero from "../components/PageHero";
 import { useIsMobile } from "../hooks/use-mobile";
+
+const certImages = [
+  "/인증서1.jpg", "/인증서2.jpg", "/인증서3.jpg", "/인증서4.jpg", "/인증서5.png",
+  "/인증서6.png", "/인증서7.jpg", "/인증서8.png", "/인증서9.png", "/인증서10.jpg",
+];
+
+function CertCarousel({ isMobile }: { isMobile: boolean }) {
+  const trackRef = useRef<HTMLDivElement>(null);
+  const items = [...certImages, ...certImages];
+
+  useEffect(() => {
+    const track = trackRef.current;
+    if (!track) return;
+    let x = 0;
+    let raf: number;
+    const speed = 0.8;
+    const singleWidth = track.scrollWidth / 2;
+    const step = () => {
+      x += speed;
+      if (x >= singleWidth) x = 0;
+      track.style.transform = `translateX(-${x}px)`;
+      raf = requestAnimationFrame(step);
+    };
+    raf = requestAnimationFrame(step);
+    return () => cancelAnimationFrame(raf);
+  }, []);
+
+  return (
+    <div style={{ overflow: "hidden", width: "100%" }}>
+      <div ref={trackRef} style={{ display: "flex", gap: "2rem", width: "max-content" }}>
+        {items.map((src, i) => (
+          <div key={i} style={{ flexShrink: 0, width: isMobile ? "200px" : "400px", height: isMobile ? "140px" : "280px", background: "#f9fafb", border: "1px solid #e5e7eb", display: "flex", alignItems: "center", justifyContent: "center", padding: "1rem" }}>
+            <img src={src} alt={`인증서 ${(i % certImages.length) + 1}`} style={{ maxWidth: "100%", maxHeight: "100%", objectFit: "contain" }} />
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+}
 
 export default function About() {
   const isMobile = useIsMobile();
@@ -31,6 +71,14 @@ export default function About() {
             <p style={{ marginBottom: "1.8rem" }}>감사합니다.</p>
             <p style={{ fontWeight: 700, color: "#111827", marginBottom: 0 }}>(주)무유플랜트<br />대표이사 이종수</p>
           </div>
+        </div>
+      </section>
+
+      <section style={{ padding: isMobile ? "3rem 1.5rem" : "6rem 5rem", background: "#fff" }}>
+        <div style={{ maxWidth: "1200px", margin: "0 auto" }}>
+          <p style={{ fontSize: "0.72rem", letterSpacing: "2.5px", color: "#9ca3af", marginBottom: "1rem", textTransform: "uppercase" }}>Certifications</p>
+          <h3 style={{ fontSize: "1.5rem", fontWeight: 700, color: "#111827", marginBottom: "2.5rem" }}>보유 인증서</h3>
+          <CertCarousel isMobile={isMobile} />
         </div>
       </section>
 
