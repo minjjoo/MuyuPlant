@@ -46,7 +46,7 @@ export default function Location() {
                   { label: "공장 및 본사", value: "충청남도 당진시 송악읍 부공공단 4길 53-39" },
                   { label: "인근 랜드마크", value: "현대제철 당진제철소 인근" },
                 ].map(({ label, value }) => (
-                  <div key={label} style={{ padding: "1.1rem 0", borderBottom: "1px solid #e5e7eb" }}>
+                  <div key={label} style={{ padding: "2.4rem 0", borderBottom: "1px solid #e5e7eb" }}>
                     <div style={{ fontSize: "0.76rem", color: "#9ca3af", marginBottom: "0.3rem" }}>{label}</div>
                     <div style={{ fontWeight: 600, color: "#111827", fontSize: "0.9rem" }}>{value}</div>
                   </div>
