@@ -100,12 +100,12 @@ export default function Quality() {
   {isMobile ? (
     <div style={{ display: "flex", flexDirection: "column", gap: "0.5rem" }}>
       {processSteps.map((step, i) => {
-        const colors = ["#d0edfb","#b8e0f5","#9acfee","#7ab8e8","#5a9fd4","#3d7ab5","#2d5a8e","#1e3a5f"];
+        const colors = ["#9ca3af","#8b929a","#7a8186","#6b7280","#5c636b","#4e5560","#404750","#374151"];
         const bg = colors[i] ?? "#3d7ab5";
         return (
           <div key={step} style={{ background: bg, display: "flex", alignItems: "center", gap: "0.8rem", padding: "0.75rem 1rem" }}>
             <span style={{ fontSize: "0.68rem", color: "rgba(255,255,255,0.65)", fontWeight: 700, flexShrink: 0 }}>0{i + 1}</span>
-            <span style={{ fontSize: "0.85rem", color: i <= 1 ? "#5a9fd4" : "#fff", fontWeight: 700 }}>{step}</span>
+            <span style={{ fontSize: "0.85rem", color: "#fff", fontWeight: 700 }}>{step}</span>
           </div>
         );
       })}
@@ -114,7 +114,7 @@ export default function Quality() {
     <div style={{ display: "flex", alignItems: "stretch", overflowX: "auto" }}>
       {processSteps.map((step, i) => {
         const isLast = i === processSteps.length - 1;
-        const colors = ["#d0edfb","#b8e0f5","#9acfee","#7ab8e8","#5a9fd4","#3d7ab5","#2d5a8e","#1e3a5f"];
+        const colors = ["#9ca3af","#8b929a","#7a8186","#6b7280","#5c636b","#4e5560","#404750","#374151"];
         const bg = colors[i] ?? "#3d7ab5";
         const ARROW = 16;
         const isFirst = i === 0;
@@ -148,7 +148,7 @@ export default function Quality() {
               height: "100%"
             }}>
               <span style={{ fontSize: "0.68rem", color: "rgba(255,255,255,0.65)", fontWeight: 600, marginBottom: "0.25rem", }}>0{i + 1}</span>
-              <span style={{ fontSize: "0.78rem", color: i <= 1 ? "#5a9fd4" : "#fff", fontWeight: 700, lineHeight: 1.3, whiteSpace: "nowrap" }}>{step}</span>
+              <span style={{ fontSize: "0.78rem", color: "#fff", fontWeight: 700, lineHeight: 1.3, whiteSpace: "nowrap" }}>{step}</span>
             </div>
           </div>
         );
