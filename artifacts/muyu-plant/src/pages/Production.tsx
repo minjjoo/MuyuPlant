@@ -31,6 +31,7 @@ const sections = [
     desc: "제품의 품질과 안전성을 확보하기 위한 검사장비를 보유하고 있습니다.",
     items: ["Ultrasonic Thickness Gauge", "Digital Vernier Caliper", "Welding Gauge", "Surface Roughness Tester"],
     functions: ["치수 검사", "용접 검사", "수압 시험(Hydro Test)", "두께 측정", "외관 검사"],
+    itemsLabel: "주요 장비", functionsLabel: "주요 검사",
   },
   {
     title: "운반설비", en: "Material Handling Equipment",
@@ -61,7 +62,7 @@ export default function Production() {
           </p>
 
           <div style={{ display: "grid", gridTemplateColumns: isMobile ? "1fr" : "1fr 1fr", gap: "1.5rem", marginBottom: "3rem" }}>
-            {sections.map(({ title, en, desc, items, functions }) => (
+            {sections.map(({ title, en, desc, items, functions, itemsLabel, functionsLabel }) => (
               <div key={title} style={{ border: "1px solid #e5e7eb", padding: "2rem" }}>
                 <div style={{ marginBottom: "1.2rem" }}>
                   <p style={{ fontSize: "0.7rem", color: "#9ca3af", letterSpacing: "1px", margin: "0 0 0.3rem" }}>{en}</p>
@@ -70,7 +71,7 @@ export default function Production() {
                 <p style={{ fontSize: "0.85rem", color: "#6b7280", lineHeight: 1.8, marginBottom: "1.5rem" }}>{desc}</p>
                 <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "1rem" }}>
                   <div>
-                    <p style={{ fontSize: "0.7rem", letterSpacing: "1.5px", color: "#9ca3af", textTransform: "uppercase", marginBottom: "0.8rem", fontWeight: 600 }}>주요 설비</p>
+                    <p style={{ fontSize: "0.7rem", letterSpacing: "1.5px", color: "#9ca3af", textTransform: "uppercase", marginBottom: "0.8rem", fontWeight: 600 }}>{itemsLabel ?? "주요 설비"}</p>
                     <ul style={{ listStyle: "none", padding: 0, margin: 0, display: "flex", flexDirection: "column", gap: "0.5rem" }}>
                       {items.map(item => (
                         <li key={item} style={{ display: "flex", gap: "0.6rem", fontSize: "0.82rem", color: "#374151" }}>
@@ -80,7 +81,7 @@ export default function Production() {
                     </ul>
                   </div>
                   <div>
-                    <p style={{ fontSize: "0.7rem", letterSpacing: "1.5px", color: "#9ca3af", textTransform: "uppercase", marginBottom: "0.8rem", fontWeight: 600 }}>주요 기능</p>
+                    <p style={{ fontSize: "0.7rem", letterSpacing: "1.5px", color: "#9ca3af", textTransform: "uppercase", marginBottom: "0.8rem", fontWeight: 600 }}>{functionsLabel ?? "주요 기능"}</p>
                     <ul style={{ listStyle: "none", padding: 0, margin: 0, display: "flex", flexDirection: "column", gap: "0.5rem" }}>
                       {functions.map(f => (
                         <li key={f} style={{ display: "flex", gap: "0.6rem", fontSize: "0.82rem", color: "#374151" }}>
