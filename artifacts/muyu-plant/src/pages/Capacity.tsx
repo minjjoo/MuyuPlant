@@ -2,13 +2,14 @@ import { useState } from "react";
 import PageHero from "../components/PageHero";
 import { useIsMobile } from "../hooks/use-mobile";
 
-type SectionId = "production" | "products" | "facility" | "measurement";
+type SectionId = "production" | "products" | "facility" | "measurement" | "layout";
 
 const SECTIONS: { id: SectionId; label: string; labelKo: string }[] = [
   { id: "production", label: "Production Capacity", labelKo: "생산량" },
   { id: "products", label: "Products", labelKo: "생산제품" },
   { id: "facility", label: "Facility", labelKo: "시설" },
   { id: "measurement", label: "Measuring Equipment", labelKo: "측정장비" },
+  { id: "layout", label: "Factory Layout", labelKo: "공장배치도" },
 ];
 
 const productionData = [
@@ -136,6 +137,13 @@ function ContentPanel({ active, isMobile }: { active: SectionId; isMobile: boole
             <tbody>{measurementData.map((row) => (<tr key={row.no}><TD>{row.no}</TD><TD>{row.equipment}</TD><TD>{row.spec}</TD><TD center>{row.qty}</TD></tr>))}</tbody>
           </table>
         </div>
+      </div>
+    )}
+    {active === "layout" && (
+      <div>
+        <p style={{ fontSize: "0.72rem", letterSpacing: "2.5px", color: "#9ca3af", marginBottom: "0.6rem", textTransform: "uppercase" }}>Factory Layout</p>
+        <h2 style={{ fontSize: "1.6rem", fontWeight: 700, color: "#111827", margin: "0 0 2.5rem" }}>공장배치도</h2>
+        <img src="/공장배치도.png" alt="공장배치도" style={{ width: "100%", display: "block" }} />
       </div>
     )}
   </>;

@@ -1,3 +1,4 @@
+import { useNavigate } from "react-router-dom";
 import PageHero from "../components/PageHero";
 import { useIsMobile } from "../hooks/use-mobile";
 
@@ -48,6 +49,7 @@ const competitiveness = [
 
 export default function Production() {
   const isMobile = useIsMobile();
+  const navigate = useNavigate();
   return (
     <div>
       <PageHero title="생산설비" subtitle="고품질 제작을 위한 체계적인 생산 시스템을 운영합니다" />
@@ -60,6 +62,15 @@ export default function Production() {
             <span style={{ display: "block" }}>(주)무유플랜트는 플랜트 배관, 압력용기, 열교환기 및 저장탱크의 고품질 제작을 위해 다양한 생산설비와 검사장비를 운영하고 있습니다.</span>
             <span style={{ display: "block" }}>체계적인 생산 시스템과 철저한 품질관리를 통해 고객이 요구하는 품질과 납기를 실현하고 있습니다.</span>
           </p>
+
+          <div style={{ marginBottom: "3rem", textAlign: "right" }}>
+            <span
+              onClick={() => navigate("/capacity")}
+              style={{ fontSize: "0.9rem", fontWeight: 600, color: "#111827", cursor: "pointer", borderBottom: "1px solid #111827", paddingBottom: "2px" }}
+            >
+              생산능력 전체 보기 →
+            </span>
+          </div>
 
           <div style={{ display: "grid", gridTemplateColumns: isMobile ? "1fr" : "1fr 1fr", gap: "1.5rem", marginBottom: "3rem" }}>
             {sections.map(({ title, en, desc, items, functions, itemsLabel, functionsLabel }) => (
