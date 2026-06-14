@@ -142,7 +142,7 @@ const projects: Project[] = [
   { n:132, client:"성산기업", title:"성산기업" },
   { n:133, client:"LS엔지니어링", title:"조선기기 CO2 포집분리막공정" },
   { n:134, client:"LS엔지니어링", title:"조선기기 CO2 포집분리막공정" },
-  { n:135, client:"기타", title:"환경에너지솔루션 SK하이닉스 M15X Ph4 Project" },
+  { n:135, client:"SK", title:"환경에너지솔루션 SK하이닉스 M15X Ph4 Project" },
   { n:136, client:"LS엔지니어링", title:"에너토크 DANYANG 20TPD CCU PROJECT" },
   { n:137, client:"LS엔지니어링", title:"IT CHEM ITC Phase-2" },
 ];
