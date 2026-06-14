@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 160" width="400" height="160">
+  <!-- Background -->
+  <rect width="400" height="160" rx="12" fill="#1e3a5f"/>
+
+  <!-- M initial circle -->
+  <circle cx="68" cy="80" r="44" fill="none" stroke="#ffffff" stroke-width="2" opacity="0.3"/>
+  <text x="68" y="95" text-anchor="middle" font-family="Georgia, serif" font-size="52" font-weight="700" fill="#ffffff">M</text>
+
+  <!-- Divider -->
+  <line x1="130" y1="44" x2="130" y2="116" stroke="#ffffff" stroke-width="1" opacity="0.3"/>
+
+  <!-- Korean name -->
+  <text x="158" y="72" font-family="'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" font-size="26" font-weight="700" fill="#ffffff" letter-spacing="2">(주)무유플랜트</text>
+
+  <!-- English name -->
+  <text x="160" y="100" font-family="Georgia, 'Times New Roman', serif" font-size="12" fill="#a8c4e0" letter-spacing="3">MUYU PLANT CO., LTD.</text>
+</svg>
