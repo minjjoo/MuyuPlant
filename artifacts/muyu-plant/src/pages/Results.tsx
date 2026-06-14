@@ -147,7 +147,8 @@ const projects: Project[] = [
   { n:137, client:"LS엔지니어링", title:"IT CHEM ITC Phase-2" },
 ];
 
-const clients = ["전체", ...Array.from(new Set(projects.map(p => p.client))).filter(c => c !== "기타"), "기타"];
+const clientCounts = projects.reduce((acc, p) => { acc[p.client] = (acc[p.client] || 0) + 1; return acc; }, {} as Record<string, number>);
+const clients = ["전체", ...Array.from(new Set(projects.map(p => p.client))).filter(c => c !== "기타").sort((a, b) => clientCounts[b] - clientCounts[a]), "기타"];
 
 const experienceData = [
   { client: "삼성전자 / 삼성물산 / 삼성엔지니어링", items: "Pressure Vessel, Heat Exchanger, Tower & Column" },

@@ -118,7 +118,8 @@ function ContentPanel({ active, isMobile }: { active: SectionId; isMobile: boole
           </table>
         </div>
         <div style={{ marginTop: "5rem" }}>
-          <p style={{ fontSize: "0.72rem", letterSpacing: "2.5px", color: "#9ca3af", marginBottom: "1rem", textTransform: "uppercase" }}>RT Room</p>
+          <p style={{ fontSize: "0.72rem", letterSpacing: "2.5px", color: "#9ca3af", marginBottom: "0.6rem", textTransform: "uppercase" }}>RT Room</p>
+          <h2 style={{ fontSize: "1.6rem", fontWeight: 700, color: "#111827", margin: "0 0 2.5rem" }}>RT Room</h2>
           <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "0.75rem" }}>
             {["RTROOM.png", "RTROOM2.png", "RTROOM3.png", "RTROOM4.png"].map((img) => (
               <img key={img} src={`/${img}`} alt="RT Room" style={{ width: "100%", aspectRatio: "4/3", objectFit: "cover", display: "block" }} />
