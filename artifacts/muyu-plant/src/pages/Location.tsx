@@ -38,6 +38,7 @@ export default function Location() {
 
       <section style={{ padding: isMobile ? "3rem 1.5rem 4rem" : "8rem 5rem 9rem", background: "#fff" }}>
         <div style={{ maxWidth: "1200px", margin: "0 auto" }}>
+          <img src="/공장전경사진.png" alt="공장 전경" style={{ width: "100%", height: isMobile ? "220px" : "550px", objectFit: "cover", display: "block", marginBottom: "5rem" }} />
           <div style={{ display: "grid", gridTemplateColumns: isMobile ? "1fr" : "1fr 1fr", gap: "2rem", marginBottom: "3rem" }}>
             <div>
               <p style={{ fontSize: "0.72rem", letterSpacing: "2.5px", color: "#9ca3af", marginBottom: "1.5rem", textTransform: "uppercase" }}>Address</p>
@@ -70,6 +71,7 @@ export default function Location() {
             </div>
           </div>
           <NaverMap />
+
         </div>
       </section>
     </div>
