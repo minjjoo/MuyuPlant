@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useRef } from "react";
 import PageHero from "../components/PageHero";
 import { useIsMobile } from "../hooks/use-mobile";
 
@@ -181,6 +181,8 @@ export default function Results() {
   const isMobile = useIsMobile();
   const [activeClient, setActiveClient] = useState("전체");
   const [lightbox, setLightbox] = useState<number | null>(null);
+  const tabRef = useRef<HTMLDivElement>(null);
+  const scroll = (dir: "left" | "right") => { tabRef.current?.scrollBy({ left: dir === "left" ? -200 : 200, behavior: "smooth" }); };
 
   const filtered = activeClient === "전체" ? projects : projects.filter(p => p.client === activeClient);
 
@@ -195,16 +197,20 @@ export default function Results() {
           <h2 style={{ fontSize: isMobile ? "1.5rem" : "1.8rem", fontWeight: 700, color: "#111827", margin: "0 0 2rem" }}>주요 프로젝트</h2>
 
           {/* 클라이언트 필터 탭 */}
-          <div style={{ display: "flex", gap: "0.5rem", overflowX: "auto", paddingBottom: "0.5rem", marginBottom: "2rem", scrollbarWidth: "none" }}>
-            {clients.map(c => (
-              <button key={c} onClick={() => setActiveClient(c)} style={{
-                flexShrink: 0, padding: "0.45rem 1rem", fontSize: "0.78rem", fontWeight: activeClient === c ? 700 : 400,
-                background: activeClient === c ? "#1e3a5f" : "transparent",
-                color: activeClient === c ? "#fff" : "#6b7280",
-                border: `1px solid ${activeClient === c ? "#1e3a5f" : "#e5e7eb"}`,
-                cursor: "pointer", whiteSpace: "nowrap", transition: "all 0.15s",
-              }}>{c}</button>
-            ))}
+          <div style={{ display: "flex", alignItems: "center", gap: "0.5rem", marginBottom: "2rem" }}>
+            <button onClick={() => scroll("left")} style={{ flexShrink: 0, background: "none", border: "1px solid #e5e7eb", width: "36px", height: "36px", cursor: "pointer", fontSize: "1.2rem", color: "#6b7280", position: "relative" as const, top: "-2px", display: "flex", alignItems: "center", justifyContent: "center", paddingBottom: "4px" }}>‹</button>
+            <div ref={tabRef} style={{ display: "flex", gap: "0.5rem", overflowX: "auto", paddingBottom: "0.25rem", scrollbarWidth: "none" }}>
+              {clients.map(c => (
+                <button key={c} onClick={() => setActiveClient(c)} style={{
+                  flexShrink: 0, padding: "0.45rem 1rem", fontSize: "0.78rem", fontWeight: activeClient === c ? 700 : 400,
+                  background: activeClient === c ? "#1e3a5f" : "transparent",
+                  color: activeClient === c ? "#fff" : "#6b7280",
+                  border: `1px solid ${activeClient === c ? "#1e3a5f" : "#e5e7eb"}`,
+                  cursor: "pointer", whiteSpace: "nowrap", transition: "all 0.15s",
+                }}>{c}</button>
+              ))}
+            </div>
+            <button onClick={() => scroll("right")} style={{ flexShrink: 0, background: "none", border: "1px solid #e5e7eb", width: "36px", height: "36px", cursor: "pointer", fontSize: "1.2rem", color: "#6b7280", position: "relative" as const, top: "-2px", display: "flex", alignItems: "center", justifyContent: "center", paddingBottom: "4px" }}>›</button>
           </div>
 
           <div style={{ display: "grid", gridTemplateColumns: isMobile ? "repeat(2,1fr)" : "repeat(4,1fr)", gap: "0.5rem", marginBottom: isMobile ? "4rem" : "10rem" }}>
